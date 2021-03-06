@@ -1,0 +1,181 @@
+[tool.poetry]
+name = "leetcode"
+version = "0.0.0"
+description = "Leetcode"
+authors = ["Teo Zosa <teo@sonosim.com>"]
+license = "Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/TeoZosa/leetcode"
+homepage = "https://github.com/TeoZosa/leetcode"
+include = ["leetcode/py.typed"]
+keywords = []
+classifiers = [
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[tool.poetry.urls]
+Changelog = "https://github.com/TeoZosa/leetcode/releases"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+icontract = "^2.4.1"
+importlib-metadata = "^2.1.1"
+python-dotenv = "^0.15.0"
+structlog-sentry-logger = "^0.6.1"
+typeguard = "^2.10.0" # Runtime type checker
+typer = {extras = ["all"], version = "^0.3.2"}
+
+# Documentation
+myst-parser = { version = "^0.13.1", optional = true}
+pygments = { version = "^2.7.3", optional = true}
+sphinx = { version = "^3.4.3", optional = true}
+sphinx-autodoc-typehints = { version = "^1.11.1", optional = true}
+sphinx-icontract = { version = "2.0.1", optional=true}
+sphinx-rtd-theme = { version = "^0.5.1", optional = true}
+sphinxcontrib-apidoc = { version = "^0.3.0", optional = true}
+sphinxcontrib-confluencebuilder = { version = "^1.3.0", optional = true}
+typer-cli = { version = "^0.0.11", optional = true}
+
+# Project-specific
+coolname = "^1.1.0"
+jupyter = "^1.0.0"
+pandas = "^1.2.3"
+pydantic = "^1.8"
+scikit-learn = "^0.24.1"
+scipy = "^1.6.1"
+xdoctest = "^0.15.4"
+
+[tool.poetry.dev-dependencies]
+# Testing
+pytest = "^6.2.1"
+pytest-benchmark = {extras = ["histogram"], version = "^3.2.3"}
+pytest-cov = "^2.10.1"
+pytest-emoji = "^0.2.0"
+pytest-mock = "^3.5.1"
+pytest-sugar = "^0.9.4"
+pytest-xdist = "^2.2.0"
+hypothesis = "^6.0.2"
+icontract-hypothesis = "^1.1.0"
+mutmut = "^2.1.0"
+xdoctest = "^0.15.0"
+tox = "^3.21.1"
+tox-gh-actions = "^2.3.0"
+# Code formatter
+# see: https://black.readthedocs.io/en/stable/editor_integration.html
+black = "^20.8b1"
+# Linters
+flakehell = "^0.9.0"
+pylint = "^2.6.0"
+# Static type checker
+mypy = "^0.790"
+# Linting & formatting orchestrator
+pre-commit = "^2.9.3"
+# Project boilerplate synchronizer
+cruft = "^2.6.0"
+
+# Documentation
+darglint = "^1.5.8"
+nodeenv = "^1.5.0" # ADR documentation Node dependency
+
+[tool.poetry.extras]
+docs = [
+    "myst-parser",
+    "pygments",
+    "sphinx",
+    "sphinx-autodoc-typehints",
+    "sphinx-icontract",
+    "sphinx-rtd-theme",
+    "sphinxcontrib-apidoc",
+    "sphinxcontrib-confluencebuilder",
+    "typer-cli",
+]
+
+
+[tool.poetry.scripts]
+"leetcode" = "leetcode.main:app"
+
+#################################################################################
+# Tooling configs                                                               #
+#################################################################################
+[tool.coverage.run]
+branch = true
+parallel = true
+source = ["leetcode"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.cruft]
+skip = [
+    ".env",
+    "README.md",
+    "leetcode/__init__.py",
+    "docs/source/.env",
+    "docs/source/ref/dev/"
+]
+
+[tool.flakehell]
+# specify any flake8 options
+exclude = [".*"] # Ignore dotfiles
+# make output nice
+format = "grouped"
+# show line of source code in output
+show_source = true
+
+# list of plugins and rules for them
+[tool.flakehell.plugins]
+# cyclomatic complexity (https://github.com/PyCQA/mccabe)
+mccabe = ["+*"]
+# include everything in pyflakes except F401
+pyflakes = ["+*", "-F401"]
+# include everything in pycodestyle except what Black covers
+pycodestyle = ["+*",
+    "-E203", # Whitespace before ":"
+    "-E501", # Line too long (82 > 78 characters)
+    "-W503"  # Line break occurred before a binary operator <- this is now considered best practice by PEP 8
+]
+
+[tool.isort]
+profile = "black"
+atomic = "true"
+combine_as_imports = true
+
+[tool.pylint.basic]
+good-names-rgxs = ["^Test_.*$"]
+
+[tool.pylint.messages_control]
+disable = [
+  # Explicitly document only as needed
+  "missing-module-docstring",
+  "missing-class-docstring",
+  "missing-function-docstring",
+  # Black & Flake8 purview
+  "line-too-long",
+  "bad-continuation",
+  "c-extension-no-member",
+]
+
+[tool.pylint.similarities]
+# Ignore imports when computing similarities.
+ignore-imports = "yes"
+
+[tool.pytest.ini_options]
+addopts = ["-rfsxX", "-l", "--tb=short", "--strict-markers", "-vv", "--emoji", "--xdoctest"]
+xfail_strict = "true"
+testpaths = ["tests",]
+norecursedirs = [".*", "*.egg", "build", "dist",]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

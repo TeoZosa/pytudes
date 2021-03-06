@@ -1,0 +1,26 @@
+{
+    "template": "https://github.com/TeoZosa/cookiecutter-cruft-poetry-tox-pre-commit-ci-cd",
+    "commit": "5244538d80c2a13b5073dbd738975cd2f70668d3",
+    "context": {
+        "cookiecutter": {
+            "project_name": "LeetCode",
+            "project_slug": "leetcode",
+            "package_name": "leetcode",
+            "friendly_name": "Leetcode",
+            "author": "Teo Zosa",
+            "email": "teo@sonosim.com",
+            "remote_vcs_host": "github",
+            "remote_vcs_url": "https://github.com",
+            "remote_vcs_username": "TeoZosa",
+            "project_repository_url": "https://github.com/TeoZosa/leetcode",
+            "documentation_url": "https://leetcode.readthedocs.io",
+            "adr_documentation_url": "https://TeoZosa.github.io/leetcode/adl/",
+            "version": "0.0.0",
+            "_copy_without_render": [
+                "docs/source/_templates/*"
+            ],
+            "_template": "https://github.com/TeoZosa/cookiecutter-cruft-poetry-tox-pre-commit-ci-cd"
+        }
+    },
+    "directory": null
+}
