@@ -81,32 +81,36 @@ def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:
     # vars
     curr_pos = 1
 
-    ## GET HEAD sublist2 ##
+    ## FIND sublists 1 & 2 ##
+    # GET TAIL sublist1
+    # GET HEAD sublist2
     curr, prev = head, None
     while curr is not None:
         if curr_pos == start_pos:
             ## Capture the sublist1 tail, sublist2 head
-            list1_tail, list2_head = prev, curr
+            s1_tail, s2_head = prev, curr
             break
         prev, curr = curr, curr.nxt
         curr_pos += 1
     else:  # Invalid start_pos: exceeds list size
         return head
 
-    ## REVERSE sublist2 ##
-    curr, prev = list2_head, None
+    ## REVERSE sublist2 < HEAD sublist3 ##
+    curr, prev = s2_head, None
     while curr is not None and start_pos <= curr_pos <= end_pos:
         curr.nxt, prev, curr = prev, curr, curr.nxt
         curr_pos += 1
-    # Either curr_pos > end_pos or end_pos > list size
-
-    ## Capture sublist3 head, reversed sublist2 head/tail
-    list3_head = curr  # None if end_pos > list size
-    list2_reversed_head, list2_reversed_tail = prev, list2_head  # Readable alias
+    # Post-condition: curr_pos > end_pos XOR end_pos > list size
 
     ## RE-LINK sublists ##
-    list1_tail.nxt = list2_reversed_head
-    list2_reversed_tail.nxt = list3_head
+    # GET HEAD sublist3
+    s3_head = curr  # None if end_pos > list size
+    # GET TAIL/HEAD REVERSED sublist2
+    s2_reversed_head, s2_reversed_tail = prev, s2_head  # Readable alias
+    # LINK s1 to r_s2
+    s1_tail.nxt = s2_reversed_head
+    # LINK r_s2 to s3
+    s2_reversed_tail.nxt = s3_head
     return head
 
 
