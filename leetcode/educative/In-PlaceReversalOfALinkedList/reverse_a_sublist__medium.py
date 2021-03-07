@@ -114,27 +114,6 @@ def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:
     return head
 
 
-def reverse(curr: NodeType, prev: NodeType = None) -> NodeType:
-    """
-    Args:
-        curr: head of a linked list of nodes
-        prev: previous node (if one exists)
-    Returns:
-        the head of the in-place-reversed linked list (i.e. original tail)
-    Examples:
-        >>> head = convert_list_to_linked_list([2,4,6,8,10])
-        >>> head.as_list()
-        [2, 4, 6, 8, 10]
-        >>> head = reverse(head)
-        >>> head.as_list()
-        [10, 8, 6, 4, 2]
-    """
-    while curr is not None:  # if not curr: return prev
-        # reverse curr.next link, update prev & curr ptrs
-        curr.nxt, prev, curr = prev, curr, curr.nxt  # do reversal
-    return prev
-
-
 def main():
     head = convert_list_to_linked_list([1, 2, 3, 4, 5])
     orig_vals = head.as_list()
