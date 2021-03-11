@@ -13,21 +13,27 @@ def minRefuelStops_DP(
     target_distance: int, start_fuel: int, stations: list[list[int]]
 ) -> int:
     """
-    DP_table[num_stops] means the furthest distance (== max gas) that we can get with num_stops times of refueling.
+    DP_table[num_stops]
+        the furthest distance (== max gas) that we can get
+        with num_stops times of refueling.
 
     So for every station, stations[i],
-    if the current distance DP_table[num_stops] >= stations[i][0], we can refuel:
-    DP_table[num_stops + 1] = max(DP_table[num_stops + 1], DP_table[num_stops] + stations[i][1])
+        if the current distance DP_table[num_stops] >= stations[i][0], we can refuel:
+            DP_table[num_stops + 1] = max(
+                DP_table[num_stops + 1],
+                DP_table[num_stops] + stations[i][1]
+                )
 
-    In the end, we'll return the first num_stops with DP_table[num_stops] >= target,
-    otherwise we'll return -1.
+    In the end, we'll return
+        the first num_stops with DP_table[num_stops] >= target,
+        otherwise -1.
 
     Args:
         target_distance:
         start_fuel:
         stations: list of [distance, gallon] pairs, in sorted order of distance
 
-    Returns: LEAST # of stops to destination OR  -1 if not possible
+    Returns: LEAST # of stops to destination OR -1 if not possible
     Examples:
         >>> stations = [[10,60],[20,30],[30,30],[60,40]]
         >>> minRefuelStops_DP(target_distance=100, start_fuel=10, stations=stations)
@@ -78,33 +84,27 @@ def minRefuelStops_DP(
 """Approach 2: Priority Queue, O(NlogN)"""
 # Note: implicitly accounts for distance traveled since
 # we can add the fuel we would have gained at a stop
-# to the fuel we started with which expands the set of ultimately reachable stations
-# total fuel is net fuel +  gained at a stop
+# to the fuel we started with
+# which expands the set of ultimately reachable stations
+#
 # since the condition we want to find is:
-# (prev_fuel - station_distance + station_fuel) curr_fuel  ≥ curr_target (prev_target - station_distance);
+# (prev_fuel - station_distance + station_fuel) curr_fuel  ≥ curr_target (prev_target - station_distance)
 #                               <==>
-# (prev_fuel + station_fuel) curr_fuel  ≥ target (t_0);
+# (prev_fuel + station_fuel) curr_fuel  ≥ target (prev_target);
 def minRefuelStops_maxheap(
     target_distance: int, start_fuel: int, stations: list[list[int]]
 ) -> int:
     """
-
-    i is the index of next stops to refuel.
-    res is the times that we have refeuled.
-    pq is a priority queue that we store all available gas.
-
-    We initial res = 0 and in every loop:
-
-    We add all reachable stop to priority queue.
-    We pop out the largest gas from pq and refeul once.
-    If we can't refuel, means that we can not go forward and return -1
+    For every loop:
+        We add all reachable stop to priority queue.
+        We pop out the largest gas from pq and refuel once.
+        If we can't refuel => we can't go forward => return -1
     Args:
         target_distance:
         start_fuel:
         stations: list of [distance, gallon] pairs, in sorted order of distance
-        (0th item)
 
-    Returns: LEAST # of stops to destination OR  -1 if not possible
+    Returns: LEAST # of stops to destination OR -1 if not possible
     Examples:
         >>> stations = [[10,60],[20,30],[30,30],[60,40]]
         >>> minRefuelStops_maxheap(target_distance=100, start_fuel=10, stations=stations)
@@ -124,12 +124,11 @@ def minRefuelStops_maxheap(
     curr_fuel = start_fuel
 
     # DS's/res
-    priority_queue = []
+    priority_queue = []  # maxheap of fuel amounts from reachable station
     num_stops = 0
 
     while curr_fuel < target_distance:
-        ## ADD reachable stations
-        # (potentially newly reachable if we just visited a station)
+        ## ADD currently reachable stations
         while (
             next_station_idx < len(stations)
             and stations[next_station_idx][0] <= curr_fuel
@@ -140,15 +139,14 @@ def minRefuelStops_maxheap(
             next_station_idx += 1
 
         ## HANDLE EMPTY
-        # no reachable stations => not able to add gas => FAIL
+        # no reachable stations => no gas to travel further => FAIL
         if not priority_queue:
             return -1
 
         ## VISIT reachable station
-        # Add all fuel from the MAX(station_fuel)-reachable station;
-        # And remove station from priority_queue
+        # Add all fuel from the MAX(station_fuel) reachable station;
+        # Remove station from priority_queue
         #   Note: adding to curr_fuel implicitly takes distance into account
         curr_fuel += -heapq.heappop(priority_queue)
         num_stops += 1  # increment visited stations count
-
     return num_stops
