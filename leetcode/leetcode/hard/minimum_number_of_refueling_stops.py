@@ -2,8 +2,6 @@
 https://leetcode.com/problems/minimum-number-of-refueling-stops/
 See Also: leetcode/Miscellany/Interviews/minimum_number_of_refueling_stops.py
 """
-import heapq
-
 
 ###Leetcode solutions###
 
@@ -80,6 +78,8 @@ def minRefuelStops_DP(
 
     return -1
 
+
+import heapq
 
 """Approach 2: Priority Queue, O(NlogN)"""
 # Note: implicitly accounts for distance traveled since
