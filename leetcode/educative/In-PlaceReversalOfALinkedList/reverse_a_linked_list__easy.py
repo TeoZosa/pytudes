@@ -126,8 +126,7 @@ def reverse_recursive(curr: NodeType, prev: NodeType = None) -> NodeType:
     curr.nxt, prev, curr = prev, curr, curr.nxt  # do reversal at curr node
     return reverse_recursive(curr, prev)
 
-
-def reverse_with_temp(head: NodeType) -> NodeType:
+def reverse_iterative_with_temp(head: NodeType) -> NodeType:
     """
     Args:
         head: head of a linked list of nodes
@@ -137,7 +136,7 @@ def reverse_with_temp(head: NodeType) -> NodeType:
         >>> head = convert_list_to_linked_list([2,4,6,8,10])
         >>> head.as_list()
         [2, 4, 6, 8, 10]
-        >>> head = reverse_with_temp(head)
+        >>> head = reverse_iterative_with_temp(head)
         >>> head.as_list()
         [10, 8, 6, 4, 2]
     """
