@@ -4,7 +4,13 @@ from typing import Any, Optional
 
 
 class Node:
-    def __init__(self, value: Any, nxt: bool = None):
+    """
+    Notes:
+        "NodeType" forward reference
+            Forward reference syntax: annotation as a string literal
+            See Also: https://www.python.org/dev/peps/pep-0484/#id28
+    """
+    def __init__(self, value: Any, nxt: "NodeType" = None):
         self.value = value
         self.nxt = nxt
 
