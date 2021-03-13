@@ -1,52 +1,13 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/qVANqMonoB2"""
 
-"""Given the head of a LinkedList and two positions ‘p’ and ‘q’, reverse the LinkedList from position ‘p’ to ‘q’."""
-
-from typing import Any, Optional
-
-
-class Node:
-    def __init__(self, value: Any, nxt: bool = None):
-        self.value = value
-        self.nxt = nxt
-
-    def __iter__(self):
-        curr = self
-        while curr is not None:
-            yield curr
-            curr = curr.nxt
-
-    def as_list(self):
-        return [node.value for node in self]
-
-
-NodeType = Optional[Node]
-
-
-def convert_list_to_linked_list(arr: list[Any]) -> NodeType:
-    """
-    Utility fn for easier testing
-    Args:
-        arr: input array of elements to convert
-    Returns:
-        The head of the linked list derived from arr
-    Examples:
-        >>> convert_list_to_linked_list([1,2,3,4,5]).as_list()
-        [1, 2, 3, 4, 5]
-    """
-    if not arr:
-        return None
-
-    first, rest = arr[0], arr[1:]
-    head = curr = Node(first)
-    for val in rest:
-        curr.nxt = Node(val)
-        curr = curr.nxt
-    return head
+from leetcode.utils.linked_list import NodeType, convert_list_to_linked_list
 
 
 def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:
     """
+
+    Given the head of a LinkedList and two positions ‘p’ and ‘q’,
+    reverse the LinkedList from position ‘p’ to ‘q’.
 
     Args:
         head: head of a linked list of nodes
