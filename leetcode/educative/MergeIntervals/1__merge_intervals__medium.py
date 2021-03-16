@@ -77,10 +77,13 @@ def main():
         [Interval(6, 7), Interval(2, 4), Interval(5, 9)],
         [Interval(1, 4), Interval(2, 6), Interval(3, 5)],
     ]:
-        pretty_printed_intervals = ",".join(
-            [str(i) for i in merge(intervals=intervals)]
-        )
-        print(f"Merged intervals: {pretty_printed_intervals}")
+        original_intervals_pretty_printed = ",".join([str(i) for i in intervals])
+        print(f"Original intervals: {original_intervals_pretty_printed}")
+
+        merged_intervals_pretty_printed = ",".join([str(i) for i in merge(intervals)])
+        print(f"Merged intervals: {merged_intervals_pretty_printed}")
+
+        print()
 
 
 main()
