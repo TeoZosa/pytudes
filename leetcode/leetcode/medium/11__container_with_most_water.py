@@ -43,6 +43,8 @@ def compute_max_area(heights: list[int]) -> int:
 
     ## INITIALIZE VARS ##
     l, r = 0, len(heights) - 1
+
+    # res
     max_area = 0
 
     ## TWO POINTERS ##
