@@ -14,12 +14,8 @@ class Interval:
 
 
 def merge(intervals: list[Interval]) -> list[Interval]:
-    """
+    """Generate a new schedule with non-overlapping intervals by merging intervals which overlap
 
-    Args:
-        intervals:
-
-    Returns:
     Complexity:
         n = len(intervals)
             Time: O(nlogn) for the initial sort
@@ -47,7 +43,6 @@ def merge(intervals: list[Interval]) -> list[Interval]:
     intervals.sort(key=lambda _interval: _interval.start)
 
     ## INITIALIZE VARS ##
-
     # vars
     last_interval, remaining_intervals = intervals[0], intervals[1:]
     # DS's/res
