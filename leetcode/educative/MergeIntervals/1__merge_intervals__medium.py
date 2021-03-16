@@ -1,5 +1,6 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/3jyVPKRA8yx"""
 
+
 class Interval:
     def __init__(self, start: int, end: int):
         self.start = start
@@ -28,11 +29,17 @@ def merge(intervals: list[Interval]) -> list[Interval]:
         Merged intervals: [2, 4][5, 9]
         Merged intervals: [1, 6]
     Examples:
-        >>> [i.as_list() for i in merge(intervals=[Interval(1, 4), Interval(2, 5), Interval(7, 9)])]
+        >>> [i.as_list() for i in merge(
+        ... intervals=[Interval(1, 4), Interval(2, 5), Interval(7, 9)])
+        ... ]
         [[1, 5], [7, 9]]
-        >>> [i.as_list() for i in merge(intervals=[Interval(6, 7), Interval(2, 4), Interval(5, 9)])]
+        >>> [i.as_list() for i in merge(
+        ... intervals=[Interval(6, 7), Interval(2, 4), Interval(5, 9)])
+        ... ]
         [[2, 4], [5, 9]]
-        >>> [i.as_list() for i in merge(intervals=[Interval(1, 4), Interval(2, 6), Interval(3, 5)])]
+        >>> [i.as_list() for i in merge(
+        ... intervals=[Interval(1, 4), Interval(2, 6),Interval(3, 5)])
+        ... ]
         [[1, 6]]
     """
     ## EDGE CASES ##
