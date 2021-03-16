@@ -39,27 +39,28 @@ def merge(intervals: list[Interval]) -> list[Interval]:
         return intervals
 
     """ALGORITHM"""
-    # sort the intervals on the start time
+    # sort the intervals on start time
     intervals.sort(key=lambda _interval: _interval.start)
 
     ## INITIALIZE VARS ##
     # vars
-    last_interval, remaining_intervals = intervals[0], intervals[1:]
+    prev_interval, remaining_intervals = intervals[0], intervals[1:]
     # DS's/res
-    mergedIntervals = []
+    merged_intervals = []
 
     ## MERGE intervals ##
-    for interval in remaining_intervals:
-        if interval.start <= last_interval.end:  # overlapping intervals
-            last_interval.end = max(interval.end, last_interval.end)  # adjust the 'end'
+    for curr_interval in remaining_intervals:
+        if curr_interval.start <= prev_interval.end:  # overlapping intervals
+            # adjust the 'end'
+            prev_interval.end = max(curr_interval.end, prev_interval.end)
         else:  # non-overlapping interval
             # add the previous interval
-            mergedIntervals.append(Interval(last_interval.start, last_interval.end))
-            last_interval = interval  # update potentially overlapping interval
+            merged_intervals.append(Interval(prev_interval.start, prev_interval.end))
+            prev_interval = curr_interval
     # Add the last interval
-    mergedIntervals.append(Interval(last_interval.start, last_interval.end))
+    merged_intervals.append(Interval(prev_interval.start, prev_interval.end))
 
-    return mergedIntervals
+    return merged_intervals
 
 
 def main():
