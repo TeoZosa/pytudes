@@ -28,17 +28,23 @@ def compute_max_area(heights: list[int]) -> int:
         16
         >>> compute_max_area(heights=[1,2,1])
         2
+        >>> compute_max_area(heights=[1,1])
+        1
+        >>> compute_max_area(heights=[1])
+        0
+        >>> compute_max_area(heights=[])
+        0
     """
     ## EDGE CASES ##
     if not heights:
-        return -1
+        return 0
 
     ## INITIALIZE VARS ##
     l, r = 0, len(heights) - 1
     max_area = 0
 
     ## TWO POINTERS ##
-    while l != r:
+    while l < r:
         interval_width = r - l
         left_height, right_height = heights[l], heights[r]
         min_height = min(left_height, right_height)
