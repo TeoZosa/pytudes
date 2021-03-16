@@ -22,12 +22,8 @@ def merge(intervals: list[Interval]) -> list[Interval]:
     Returns:
     Complexity:
         n = len(intervals)
-            Time: O(nlogn)
-            Space: O(n)
-
-        Merged intervals: [1, 5][7, 9]
-        Merged intervals: [2, 4][5, 9]
-        Merged intervals: [1, 6]
+            Time: O(nlogn) for the initial sort
+            Space: O(n) for the worst case of no overlapping intervals
     Examples:
         >>> [i.as_list() for i in merge(
         ... intervals=[Interval(1, 4), Interval(2, 5), Interval(7, 9)])
