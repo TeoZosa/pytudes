@@ -39,7 +39,7 @@ def merge(intervals: list[Interval]) -> list[Interval]:
         [[1, 6]]
     """
     ## EDGE CASES ##
-    if len(intervals) < 2:
+    if not intervals or len(intervals) < 2:
         return intervals
 
     """ALGORITHM"""
