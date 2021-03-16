@@ -7,7 +7,7 @@ class Interval:
         self.end = end
 
     def __str__(self) -> str:
-        return f"[{self.start}, {self.end}]"
+        return str(self.as_list())
 
     def as_list(self) -> list[int]:
         return [self.start, self.end]
