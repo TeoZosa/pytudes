@@ -32,7 +32,7 @@ def compute_trapped_rain_water(heights: list[int]) -> int:
                 []          []
         []      []    [][]  []
         []__[]__[][]__[][]__[]
-        0 2 1 2 0 1 2 1 1 2
+        0|2|1|2|0|1|2|1|1|2|0
         = trapped_rain_water_at_each_idx
         => sum(trapped_rain_water_at_each_idx) = trapped_rain_water
     Args:
