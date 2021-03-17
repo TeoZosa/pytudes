@@ -43,7 +43,7 @@ def three_way_partition(items: list[int], pivot: int, in_place=True) -> list[int
         items = copy.deepcopy(items)
 
     # INVARIANTS:
-    #   mid_start < unsorted_start ≤ unsorted_end
+    #   mid_start ≤ unsorted_start ≤ unsorted_end
     #   All the un-partitioned elements are in items[unsorted_start:unsorted_end+1]
     while unsorted_start <= unsorted_end:  # some items still not partitioned
         if items[unsorted_start] < pivot:  # bottom partition
