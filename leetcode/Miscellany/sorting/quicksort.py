@@ -45,8 +45,8 @@ def _quicksort(items: list[int], start: int, end: int) -> None:
     while unsorted_start <= unsorted_end:
         if items[unsorted_start] < pivot:  # left partition move
             swap_elements(unsorted_start, mid_start)
-            unsorted_start += 1
             mid_start += 1
+            unsorted_start += 1
         elif items[unsorted_start] > pivot:  # right partition move
             swap_elements(unsorted_start, unsorted_end)
             unsorted_end -= 1
