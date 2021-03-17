@@ -27,6 +27,10 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
         >>> head = _reverse_sub_list(head,2,4)
         >>> head.as_list()
         [1, 4, 3, 2, 5]
+        >>> head = convert_list_to_linked_list([1,2,3,4,5])
+        >>> head = _reverse_sub_list(head,10,15)
+        >>> head.as_list()
+        [1, 2, 3, 4, 5]
     """
     ## Edge Cases ##
     if not head:  # Vacuous linked list
