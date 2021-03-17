@@ -65,16 +65,15 @@ def find_max_cpu_load(jobs: list[Job]) -> int:
     max_cpu_load = 0
 
     for curr_job in jobs:
-        ## REMOVE previous jobs that have ended
+        # Remove previous jobs that have ended
         while len(min_heap) > 0 and min_heap.peek().end <= curr_job.start:
+            ## UN-MERGE intervals ##
             current_cpu_load -= min_heap.pop().cpu_load
-        ## ADD the current job
+        # Add the current job
         min_heap.push(curr_job)
 
-        ## UPDATE the current overall cpu load
+        ## MERGE intervals ##
         current_cpu_load += curr_job.cpu_load
-
-        ## UPDATE max cpu load
         max_cpu_load = max(max_cpu_load, current_cpu_load)
 
     return max_cpu_load
