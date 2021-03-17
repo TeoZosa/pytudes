@@ -25,23 +25,7 @@ def quicksort(items: list[int], in_place: bool = True) -> list[int]:
 
 
 def _quicksort(items: list[int], start: int, end: int) -> None:
-    """In-place Quicksort of items[start:end+1]
-    Examples:
-        >>> items = [3,3,1,1,2,2]
-        >>> _quicksort(items, start=0, end=len(items) - 1)
-        >>> items
-        [1, 1, 2, 2, 3, 3]
-        >>> items = [3,2,1,1,2,3]
-        >>> _quicksort(items, start=0, end=len(items) - 1)
-        >>> items
-        [1, 1, 2, 2, 3, 3]
-        >>> items = [0,-4,2,-2,4]*3
-        >>> _quicksort(items, start=0, end=len(items) - 1)
-        >>> items
-        [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4, 4, 4]
-    """
-
-    """ALGORITHM"""
+    """In-place Quicksort of items[start:end+1]"""
 
     def swap_elements(i, j):
         items[i], items[j] = items[j], items[i]
@@ -55,8 +39,7 @@ def _quicksort(items: list[int], start: int, end: int) -> None:
     pivot = items[pivot_idx]
 
     ## 3-WAY PARTITION ##
-    # INVARIANTS:
-    #   mid_start < unsorted_start ≤ unsorted_end
+    # INVARIANT: mid_start < unsorted_start ≤ unsorted_end
     swap_elements(start, pivot_idx)  # move pivot to start for variable name correctness
     mid_start, unsorted_start, unsorted_end = start, start + 1, end
     while unsorted_start <= unsorted_end:
