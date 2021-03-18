@@ -9,17 +9,10 @@ def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:
 
 def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     """
-
-    Given the head of a LinkedList and two positions ‘p’ and ‘q’,
-    reverse the LinkedList from position ‘p’ to ‘q’.
-
-    Args:
-        head: head of a linked list of nodes
-        [1-indexed positions]
-        p: start pos
-        q: end pos
+    Given the head of a LinkedList and 1-indexed positions `start_pos` and
+    `end_pos`, reverse the LinkedList from position `start_pos` to `end_pos`.
     Returns:
-        the head of the in-place sublist-reversed linked list
+        the head of the in-place sublist-reversed LinkedList
     Examples:
         >>> head = convert_list_to_linked_list([1,2,3,4,5])
         >>> head.as_list()
@@ -35,10 +28,8 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     ## Edge Cases ##
     if not head:  # Vacuous linked list
         return head
-
     if start_pos < 1:  # Not 1-indexed
         return head
-
     if end_pos <= start_pos:  # Invalid range
         return head
 
@@ -51,8 +42,7 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     while s2_head is not None and curr_pos < start_pos:
         s1_tail, s2_head = s2_head, s2_head.nxt
         curr_pos += 1
-
-    if s2_head is None: # No sublist to reverse (curr_pos ≥ start_pos)
+    if s2_head is None: # No sublist to reverse <=> list size < start_pos
         return head
 
     ## REVERSE sublist2 ##
