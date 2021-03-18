@@ -25,7 +25,7 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
         >>> head.as_list()
         [1, 2, 3, 4, 5]
     """
-    ## Edge Cases ##
+    ## EDGE CASES ##
     if not head:  # Vacuous linked list
         return head
     if start_pos < 1:  # Not 1-indexed
@@ -34,7 +34,7 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
         return head
 
     """Algorithm"""
-    ## INITIALIZE vars ##
+    ## INITIALIZE VARS ##
     curr_pos = 1
 
     ## FIND sublist 1 & 2 ##
