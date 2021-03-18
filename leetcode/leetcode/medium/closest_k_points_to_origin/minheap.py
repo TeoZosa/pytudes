@@ -28,26 +28,24 @@ class Solution_elaborated:
         [[-2, 4], [3, 3]]
         """
 
-        heap = []
+        """ALGORITHM"""
+        ## INITIALIZE VARS ##
+        max_heap = []
 
-        for (x, y) in points:
-            # Note:
-            #   this is K-closest pair of points
-            #   with a constant point of (0,0) (origin)
-            dist = -(x ** 2 + y ** 2)  # negate to use minheap as a maxheap
+        for point in points:
+            # negate to use minheap as a maxheap
+            dist = -sum([coord ** 2 for coord in point])
+            dist_and_point = (dist, point)
 
-            if (
-                len(heap) == K
-            ):  # maintain a heap of size ≤ K by (potentially) swapping in a new smaller dist
-                """Fast version of a heappush followed by a heappop."""
-                # noop if dist is farther than the current set of points
-                #   (constant-time comparison against the root of the maxheap)
+            # maintain a max_heap of size ≤ K
+            if len(max_heap) < K:
+                heapq.heappush(max_heap, dist_and_point)
+            else:
+                # if current point's distance is better
+                #   pop point with worst distance
+                #   and push current point
                 # else
-                #   swap dist with the root of the maxheap
-                #   and re-balance the tree
-                _ = heapq.heappushpop(heap, (dist, x, y))
+                #   noop
+                _ = heapq.heappushpop(max_heap, dist_and_point)
 
-            else:  # space left; add item
-                heapq.heappush(heap, (dist, x, y))
-
-        return [[x, y] for (dist, x, y) in heap]
+        return [point for (dist, point) in max_heap]
