@@ -38,19 +38,22 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     curr_pos = 1
 
     ## FIND sublist 1 & 2 ##
-    s2_head, s1_tail = head, None
-    while s2_head is not None and curr_pos < start_pos:
-        s1_tail, s2_head = s2_head, s2_head.nxt
+    curr, prev = head, None
+    while curr is not None and curr_pos < start_pos:
+        prev, curr = curr, curr.nxt
         curr_pos += 1
+    s2_head, s1_tail = curr, prev
+
     if s2_head is None: # No sublist to reverse <=> list size < start_pos
         return head
 
     ## REVERSE sublist2 ##
-    s3_head, s2_reversed_head = s2_head, None
-    while s3_head is not None and start_pos <= curr_pos <= end_pos:
-        s3_head.nxt, s2_reversed_head, s3_head = s2_reversed_head, s3_head, s3_head.nxt # reverse node
+    curr, prev = s2_head, None
+    while curr is not None and start_pos <= curr_pos <= end_pos:
+        curr.nxt, prev, curr = prev, curr, curr.nxt # reverse node
         curr_pos += 1
     # POST-CONDITION: list size < end_pos XOR end_pos < curr_pos
+    s3_head, s2_reversed_head = curr, prev
     s2_reversed_tail = s2_head  # Readable alias
 
     ## RE-LINK sublists ##
