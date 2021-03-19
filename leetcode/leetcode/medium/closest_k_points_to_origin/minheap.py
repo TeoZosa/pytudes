@@ -1,7 +1,8 @@
 """
-Max Heap - O(NlogK); Space: O(K)
-  since we need to maintain a priority queue of size K
-  and extract the closest K points with a bunch of heap push and pop
+    Complexity:
+        K = len(heap)
+            Time: O(NlogK) N heap push/pop operations on heap with size ≤ K
+            Space: O(K) priority queue of size K
 """
 import heapq
 
