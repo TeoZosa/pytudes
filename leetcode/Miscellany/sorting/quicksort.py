@@ -10,6 +10,14 @@ import random
 
 def quicksort(items: list[int], in_place: bool = True) -> list[int]:
     """
+    Complexity:
+        n = len(items)
+            Time: O(nlogn) *on average* | O(n^2) worst-case
+            Space: O(logn) stack space pointers to keep track of the subarrays
+                *MUST* sort smaller side first,
+                tail-recurse into the larger side
+                (i.e., tail-call optimization/elimination)
+                See Also: https://en.wikipedia.org/wiki/Quicksort#Space_complexity
     Examples:
         >>> quicksort([3,3,1,1,2,2], in_place=True)
         [1, 1, 2, 2, 3, 3]
@@ -55,5 +63,11 @@ def _quicksort(items: list[int], start: int, end: int) -> None:
     left_end, right_start = mid_start - 1, unsorted_end + 1
 
     ## DIVIDE & CONQUER ##
-    _quicksort(items, start, left_end)
-    _quicksort(items, right_start, end)
+    left_partition_size = left_end - start + 1
+    right_partition_size = end - right_start + 1
+    if left_partition_size < right_partition_size:
+        _quicksort(items, start, left_end)
+        _quicksort(items, right_start, end)
+    else:
+        _quicksort(items, right_start, end)
+        _quicksort(items, start, left_end)
