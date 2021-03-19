@@ -65,7 +65,7 @@ def _quickselect(
     get_distance = lambda i: sum([coord ** 2 for coord in points[i]])
 
     ## BASE CASE ##
-    if start >= end:
+    if end - start + 1 <= num_closest_points:
         return
 
     ## INITIALIZE VARS ##
