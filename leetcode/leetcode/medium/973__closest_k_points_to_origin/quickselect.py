@@ -76,7 +76,7 @@ def kth_closest(points: list[list[int]], K: int, in_place: bool = True) -> list[
     if not in_place:
         points = copy.deepcopy(points)
     _quickselect(points, start=0, end=len(points) - 1, num_closest_points=K)
-    return points[K-1]
+    return points[K - 1]
 
 
 def _quickselect(
@@ -99,7 +99,7 @@ def _quickselect(
 
     ## 3-WAY PARTITION ##
     # INVARIANT: mid_start < unsorted_start ≤ unsorted_end
-    swap_elements(start, pivot_idx)  # move pivot to start for variable name correctness
+    swap_elements(start, pivot_idx)  # move pivot to start for var name correctness
     mid_start, unsorted_start, unsorted_end = start, start + 1, end
     while unsorted_start <= unsorted_end:
         if get_distance(unsorted_start) < pivot_distance:  # left partition move
@@ -140,16 +140,14 @@ def _quickselect_iterative(
 
         ## 3-WAY PARTITION ##
         # INVARIANT: mid_start < unsorted_start ≤ unsorted_end
-        swap_elements(
-            start, pivot_idx
-        )  # move pivot to start for variable name correctness
+        swap_elements(start, pivot_idx)  # move pivot to start for var name correctness
         mid_start, unsorted_start, unsorted_end = start, start + 1, end
         while unsorted_start <= unsorted_end:
-            if get_distance(unsorted_start) < pivot_distance:  # left partition move
+            if get_distance(unsorted_start) < pivot_distance:  # LEFT partition move
                 swap_elements(unsorted_start, mid_start)
                 mid_start += 1
                 unsorted_start += 1
-            elif get_distance(unsorted_start) > pivot_distance:  # right partition move
+            elif get_distance(unsorted_start) > pivot_distance:  # RIGHT partition move
                 swap_elements(unsorted_start, unsorted_end)
                 unsorted_end -= 1
             else:  # already in correct location
