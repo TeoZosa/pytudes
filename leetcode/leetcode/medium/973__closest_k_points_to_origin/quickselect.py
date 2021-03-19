@@ -89,10 +89,6 @@ def _quickselect(
 
     get_distance = lambda i: sum([coord ** 2 for coord in points[i]])
 
-    ## BASE CASE ##
-    if end < num_closest_points:
-        return
-
     ## INITIALIZE VARS ##
     pivot_idx = random.randint(start, end)  # inclusive range
     pivot_distance = get_distance(pivot_idx)
@@ -118,7 +114,9 @@ def _quickselect(
         _quickselect(points, start, left_end, num_closest_points)
     elif num_closest_points > right_start:  # K-(left+mid) points somewhere in RIGHT
         _quickselect(points, right_start, end, num_closest_points)
-    # else: # K points exactly in left and (potentially) some of mid
+    ## BASE CASE ##
+    else: # K points exactly in left and (potentially) some of mid
+        return
 
 
 def _quickselect_iterative(
