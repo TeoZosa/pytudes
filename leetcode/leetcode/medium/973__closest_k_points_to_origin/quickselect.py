@@ -6,6 +6,10 @@ QuickSelect (Hoare's selection algorithm):
     the list up to the kth element =>
     the k closest elements are the first k elements in the relatively sorted list.
 
+    Complexity:
+        n = len(points)
+            Time: O(n) *on average*
+            Space: O(n)
 
 See Also:
     leetcode/Miscellany/sorting/dutch_nation_flag_problem.py
@@ -51,13 +55,7 @@ class Solution:
 def _quickselect(
     points: list[list[int]], start: int, end: int, num_closest_points: int
 ) -> None:
-    """In-place Quickselect of points[start:end+1] for K=num_closest_points
-
-    Complexity:
-        n = len(points)
-            Time: O(n) *on average*
-            Space: O(n)
-    """
+    """In-place Quickselect of points[start:end+1] for K=num_closest_points"""
 
     def swap_elements(i, j) -> None:
         points[i], points[j] = points[j], points[i]
