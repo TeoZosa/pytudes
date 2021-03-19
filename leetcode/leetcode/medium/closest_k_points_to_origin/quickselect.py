@@ -1,7 +1,11 @@
 """
 https://leetcode.com/problems/k-closest-points-to-origin/
 
-QuickSelect - a modified quicksort-like algorithm
+QuickSelect (Hoare's selection algorithm):
+    Find the kth-smallest element in an unordered list via relatively sorting
+    the list up to the kth element =>
+    the k closest elements are the first k elements in the relatively sorted list.
+
 
 See Also:
     leetcode/Miscellany/sorting/dutch_nation_flag_problem.py
@@ -47,13 +51,11 @@ class Solution:
 def _quickselect(
     points: list[list[int]], start: int, end: int, num_closest_points: int
 ) -> None:
-    """In-place Quickselect of items[start:end+1]
+    """In-place Quickselect of points[start:end+1] for K=num_closest_points
 
     Complexity:
         n = len(points)
             Time: O(n) *on average*
-                if we quickselect by some pivot, O(n) *on average*
-                time to halve the problem space
             Space: O(n)
     """
 
@@ -72,17 +74,17 @@ def _quickselect(
 
     ## 3-WAY PARTITION ##
     # INVARIANT: mid_start < unsorted_start ≤ unsorted_end
-    swap_elements(start, pivot_idx)
+    swap_elements(start, pivot_idx)  # move pivot to start for variable name correctness
     mid_start, unsorted_start, unsorted_end = start, start + 1, end
     while unsorted_start <= unsorted_end:
-        if get_distance(unsorted_start) < pivot_distance:
+        if get_distance(unsorted_start) < pivot_distance:  # left partition move
             swap_elements(unsorted_start, mid_start)
             mid_start += 1
             unsorted_start += 1
-        elif get_distance(unsorted_start) > pivot_distance:
+        elif get_distance(unsorted_start) > pivot_distance:  # right partition move
             swap_elements(unsorted_start, unsorted_end)
             unsorted_end -= 1
-        else:
+        else:  # already in correct location
             unsorted_start += 1
     left_end, mid_end, right_start = mid_start - 1, unsorted_end, unsorted_end + 1
 
