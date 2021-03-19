@@ -52,6 +52,33 @@ class Solution:
         return points[:K]
 
 
+def kth_closest(points: list[list[int]], K: int, in_place: bool = True) -> list[int]:
+    """
+    Args:
+        points: list of [x,y] coordinate pairs
+        K: the num closest point to origin to return [1-indexed]
+        in_place: whether or not to perform the partitioning in-place
+    Returns:
+         the Kth-closest point to the origin
+    Examples:
+        >>> kth_closest([[1,3],[-2,2]], K=1)
+        [-2, 2]
+        >>> kth_closest([[3,3],[5,-1],[-2,4]], K=2)
+        [-2, 4]
+        >>> points = [
+        ...      [-63, -55], [-20, 17], [-88, -82], [-90, -95], [-88, 18],
+        ...      [-62, -21], [71, -64], [-14, 56], [65, 90], [-48, -52],
+        ...      [59, 92], [-44, -59], [-3, -66]
+        ... ]
+        >>> kth_closest(points,K=7)
+        [-63, -55]
+    """
+    if not in_place:
+        points = copy.deepcopy(points)
+    _quickselect(points, start=0, end=len(points) - 1, num_closest_points=K)
+    return points[K-1]
+
+
 def _quickselect(
     points: list[list[int]], start: int, end: int, num_closest_points: int
 ) -> None:
