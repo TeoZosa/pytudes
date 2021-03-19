@@ -63,7 +63,7 @@ def _quickselect(
     get_distance = lambda i: sum([coord ** 2 for coord in points[i]])
 
     ## BASE CASE ##
-    if end - start + 1 <= num_closest_points:
+    if end < num_closest_points:
         return
 
     ## INITIALIZE VARS ##
@@ -84,16 +84,14 @@ def _quickselect(
             unsorted_end -= 1
         else:  # already in correct location
             unsorted_start += 1
-    left_end, mid_end, right_start = mid_start - 1, unsorted_end, unsorted_end + 1
+    left_end, right_start = mid_start - 1, unsorted_end + 1
 
     ## DIVIDE & CONQUER ##
-    left_and_mid_partition_size = mid_end - start + 1
-    if num_closest_points < left_and_mid_partition_size:  # RECURSE LEFT
-        remaining_num_closest_points = num_closest_points
-        _quickselect(points, start, left_end, remaining_num_closest_points)
-    elif num_closest_points > left_and_mid_partition_size:  # RECURSE RIGHT
-        remaining_num_closest_points = num_closest_points - left_and_mid_partition_size
-        _quickselect(points, right_start, end, remaining_num_closest_points)
+    if num_closest_points <= left_end:  # K points somewhere in LEFT
+        _quickselect(points, start, left_end, num_closest_points)
+    elif num_closest_points > right_start:  # K-(left+mid) points somewhere in RIGHT
+        _quickselect(points, right_start, end, num_closest_points)
+    # else: # K points exactly in left and (potentially) some of mid
 
 
 def _quickselect_iterative(
