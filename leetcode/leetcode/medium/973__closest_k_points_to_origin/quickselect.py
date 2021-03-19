@@ -110,12 +110,13 @@ def _quickselect(
     left_end, right_start = mid_start - 1, unsorted_end + 1
 
     ## DIVIDE & CONQUER ##
-    if num_closest_points <= left_end:  # K points somewhere in LEFT
+    kth_idx = num_closest_points - 1
+    if kth_idx <= left_end:  # K points somewhere LEFT
         _quickselect(points, start, left_end, num_closest_points)
-    elif num_closest_points > right_start:  # K-(left+mid) points somewhere in RIGHT
+    elif kth_idx >= right_start:  # K-(left+mid) points somewhere RIGHT
         _quickselect(points, right_start, end, num_closest_points)
     ## BASE CASE ##
-    else: # K points exactly in left and (potentially) some of mid
+    else:  # K points exactly in left and (potentially) some of mid
         return
 
 
@@ -153,9 +154,11 @@ def _quickselect_iterative(
         left_end, right_start = mid_start - 1, unsorted_end + 1
 
         ## DIVIDE & CONQUER ##
-        if num_closest_points <= left_end:  # LEFT has ALL K points
+        kth_idx = num_closest_points - 1
+        if kth_idx <= left_end:  # K points somewhere LEFT
             end = left_end
-        elif num_closest_points > right_start:  # RIGHT has K-(left+mid) points
+        elif kth_idx >= right_start:  # K-(left+mid) points somewhere RIGHT
             start = right_start
+        ## BASE CASE ##
         else:  # K points exactly in left and (potentially) some of mid
             return
