@@ -15,9 +15,8 @@ class Solution:  # Space: O(K) since only ≤ K in memory at any one time
         >>> Solution().kClosest([[3,3],[5,-1],[-2,4]], 2)
         [[3, 3], [-2, 4]]
         """
-        return heapq.nsmallest(
-            K, points, key=lambda point: sum([coord ** 2 for coord in point])
-        )
+        compute_distance = lambda point: sum([coord ** 2 for coord in point])
+        return heapq.nsmallest(K, points, key=compute_distance)
 
 
 class Solution_elaborated:

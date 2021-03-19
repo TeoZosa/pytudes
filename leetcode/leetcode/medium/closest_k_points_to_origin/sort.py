@@ -14,5 +14,6 @@ class Solution:
         >>> Solution().kClosest([[3,3],[5,-1],[-2,4]], 2)
         [[3, 3], [-2, 4]]
         """
-        points.sort(key=(lambda point: sum([coord ** 2 for coord in point])))
+        compute_distance = lambda point: sum([coord ** 2 for coord in point])
+        points.sort(key=compute_distance)
         return points[:K]
