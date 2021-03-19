@@ -27,7 +27,7 @@ class Solution:
         """
         Args:
             points: list of [x,y] coordinate pairs
-            K: num closest points to origin to return
+            K: num closest points to origin to return [1-indexed]
             in_place: whether or not to perform the partitioning in-place
         Returns:
              the K closest points to the origin
