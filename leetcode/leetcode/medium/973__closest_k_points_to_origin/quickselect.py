@@ -94,3 +94,47 @@ def _quickselect(
     elif num_closest_points > left_and_mid_partition_size:  # RECURSE RIGHT
         remaining_num_closest_points = num_closest_points - left_and_mid_partition_size
         _quickselect(points, right_start, end, remaining_num_closest_points)
+
+
+def _quickselect_iterative(
+    points: list[list[int]], start: int, end: int, num_closest_points: int
+) -> None:
+    """In-place Quickselect of points[start:end+1] for K=num_closest_points"""
+
+    def swap_elements(i, j) -> None:
+        points[i], points[j] = points[j], points[i]
+
+    get_distance = lambda i: sum([coord ** 2 for coord in points[i]])
+
+    ## BASE CASE ##
+    while start < end:
+
+        ## INITIALIZE VARS ##
+        pivot_idx = random.randint(start, end)  # inclusive range
+        pivot_distance = get_distance(pivot_idx)
+
+        ## 3-WAY PARTITION ##
+        # INVARIANT: mid_start < unsorted_start ≤ unsorted_end
+        swap_elements(
+            start, pivot_idx
+        )  # move pivot to start for variable name correctness
+        mid_start, unsorted_start, unsorted_end = start, start + 1, end
+        while unsorted_start <= unsorted_end:
+            if get_distance(unsorted_start) < pivot_distance:  # left partition move
+                swap_elements(unsorted_start, mid_start)
+                mid_start += 1
+                unsorted_start += 1
+            elif get_distance(unsorted_start) > pivot_distance:  # right partition move
+                swap_elements(unsorted_start, unsorted_end)
+                unsorted_end -= 1
+            else:  # already in correct location
+                unsorted_start += 1
+        left_end, right_start = mid_start - 1, unsorted_end + 1
+
+        ## DIVIDE & CONQUER ##
+        if num_closest_points <= left_end:  # LEFT has ALL K points
+            end = left_end
+        elif num_closest_points > right_start:  # RIGHT has K-(left+mid) points
+            start = right_start
+        else:  # K points exactly in left and (potentially) some of mid
+            return
