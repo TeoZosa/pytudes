@@ -116,7 +116,7 @@ def _quickselect(
     elif kth_idx >= right_start:  # K-(left+mid) points somewhere RIGHT
         _quickselect(points, right_start, end, num_closest_points)
     ## BASE CASE ##
-    else:  # K points exactly in left and (potentially) some of mid
+    else:  # K points exactly in left + at least 1 element in mid
         return
 
 
@@ -160,5 +160,5 @@ def _quickselect_iterative(
         elif kth_idx >= right_start:  # K-(left+mid) points somewhere RIGHT
             start = right_start
         ## BASE CASE ##
-        else:  # K points exactly in left and (potentially) some of mid
+        else:  # K points exactly in left + at least 1 element in mid
             return
