@@ -76,7 +76,8 @@ def kth_closest(points: list[list[int]], K: int, in_place: bool = True) -> list[
     if not in_place:
         points = copy.deepcopy(points)
     _quickselect(points, start=0, end=len(points) - 1, num_closest_points=K)
-    return points[K - 1]
+    kth_idx = K - 1
+    return points[kth_idx]
 
 
 def _quickselect(
