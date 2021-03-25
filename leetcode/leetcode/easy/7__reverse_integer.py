@@ -67,17 +67,14 @@ def _reverse(x: int) -> int:
 
     """ALGORITHM"""
     ## INITIALIZE VARS ##
-    base = 10
-    sign = 1 if x >= 0 else -1
-    x = abs(x)
+    base, sign = 10, 1 if x >= 0 else -1
 
-    # res
-    pos_reversed_x = 0
-
-    ## MIGRATE DIGITS from x to pos_reversed_x
-    while x:
+    ## MIGRATE DIGITS from x_pos to reversed_x_pos
+    x_pos,reversed_x_pos = abs(x), 0
+    while x_pos:
         # Shift digits left and add new digit
-        pos_reversed_x = pos_reversed_x * base + x % base
-        x //= base  # Shift digits right, truncating off decimal
+        reversed_x_pos = reversed_x_pos * base + x_pos % base
+        x_pos //= base  # Shift digits right, truncating off decimal
+    reversed_x = sign * reversed_x_pos
 
-    return sign * pos_reversed_x if pos_reversed_x < (2 ** 31) else 0
+    return reversed_x if -(2 ** 31) <= reversed_x <= (2 ** 31) - 1 else 0
