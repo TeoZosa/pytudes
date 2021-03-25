@@ -73,10 +73,16 @@ def _reverse(x: int) -> int:
 
     ## MIGRATE DIGITS from x_pos to reversed_x_pos
     x_pos, reversed_x_pos = abs(x), 0
-    while x_pos:
+
+    while x_pos > 0:
+        # Pretend environment can only store 32 bit integers =>
+        # exit loop early if we are about to overflow the result integer
+        if len(bin(sign * reversed_x_pos)) == 32:
+            reversed_x_pos = 0
+            break
+
         # Shift digits left and add new digit
         reversed_x_pos = reversed_x_pos * base + x_pos % base
         x_pos //= base  # Shift digits right, truncating off decimal
-    reversed_x = sign * reversed_x_pos
 
-    return reversed_x if -(2 ** 31) <= reversed_x <= (2 ** 31) - 1 else 0
+    return sign * reversed_x_pos
