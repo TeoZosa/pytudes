@@ -35,14 +35,16 @@ def _reverse_str_to_int(x: int) -> int:
         >>> _reverse_str_to_int(1534236469)
         0
     """
-    # pos_reversed_x = int("".join(reversed(str(abs(x)))))
-    pos_reversed_x = int(str(abs(x))[::-1])
+
+    """ALGORITHM"""
+    ## INITIALIZE VARS ##
     sign = 1 if x >= 0 else -1
 
-    if -(2 ** 31) <= sign * pos_reversed_x <= (2 ** 31) - 1:
-        return sign * pos_reversed_x
-    else:
-        return 0
+    ## REVERSE positive string version and reapply the original sign
+    reversed_x = sign * int(str(abs(x))[::-1])
+
+    ## Return reversed_x if it can be represented as a 32-bit signed integer
+    return reversed_x if -(2 ** 31) <= reversed_x <= (2 ** 31) - 1 else 0
 
 
 def _reverse(x: int) -> int:
@@ -70,7 +72,7 @@ def _reverse(x: int) -> int:
     base, sign = 10, 1 if x >= 0 else -1
 
     ## MIGRATE DIGITS from x_pos to reversed_x_pos
-    x_pos,reversed_x_pos = abs(x), 0
+    x_pos, reversed_x_pos = abs(x), 0
     while x_pos:
         # Shift digits left and add new digit
         reversed_x_pos = reversed_x_pos * base + x_pos % base
