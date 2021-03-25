@@ -21,7 +21,7 @@ def _reverse(x: int) -> int:
 
     Args:
         x: 32-bit signed integer
-    Returns: x with digits reversed if result could be represented by 32 bits,
+    Returns: x with digits reversed if it would fit in a 32-bit signed integer,
              0 otherwise
     Examples:
         >>> _reverse(123)
@@ -62,7 +62,7 @@ def _reverse_str_to_int(x: int) -> int:
 
     Args:
         x: 32-bit signed integer
-    Returns: x with digits reversed if result could be represented by 32 bits,
+    Returns: x with digits reversed if it would fit in a 32-bit signed integer,
              0 otherwise
     Examples:
         >>> _reverse_str_to_int(123)
