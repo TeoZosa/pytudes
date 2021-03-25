@@ -1,0 +1,83 @@
+"""
+Given a signed 32-bit integer x, return x with its digits reversed.
+    If reversing x causes the value to go outside the
+    signed 32-bit integer range [-2^31, 2^31 - 1],
+    then return 0.
+
+Assume the environment does not allow you to store 64-bit integers
+(signed or unsigned).
+See Also:
+    https://leetcode.com/problems/reverse-integer/
+"""
+
+
+class Solution:
+    def reverse(self, x: int) -> int:
+        return _reverse_str_to_int(x)
+
+
+def _reverse_str_to_int(x: int) -> int:
+    """
+
+    Args:
+        x: 32-bit signed integer
+    Returns: x with digits reversed if result could be represented by 32 bits,
+             0 otherwise
+    Examples:
+        >>> _reverse_str_to_int(123)
+        321
+        >>> _reverse_str_to_int(-123)
+        -321
+        >>> _reverse_str_to_int(120)
+        21
+        >>> _reverse_str_to_int(0)
+        0
+        >>> _reverse_str_to_int(1534236469)
+        0
+    """
+    # pos_reversed_x = int("".join(reversed(str(abs(x)))))
+    pos_reversed_x = int(str(abs(x))[::-1])
+    sign = 1 if x >= 0 else -1
+
+    if -(2 ** 31) <= sign * pos_reversed_x <= (2 ** 31) - 1:
+        return sign * pos_reversed_x
+    else:
+        return 0
+
+
+def _reverse(x: int) -> int:
+    """
+
+    Args:
+        x: 32-bit signed integer
+    Returns: x with digits reversed if result could be represented by 32 bits,
+             0 otherwise
+    Examples:
+        >>> _reverse(123)
+        321
+        >>> _reverse(-123)
+        -321
+        >>> _reverse(120)
+        21
+        >>> _reverse(0)
+        0
+        >>> _reverse(1534236469)
+        0
+    """
+
+    """ALGORITHM"""
+    ## INITIALIZE VARS ##
+    base = 10
+    sign = 1 if x >= 0 else -1
+    x = abs(x)
+
+    # res
+    pos_reversed_x = 0
+
+    ## MIGRATE DIGITS from x to pos_reversed_x
+    while x:
+        # Shift digits left and add new digit
+        pos_reversed_x = pos_reversed_x * base + x % base
+        x //= base  # Shift digits right, truncating off decimal
+
+    return sign * pos_reversed_x if pos_reversed_x < (2 ** 31) else 0
