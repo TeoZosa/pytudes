@@ -91,7 +91,7 @@ def _reverse_str_to_int(x: int) -> int:
 
     """ALGORITHM"""
     ## INITIALIZE VARS ##
-    sign = 1 if x >= 0 else -1
+    sign = -1 if x < 0 else 1
 
     ## REVERSE positive string version and reapply the original sign
     reversed_x = sign * int(str(abs(x))[::-1])
