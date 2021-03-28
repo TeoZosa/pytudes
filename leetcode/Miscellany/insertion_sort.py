@@ -14,6 +14,21 @@ def binary_insertion_sort(items: list) -> list:
 
     Args:
         items:
+    Complexity:
+        Time: O(n^2)
+        Space: O(1)
+
+        NOTE: since shifting dominates the runtime,
+        allowing binary search subroutine to be Θ(logn)
+        by not breaking early if `items[mid_idx] == insertion_val`.
+
+        This minimizes shift operations by ensuring
+        `items[mid_idx]` is the smallest element *strictly* greater
+        than `insertion_val` (i.e., the IMMEDIATE SUCCESSOR)
+
+        See Also:
+            leetcode/educative/ModifiedBinarySearch/3__next_letter__medium.py
+
 
     Returns:
     Examples:
@@ -40,26 +55,15 @@ def binary_insertion_sort(items: list) -> list:
             mid_idx = (left + right) // 2
             if insertion_val < items[mid_idx]:  # Search LEFT
                 right = mid_idx - 1
-            elif insertion_val > items[mid_idx]:  # Search RIGHT
+            else:  # insertion_val >= items[mid_idx]
                 left = mid_idx + 1
-            else:  # idx of duplicate val
-                insertion_idx = mid_idx
-                break
-        else:  # left > right => insertion_val < items[left]
-            insertion_idx = left
-        ## PROOF:
-        # Pointers crossed <=> prev iteration: left == right <=> left == right == mid =>
-        #   - insertion_val < items[mid_idx]
-        #       => this iteration: left unchanged
-        #       => insertion_val < items[left]
-        #   - insertion_val > items[mid_idx]
-        #       => this iteration: left = mid_idx + 1
-        #       => insertion_val < items[left]
-        #       (given the way binary search works and that we've finished searching the list)
+        insertion_idx = left
+        # items[left] is now IMMEDIATE SUCCESSOR of insertion_val
+        #   See Also: leetcode/Miscellany/searching/binary_search.py:19
 
         ## BISECT LEFT ##
-        # Shift elements greater than `insertion_val` one position to the right
-        # before inserting `insertion_val` into list
+        # Shift right items in the range [insertion_idx, len(items))
+        # and insert `insertion_val` at `insertion_idx`
         for src_idx in reversed(range(insertion_idx, unsorted_start_idx)):
             items[src_idx + 1] = items[src_idx]
         items[insertion_idx] = insertion_val
