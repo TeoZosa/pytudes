@@ -1,3 +1,29 @@
+"""
+
+Useful lemma:
+
+    Binary search post-condition:
+        1. if FOUND =>
+            ************************************
+            * arr[mid] == val                  *
+            * arr[start] ≤ arr[mid] ≤ arr[end] *
+            ************************************
+            in the worst case of logn iterations:
+                arr[start] == arr[mid] == arr[end]
+
+        2. otherwise NOT FOUND =>
+            arr[end] < val < arr[start]
+            <=>
+            ************************************
+            * arr[end] is IMMEDIATE PREDECESSOR*
+            * arr[start] is IMMEDIATE SUCCESSOR*
+            ************************************
+            note: indexes may be out-of-bounds, so must check; i.e.,
+                end == -1
+                start == len(arr)
+"""
+
+
 def binary_search(items: list, val) -> int:
     """
 
