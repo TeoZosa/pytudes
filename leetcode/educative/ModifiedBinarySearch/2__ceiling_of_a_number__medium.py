@@ -14,10 +14,10 @@ def search_ceiling_of_a_number(arr: list[int], val: int) -> int:
     the smallest element *greater than OR equal* to val.
 
     Args:
-        arr:
+        arr: array of numbers sorted in ascending order
         val: element in arr for which to find the ceiling if the ceiling is in arr, else -1
     Complexity:
-        Time: O(logn)
+        Time: O(logn) & Ω(1)
         Space: O(1)
     Returns: index of the ceiling of val being searched if ceiling is in items, else -1
     Examples:

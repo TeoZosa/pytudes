@@ -24,7 +24,7 @@ def search_next_letter(letters: list[str], val: str) -> str:
     smallest element *strictly* greater than the given letter
 
     Args:
-        letters:
+        letters: circular array of letters sorted in ascending order
         val: element in letters for which to find the immediate successor
     Complexity:
         Time: Θ(logn) <=> O(logn) & Ω(logn) (since we must consider duplicates)

@@ -1,11 +1,14 @@
+"""https://www.educative.io/courses/grokking-the-coding-interview/R8LzZQlj8lO
+
+"""
 def binary_search(arr: list[int], val: int) -> int:
     """Binary search modified to operate on both ascending and descending sorted arrays
 
     Args:
-        arr:
+        arr: array of numbers sorted in ascending or descending order
         val: element in arr for which to search
     Complexity:
-        Time: O(logn)
+        Time: O(logn) & Ω(1)
         Space: O(1)
     Returns: index of val being searched if val is in items, else -1
     Examples:
@@ -23,11 +26,11 @@ def binary_search(arr: list[int], val: int) -> int:
         return -1
 
     """ALGORITHM"""
-    check_left = lambda: val < arr[mid] if isAscending else val > arr[mid]
-    check_right = lambda: val > arr[mid] if isAscending else val < arr[mid]
+    check_left = lambda: val < arr[mid] if is_ascending else val > arr[mid]
+    check_right = lambda: val > arr[mid] if is_ascending else val < arr[mid]
     ## INITIALIZE VARS
     start, end = 0, len(arr) - 1
-    isAscending = arr[start] <= arr[end]
+    is_ascending = arr[start] <= arr[end]
 
     while start <= end:
         mid = (start + end) // 2

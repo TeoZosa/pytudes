@@ -55,7 +55,7 @@ def binary_insertion_sort(items: list) -> list:
             mid_idx = (left + right) // 2
             if insertion_val < items[mid_idx]:  # Search LEFT
                 right = mid_idx - 1
-            else:  # insertion_val >= items[mid_idx]
+            else:  # insertion_val >= items[mid_idx] # Search RIGHT
                 left = mid_idx + 1
         insertion_idx = left
         # items[left] is now IMMEDIATE SUCCESSOR of insertion_val
