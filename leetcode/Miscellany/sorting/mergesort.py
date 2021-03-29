@@ -15,7 +15,7 @@ def mergesort(nums: list, in_place: bool = True) -> list:
         >>> mergesort([0,-4,2,-2,4]*3, in_place=True)
         [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4, 4, 4]
     """
-    if in_place:
+    if not in_place:
         nums = copy.deepcopy(nums)
     _mergesort(nums, 0, len(nums) - 1)
     return nums
