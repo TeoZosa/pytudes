@@ -33,14 +33,14 @@ def _mergesort(nums: list, start: int, end: int) -> None:
         return
 
     ## INITIALIZE VARS##
-    mid = (start + end) // 2
+    mid = (start + end + 1) // 2
 
     ## RECURSIVELY SORT SUBARRAYS##
-    _mergesort(nums, start, mid)
-    left = nums[start : mid + 1]
+    _mergesort(nums, start, mid - 1)
+    left = nums[start:mid]
 
-    _mergesort(nums, mid + 1, end)
-    right = nums[mid + 1 : end + 1]
+    _mergesort(nums, mid, end)
+    right = nums[mid : end + 1]
 
     ## MERGE SORTED SUBARRAYS ##
     curr_left_idx = curr_right_idx = 0
