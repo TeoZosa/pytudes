@@ -4,7 +4,7 @@ import copy
 def mergesort(nums: list, in_place: bool = True) -> list:
     """
     Complexity:
-        n = len(items)
+        n = len(nums)
             Time: O(nlogn)
             Space: O(n) for copies of sorted subarrays
     Examples:
@@ -35,12 +35,12 @@ def _mergesort(nums: list, start: int, end: int) -> None:
     ## INITIALIZE VARS##
     mid = (start + end + 1) // 2
 
-    ## RECURSIVELY SORT SUBARRAYS##
+    ## RECURSIVELY SORT SUBARRAYS ##
     _mergesort(nums, start, mid - 1)
-    left = nums[start:mid]
+    left = nums[start:mid]  # n/2 copy
 
     _mergesort(nums, mid, end)
-    right = nums[mid : end + 1]
+    right = nums[mid : end + 1]  # n/2 copy
 
     ## MERGE SORTED SUBARRAYS ##
     curr_left_idx = curr_right_idx = 0
