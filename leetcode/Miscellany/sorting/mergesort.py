@@ -17,11 +17,11 @@ def mergesort(nums: list, in_place: bool = True) -> list:
     """
     if not in_place:
         nums = copy.deepcopy(nums)
-    _mergesort(nums, 0, len(nums) - 1)
+    _mergesort_space_optimized(nums, 0, len(nums) - 1)
     return nums
 
 
-def _mergesort(nums: list, start: int, end: int) -> None:
+def _mergesort_space_optimized(nums: list, start: int, end: int) -> None:
 
     ## EDGE CASES ##
     if not nums:
@@ -36,10 +36,10 @@ def _mergesort(nums: list, start: int, end: int) -> None:
     mid = (start + end + 1) // 2
 
     ## RECURSIVELY SORT SUBARRAYS ##
-    _mergesort(nums, start, mid - 1)
+    _mergesort_space_optimized(nums, start, mid - 1)
     left = nums[start:mid]  # n/2 copy
 
-    _mergesort(nums, mid, end)
+    _mergesort_space_optimized(nums, mid, end)
     right = nums[mid : end + 1]  # n/2 copy
 
     ## MERGE SORTED SUBARRAYS ##
