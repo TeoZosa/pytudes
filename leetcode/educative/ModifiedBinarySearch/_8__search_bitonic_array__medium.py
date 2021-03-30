@@ -63,7 +63,7 @@ def find_max_idx_in_bitonic_array(arr: list[int]) -> int:
 
 
 def binary_search_order_agnostic(arr: list[int], val: int, start: int, end: int) -> int:
-    """leetcode/educative/ModifiedBinarySearch/1__order_agnostic_binary_search__easy.py
+    """leetcode/educative/ModifiedBinarySearch/_1__order_agnostic_binary_search__easy.py
 
     Args:
         arr: array of numbers sorted in ascending or descending order

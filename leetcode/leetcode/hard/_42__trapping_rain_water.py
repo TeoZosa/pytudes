@@ -1,7 +1,7 @@
 """
 https://leetcode.com/problems/trapping-rain-water/
 See Also:
-    leetcode/leetcode/medium/11__container_with_most_water.py
+    leetcode/leetcode/medium/_11__container_with_most_water.py
 """
 
 class Solution:

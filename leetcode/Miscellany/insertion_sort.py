@@ -27,7 +27,7 @@ def binary_insertion_sort(items: list) -> list:
         than `insertion_val` (i.e., the IMMEDIATE SUCCESSOR)
 
         See Also:
-            leetcode/educative/ModifiedBinarySearch/3__next_letter__medium.py
+            leetcode/educative/ModifiedBinarySearch/_3__next_letter__medium.py
 
 
     Returns:

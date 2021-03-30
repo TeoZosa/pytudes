@@ -1,6 +1,6 @@
 """
 https://leetcode.com/problems/minimum-number-of-refueling-stops/
-See Also: leetcode/Miscellany/Interviews/871__minimum_number_of_refueling_stops.py
+See Also: leetcode/Miscellany/Interviews/_871__minimum_number_of_refueling_stops.py
 """
 
 ###Leetcode solutions###
