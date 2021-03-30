@@ -17,21 +17,6 @@ def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
         3
     """
 
-    def validate_input():
-        for input_var, input_var_name, expected_type in [
-            [target_sum, "s", int],
-            [arr, "arr", list],
-        ]:
-            if not isinstance(input_var, expected_type):
-                raise ValueError(
-                    f"Invalid input type for `{input_var_name}`\n"
-                    f"Expected: {expected_type}\t"
-                    f"Got: {type(input_var)}"
-                )
-
-    ## INPUT VALIDATION ##
-    validate_input()
-
     ## EDGE CASES ##
     default_ret_val = 0
     if not arr:
