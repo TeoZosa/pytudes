@@ -4,9 +4,11 @@ See Also:
     leetcode/leetcode/medium/_11__container_with_most_water.py
 """
 
+
 class Solution:
     def trap(self, height: list[int]) -> int:
         return compute_trapped_rain_water(height)
+
 
 def compute_trapped_rain_water(heights: list[int]) -> int:
     """
@@ -40,7 +42,7 @@ def compute_trapped_rain_water(heights: list[int]) -> int:
                 where each represents a point at coordinate (i, ai)
                 i.e., the height of a vertical line at y-coordinate i is ai
     Returns:
-        Sum of areas between heights unbroken by  
+        Sum of areas between heights unbroken by
     Examples:
         >>> compute_trapped_rain_water(heights=[0,1,0,2,1,0,1,3,2,1,2,1])
         6

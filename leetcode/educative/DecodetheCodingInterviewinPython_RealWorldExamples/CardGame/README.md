@@ -21,4 +21,3 @@ We will need to introduce the following features to implement the functionality 
 - Feature #2: Find the maximum points that can be obtained from a set of ten random cards.
 
 In the coming lessons, we will discuss these features and their solutions in detail, so that you’ll be able to map the solution to this scenario to different interview problems as well.
-

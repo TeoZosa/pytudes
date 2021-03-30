@@ -90,5 +90,3 @@ def find_averages_of_subarrays(target_window_size: int, arr: list[int]) -> list[
             window_start += 1
 
     return averages
-
-

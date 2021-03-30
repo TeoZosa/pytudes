@@ -16,8 +16,8 @@ See Also:
     leetcode/Miscellany/sorting/quicksort.py
 """
 
-import random
 import copy
+import random
 
 
 class Solution:

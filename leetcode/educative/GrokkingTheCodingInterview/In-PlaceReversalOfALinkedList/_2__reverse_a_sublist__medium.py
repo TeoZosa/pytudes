@@ -44,13 +44,13 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
         curr_pos += 1
     s2_head, s1_tail = curr, prev
 
-    if s2_head is None: # No sublist to reverse <=> list size < start_pos
+    if s2_head is None:  # No sublist to reverse <=> list size < start_pos
         return head
 
     ## REVERSE sublist2 ##
     curr, prev = s2_head, None
     while curr is not None and start_pos <= curr_pos <= end_pos:
-        curr.nxt, prev, curr = prev, curr, curr.nxt # reverse node
+        curr.nxt, prev, curr = prev, curr, curr.nxt  # reverse node
         curr_pos += 1
     # POST-CONDITION: list size < end_pos XOR end_pos < curr_pos
     s3_head, s2_reversed_head = curr, prev

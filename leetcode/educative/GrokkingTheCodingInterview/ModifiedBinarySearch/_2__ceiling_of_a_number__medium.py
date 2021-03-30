@@ -49,7 +49,7 @@ def search_ceiling_of_a_number(arr: list[int], val: int) -> int:
             start = mid + 1
         else:  # equal case
             return mid
-    else: # greater than case
+    else:  # greater than case
         # arr[start] is the immediate successor to val
         #   See Also: leetcode/Miscellany/searching/binary_search.py:19
         # Note: start < len(arr)

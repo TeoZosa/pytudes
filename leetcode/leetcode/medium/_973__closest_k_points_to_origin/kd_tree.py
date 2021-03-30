@@ -63,12 +63,12 @@ and if we need to find the K closest points,
 This is great if we have a lot of points
 and we are only interested in a few neighbors.
 
-Coding a kd-tree seems daunting and not feasible in a 45-min interviews. 
-However, in Python, there is some data science library which allows you to build a tree 
-and perform the search in just a few lines of code! 
+Coding a kd-tree seems daunting and not feasible in a 45-min interviews.
+However, in Python, there is some data science library which allows you to build a tree
+and perform the search in just a few lines of code!
 
-Since interviewers typically don't expect you to code an actual kd-tree, 
-using the following code may not only show that you have insights of more advanced data structure, 
+Since interviewers typically don't expect you to code an actual kd-tree,
+using the following code may not only show that you have insights of more advanced data structure,
 but also demonstrate that you have practical experience implementing them with pre-existing libraries."""
 from scipy import spatial
 

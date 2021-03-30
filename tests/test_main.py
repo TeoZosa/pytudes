@@ -9,11 +9,7 @@ import pytest
 from hypothesis import given, infer, strategies as st
 from typer.testing import CliRunner
 
-from leetcode.main import (
-    __version__,
-    app,
-    version_callback,
-)
+from leetcode.main import __version__, app, version_callback
 
 from . import utils
 

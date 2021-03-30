@@ -10,6 +10,7 @@ class Node:
             Forward reference syntax: annotation as a string literal
             See Also: https://www.python.org/dev/peps/pep-0484/#id28
     """
+
     def __init__(self, value: Any, nxt: "NodeType" = None):
         self.value = value
         self.nxt = nxt
@@ -62,7 +63,7 @@ def convert_list_to_linked_list(arr: list[Any], recursive=False) -> NodeType:
         return head
 
     return (
-            convert_list_to_linked_list_recursive(arr)
-            if recursive
-            else convert_list_to_linked_list_iterative(arr)
+        convert_list_to_linked_list_recursive(arr)
+        if recursive
+        else convert_list_to_linked_list_iterative(arr)
     )

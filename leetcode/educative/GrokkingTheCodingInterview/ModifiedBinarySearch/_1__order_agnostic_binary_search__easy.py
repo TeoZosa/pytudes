@@ -1,6 +1,8 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/R8LzZQlj8lO
 
 """
+
+
 def binary_search(arr: list[int], val: int) -> int:
     """Binary search modified to operate on both ascending and descending sorted arrays
 

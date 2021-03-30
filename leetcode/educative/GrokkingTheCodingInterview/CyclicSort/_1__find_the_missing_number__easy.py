@@ -1,4 +1,6 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/JPnp17NYXE9"""
+
+
 def find_missing_number(nums: list[int]) -> int:
     """
     Args:
@@ -23,6 +25,7 @@ def find_missing_number(nums: list[int]) -> int:
         7
     """
     """ALGORITHM"""
+
     def swap_elements(i, j):
         nums[i], nums[j] = nums[j], nums[i]
 
