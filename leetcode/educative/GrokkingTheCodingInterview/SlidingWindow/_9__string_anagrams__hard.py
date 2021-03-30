@@ -31,21 +31,6 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
         ['a', 'a', 'a', 'a']
     """
 
-    def validate_input():
-        for input_var, input_var_name, expected_type in [
-            [input_str, "input_str", str],
-            [pattern, "pattern", str],
-        ]:
-            if not isinstance(input_var, expected_type):
-                raise ValueError(
-                    f"Invalid input type for `{input_var_name}`\n"
-                    f"Expected: {expected_type}\t"
-                    f"Got: {type(input_var)}"
-                )
-
-    ## INPUT VALIDATION ##
-    validate_input()
-
     ## EDGE CASES ##
     if not pattern or not input_str or len(pattern) > len(input_str):
         return []
