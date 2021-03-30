@@ -18,9 +18,8 @@ def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
     """
 
     ## EDGE CASES ##
-    default_ret_val = 0
     if not arr:
-        return default_ret_val
+        return 0
 
     """ALGORITHM"""
     get_curr_win_size = lambda: window_end - window_start + 1
@@ -43,5 +42,4 @@ def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
             window_sum -= arr[window_start]
             window_start += 1
 
-    was_target_sum_found = min_subarr_len != float("inf")
-    return min_subarr_len if was_target_sum_found else default_ret_val
+    return max(min_subarr_len, 0)
