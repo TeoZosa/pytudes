@@ -19,36 +19,20 @@ def find_averages_of_subarrays_pythonic(K: int, arr: list[int]) -> list[float]:
 
     """
 
-    def validate_input():
-        for input_var, input_var_name, expected_type in [
-            [K, "K", int],
-            [arr, "arr", list],
-        ]:
-            if not isinstance(input_var, expected_type):
-                raise ValueError(
-                    f"Invalid input type for `{input_var_name}`\n"
-                    f"Expected: {expected_type}\t"
-                    f"Got: {type(input_var)}"
-                )
-
-    ## Input validation ##
-    validate_input()
-
-    ## Edge cases ##
+    ## EDGE CASES ##
     default_ret_val = []
     if not arr:
         return default_ret_val
     if K <= 0:
         return default_ret_val
 
-    """Algorithm"""
-    ## Initialize ##
+    """ALGORITHM """
+    ## INITIALIZE VARS ##
 
-    # vars: windowstart, etc.
     window_start, window_end = 0, K - 1
     window_sum = float(sum(arr[window_start:window_end]))
 
-    # DS's
+    # DS's/res
     res = []
 
     ## SLIDING
@@ -108,9 +92,3 @@ def find_averages_of_subarrays(target_window_size: int, arr: list[int]) -> list[
     return averages
 
 
-def main():
-    result = find_averages_of_subarrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])
-    print("Averages of subarrays of size K: " + str(result))
-
-
-main()
