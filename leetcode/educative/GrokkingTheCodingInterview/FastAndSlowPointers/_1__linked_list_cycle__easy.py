@@ -12,14 +12,18 @@ def has_cycle(head: NodeType) -> bool:
     Examples:
         >>> has_cycle(None)
         False
-        >>> head = Node("self-edge"); head.nxt = head; has_cycle(head)
+        >>> head = Node("self-edge")
+        >>> head.nxt = head
+        >>> has_cycle(head)
         True
         >>> head = convert_list_to_linked_list([1,2,3,4,5,6])
         >>> has_cycle(head)
         False
-        >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt; has_cycle(head)
+        >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt
+        >>> has_cycle(head)
         True
-        >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt.nxt; has_cycle(head)
+        >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt.nxt
+        >>> has_cycle(head)
         True
     """
     slow = fast = head
