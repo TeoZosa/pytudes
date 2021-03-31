@@ -61,21 +61,20 @@ darglint = "^1.5.8"
 #################################################################################
 [tool.coverage.run]
 branch = true
+concurrency = ["multiprocessing"]
 parallel = true
 source = ["leetcode"]
 
 [tool.coverage.report]
-show_missing = true
-fail_under = 100
-
-[tool.cruft]
-skip = [
-    ".env",
-    "README.md",
-    "leetcode/__init__.py",
-    "docs/source/.env",
-    "docs/source/ref/dev/"
+exclude_lines =[
+    "pragma: no cover",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:",
 ]
+fail_under = 0
+show_missing = true
+skip_covered = true
 
 [tool.flakehell]
 # specify any flake8 options
@@ -84,6 +83,8 @@ exclude = [".*"] # Ignore dotfiles
 format = "grouped"
 # show line of source code in output
 show_source = true
+# darglint config
+strictness="short"
 
 # list of plugins and rules for them
 [tool.flakehell.plugins]
@@ -95,8 +96,27 @@ pyflakes = ["+*", "-F401"]
 pycodestyle = ["+*",
     "-E203", # Whitespace before ":"
     "-E501", # Line too long (82 > 78 characters)
-    "-W503"  # Line break occurred before a binary operator <- this is now considered best practice by PEP 8
+    "-W503",  # Line break occurred before a binary operator <- this is now considered best practice by PEP 8
+
+    # Break convention for coding problems
+    #   given that their purpose and characteristics
+    #   distinguish them from typical software engineering programs
+    #   (e.g., generally independent modules)
+    "-E266", # Too many leading '#' (e.g., salient sub-section headers idiosyncratic to this project)
+    "-E731", # Lambda expression assignment; simplifies code formatting for trivial functions/implicitly documents through naming
 ]
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+ignore-magic = false
+ignore-semiprivate = false
+ignore-private = false
+ignore-property-decorators = false
+ignore-module = false
+fail-under = 0 # adjust `fail-under` value as quality standards permit
+whitelist-regex = []
+color = true
 
 [tool.isort]
 profile = "black"
