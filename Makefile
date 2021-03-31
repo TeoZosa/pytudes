@@ -61,10 +61,7 @@ ifeq ($(shell command -v poetry),)
 	false
 else
 	poetry update --lock -v
-	poetry install --extras docs -v
-	# Install node ADR management library
-	poetry run nodeenv --python-virtualenv --jobs=8
-	poetry run npm install -g --no-package-lock --no-save log4brains
+	poetry install -v
 endif
 
 .PHONY: install-pre-commit-hooks
@@ -109,18 +106,9 @@ test: clean update-dependencies generate-requirements
 	poetry run tox --parallel
 	$(MAKE) clean-requirements
 
-.PHONY: test-%-benchmark
-test-%-benchmark:
-	$(MAKE) tox-$*-benchmark
-
 .PHONY: test-%
 test-%:
 	$(MAKE) tox-$*,coverage
-
-.PHONY: test-mutations
-## Test against mutated code to validate test suite robustness
-test-mutations:
-	$(MAKE) tox-mutmut
 
 .PHONY: lint
 ## Run full static analysis suite for local development
@@ -147,25 +135,6 @@ pre-commit-%: export SKIP= # Reset `SKIP` env var to force single hooks to alway
 pre-commit-%:
 	$(MAKE) pre-commit PRECOMMIT_HOOK_ID=$*
 
-.PHONY: docs-%
-## Build documentation in the format specified after `-`
-## e.g.,
-## `make docs-html` builds the docs in HTML format,
-## `make docs-confluence` builds and publishes the docs on confluence (see `docs/source/conf.py` for details),
-## `make docs-clean` cleans the docs build directory
-docs-%:
-	$(MAKE) $* -C docs
-
-.PHONY: docs-adl-preview
-## Launch live preview of ADR documentation
-docs-adl-preview:
-	poetry run log4brains preview
-
-.PHONY: test-docs
-## Test documentation format/syntax
-test-docs:
-	poetry run tox -e docs
-
 .PHONY: update-dependencies
 ## Install Python dependencies,
 ## updating packages in `poetry.lock` with any newer versions specified in
@@ -173,15 +142,14 @@ test-docs:
 update-dependencies:
 	poetry update --lock
 ifneq (${CI}, true)
-	poetry install --extras docs
+	poetry install
 endif
 
 .PHONY: generate-requirements
 ## Generate project requirements files from `pyproject.toml`
 generate-requirements:
 	poetry export -f requirements.txt --without-hashes > requirements.txt # subset
-	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset w/o docs
-	poetry export --extras docs --dev -f requirements.txt --without-hashes > requirements-all.txt # superset
+	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset
 
 .PHONY: clean-requirements
 ## clean generated project requirements files
