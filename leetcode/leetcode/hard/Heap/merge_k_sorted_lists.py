@@ -1,3 +1,15 @@
+"""
+Constraints:
+    k == lists.length
+    0 <= k <= 10^4
+    0 <= lists[i].length <= 500
+    -10^4 <= lists[i][j] <= 10^4
+    lists[i] is sorted in ascending order.
+    The sum of lists[i].length won't exceed 10^4.
+
+See Also:
+    https://leetcode.com/problems/merge-k-sorted-lists/
+"""
 from typing import Optional
 
 
@@ -41,12 +53,13 @@ class Solution:
 
 
 def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
-    """
+    """Merge a list of linked-lists into a single, sorted linked-list
 
     Args:
-        lists:
+        lists: array of linked-lists, each sorted in ascending order.
 
-    Returns:
+    Returns: a single merged, sorted linked-list
+
     Examples:
         >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
         >>> _merge_k_lists(list_nodes).as_list()
