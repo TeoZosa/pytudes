@@ -138,7 +138,7 @@ pre-commit-%:
 .PHONY: update-dependencies
 ## Install Python dependencies,
 ## updating packages in `poetry.lock` with any newer versions specified in
-## `pyproject.toml`, and install leetcode source code
+## `pyproject.toml`, and install pytudes source code
 update-dependencies:
 	poetry update --lock
 ifneq (${CI}, true)

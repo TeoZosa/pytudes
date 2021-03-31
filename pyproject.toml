@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "leetcode"
+name = "pytudes"
 version = "0.0.0"
-description = "Leetcode"
+description = "pytudes"
 authors = ["Teo Zosa <teo@sonosim.com>"]
 license = "Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/TeoZosa/leetcode"
-homepage = "https://github.com/TeoZosa/leetcode"
-include = ["leetcode/py.typed"]
+repository = "https://github.com/TeoZosa/pytudes"
+homepage = "https://github.com/TeoZosa/pytudes"
+include = ["pytudes/py.typed"]
 keywords = []
 classifiers = [
     "Intended Audience :: Developers",
@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 [tool.poetry.urls]
-Changelog = "https://github.com/TeoZosa/leetcode/releases"
+Changelog = "https://github.com/TeoZosa/pytudes/releases"
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -63,7 +63,7 @@ darglint = "^1.5.8"
 branch = true
 concurrency = ["multiprocessing"]
 parallel = true
-source = ["leetcode"]
+source = ["pytudes"]
 
 [tool.coverage.report]
 exclude_lines =[

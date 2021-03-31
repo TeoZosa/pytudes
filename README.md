@@ -1,23 +1,33 @@
-LeetCode
+pytudes
 ==============================
-![CI](https://github.com/TeoZosa/leetcode/workflows/CI/badge.svg)
-![codecov](https://codecov.io/gh/TeoZosa/leetcode/branch/master/graph/badge.svg?token=3HF21UWY82)
-![License](https://img.shields.io/github/license/TeoZosa/leetcode?style=plastic)
+![CI](https://github.com/TeoZosa/pytudes/workflows/CI/badge.svg)
+![codecov](https://codecov.io/gh/TeoZosa/pytudes/branch/master/graph/badge.svg?token=3HF21UWY82)
+![License](https://img.shields.io/github/license/TeoZosa/pytudes?style=plastic)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 [![powered by semgrep](https://img.shields.io/badge/powered%20by-semgrep-1B2F3D?labelColor=lightgrey&link=https://semgrep.dev/&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAA0AAAAOCAYAAAD0f5bSAAAABmJLR0QA/gD+AP+cH+QUAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH5AYMEy0l8dkqrQAAAvFJREFUKBUB5gIZ/QEAAP8BAAAAAAMG6AD9+hn/GzA//wD//wAAAAD+AAAAAgABAQDl0MEBAwbmAf36GQAAAAAAAQEC9QH//gv/Gi1GFQEC+OoAAAAAAAAAAAABAQAA//8AAAAAAAAAAAD//ggX5tO66gID9AEBFSRxAgYLzRQAAADpAAAAAP7+/gDl0cMPAAAA+wAAAPkbLz39AgICAAAAAAAAAAAs+vU12AEbLz4bAAAA5P8AAAAA//4A5NDDEwEBAO///wABAQEAAP//ABwcMD7hAQEBAAAAAAAAAAAaAgAAAOAAAAAAAQEBAOXRwxUAAADw//8AAgAAAAD//wAAAAAA5OXRwhcAAQEAAAAAAAAAAOICAAAABP3+/gDjzsAT//8A7gAAAAEAAAD+AAAA/wAAAAAAAAAA//8A7ePOwA/+/v4AAAAABAIAAAAAAAAAAAAAAO8AAAABAAAAAAAAAAIAAAABAAAAAAAAAAgAAAD/AAAA8wAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA8AAAAEAAAA/gAAAP8AAAADAAAA/gAAAP8AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAA7wAAAPsAAAARAAAABAAAAP4AAAAAAAAAAgAAABYAAAAAAAAAAAIAAAD8AwICAB0yQP78/v4GAAAA/wAAAPAAAAD9AAAA/wAAAPr9//8aHTJA6AICAgAAAAD8AgAAADIAAAAAAP//AB4wPvgAAAARAQEA/gEBAP4BAQABAAAAGB0vPeIA//8AAAAAAAAAABAC+vUz1QAAAA8AAAAAAwMDABwwPu3//wAe//8AAv//ABAcMD7lAwMDAAAAAAAAAAAG+vU0+QEBAvUB//4L/xotRhUBAvjqAAAAAAAAAAAAAQEAAP//AAAAAAAAAAAA//4IF+bTuuoCA/QBAQAA/wEAAAAAAwboAP36Gf8bMD//AP//AAAAAP4AAAACAAEBAOXQwQEDBuYB/foZAAAAAAD4I6qbK3+1zQAAAABJRU5ErkJggg==)](https://semgrep.dev/)
-[![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=TeoZosa/leetcode)](https://dependabot.com/)
+[![Dependabot](https://api.dependabot.com/badges/status?host=github&repo=TeoZosa/pytudes)](https://dependabot.com/)
 
 
 ---
 
-**Source Code**: [https://github.com/TeoZosa/leetcode](https://github.com/TeoZosa/leetcode)
+**Source Code**: [https://github.com/TeoZosa/pytudes](https://github.com/TeoZosa/pytudes)
 
 ---
 
 Overview
 --------
-Miscellaneous coding challenge for the purpose of professional edification.
+Miscellaneous programming challenges for the purpose of personal/professional edification,
+inspired by [Peter Norvig's `pytudes` repository](https://github.com/norvig/pytudes):
+
+> "An étude (a French word meaning study) is an instrumental musical composition,
+> usually short, of considerable difficulty, and designed to provide practice material
+> for perfecting a particular musical skill." — Wikipedia
+>
+> This project contains pytudes—Python programs, usually short,
+> for perfecting particular programming skills
+
+------------
 
 Solutions strive towards a balance of both optimality and "elegance"
 (in other words, simple enough to understand and remember/easily triangulate)
@@ -180,7 +190,7 @@ Legal
 License
 -------
 
-LeetCode is licensed under the Apache License, Version 2.0.
+pytudes is licensed under the Apache License, Version 2.0.
 See [LICENSE](./LICENSE) for the full license text.
 
 
