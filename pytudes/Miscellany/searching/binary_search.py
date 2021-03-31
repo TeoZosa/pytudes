@@ -41,6 +41,8 @@ def binary_search(items: list, val) -> int:
         2
         >>> binary_search([0,1,2,2,3,4,5], val = 2)
         3
+        >>> binary_search([0,1,2,2,3,4,5], val = 0)
+        0
     """
     start, end = 0, len(items) - 1
     while start <= end:
@@ -72,6 +74,8 @@ def binary_search_recursive(items: list, val) -> int:
         2
         >>> binary_search_recursive([0,1,2,2,3,4,5], val = 2)
         3
+        >>> binary_search_recursive([0,1,2,2,3,4,5], val = 0)
+        0
     """
     return _binary_search_recursive(items, 0, len(items) - 1, val)
 
