@@ -24,6 +24,8 @@ def quicksort(items: list[int], in_place: bool = True) -> list[int]:
                     but doing anyway to remember the theory
                     which does apply in languages that do perform TCO.
     Examples:
+        >>> quicksort([3,3,1,1,2,2], in_place=False)
+        [1, 1, 2, 2, 3, 3]
         >>> quicksort([3,3,1,1,2,2], in_place=True)
         [1, 1, 2, 2, 3, 3]
         >>> quicksort([3,2,1,1,2,3], in_place=True)
