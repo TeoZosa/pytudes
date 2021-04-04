@@ -18,6 +18,11 @@ def quicksort(items: list[int], in_place: bool = True) -> list[int]:
                 tail-recurse into the larger side
                 (i.e., tail-call optimization/elimination)
                 See Also: https://en.wikipedia.org/wiki/Quicksort#Space_complexity
+
+                Note: DOES NOT APPLY IN PYTHON:
+                    TCO does not exist in Python,
+                    but doing anyway to remember the theory
+                    which does apply in languages that do perform TCO.
     Examples:
         >>> quicksort([3,3,1,1,2,2], in_place=True)
         [1, 1, 2, 2, 3, 3]
