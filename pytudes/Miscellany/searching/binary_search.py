@@ -21,6 +21,26 @@ Useful lemma:
             note: indexes may be out-of-bounds, so must check; i.e.,
                 end == -1
                 start == len(arr)
+
+Note:
+    `middle = (start + end) // 2`
+    has a good chance of producing an integer overflow (IN LANGUAGES OTHER THAN PYTHON)
+    so it’s generally recommended that you represent the middle as
+    `middle = start + (end — start) // 2`
+
+    BUT in Python INTEGERS DO NOT TYPICALLY OVERFLOW;
+    from https://docs.python.org/3/library/exceptions.html#OverflowError:
+    ```
+    exception OverflowError
+        Raised when the result of an arithmetic operation is too large to be represented.
+        This cannot occur for integers
+        (which would rather raise MemoryError than give up).
+        However, for historical reasons,
+        OverflowError is sometimes raised for integers that are outside a required range.
+        Because of the lack of standardization of floating point exception handling in C,
+        most floating point operations are not checked.
+
+    ```
 """
 
 
