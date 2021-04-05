@@ -1,14 +1,40 @@
 """https://leetcode.com/problems/number-of-1-bits/
-Constraints:
-    The input must be a binary string of length 32.
+    Constraints:
+        The input must be a binary string of length 32.
 
-Follow up: If this function is called many times, how would you optimize it?
+    Follow up: If this function is called many times, how would you optimize it?
+    Answer: DP table as cache (see below)
+
+    Examples:
+        >>> Solution().hammingWeight(0)
+        0
+        >>> Solution().hammingWeight(int("00000000000000000000000010000000", 2))
+        1
+        >>> Solution().hammingWeight(int("00000000000000000000000000001011", 2))
+        3
+        >>> Solution().hammingWeight(int("11111111111111111111111111111101", 2))
+        31
+
+    Categories:
+        Binary
+        Bit Manipulation
+        Blind 75
+
+    See Also:
+        pytudes/leetcode/medium/_338__counting_bits.py
+
 """
 
 
 class Solution:
+    # Use a class variable since entries will not vary between class instances
+    # and this can therefore be used as a global "cache"
+    DP_table = {0: 0}
+
     def hammingWeight(self, n: int) -> int:
-        return compute_hamming_weight(n)
+        if self.DP_table.get(n) is None:
+            self.DP_table[n] = self.hammingWeight(n & (n - 1)) + 1
+        return self.DP_table[n]
 
 
 def compute_hamming_weight(n: int) -> int:
