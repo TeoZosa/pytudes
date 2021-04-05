@@ -1,4 +1,15 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/JPnp17NYXE9"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/JPnp17NYXE9
+
+    Categories:
+        Binary
+        Bit Manipulation
+        Blind 75
+
+    See Also:
+        pytudes/educative/GrokkingTheCodingInterview/BitwiseXOR/_0__find_missing_number__easy.py
+        pytudes/leetcode/easy/_268__missing_number.py
+
+"""
 
 
 def find_missing_number(nums: list[int]) -> int:

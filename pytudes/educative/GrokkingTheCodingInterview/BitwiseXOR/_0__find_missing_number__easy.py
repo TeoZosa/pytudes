@@ -1,7 +1,13 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/RLPGq6Vx0YY
 
+    Categories:
+        Binary
+        Bit Manipulation
+        Blind 75
+
     See Also:
         pytudes/educative/GrokkingTheCodingInterview/CyclicSort/_1__find_the_missing_number__easy.py
+        pytudes/leetcode/easy/_268__missing_number.py
 """
 
 
@@ -20,8 +26,8 @@ def find_missing_number(arr: list[int]) -> int:
     Returns: the single missing number in the range [1,n] missing from `arr`
 
     Examples:
-        >>> find_missing_number([1, 5, 2, 6, 4])
-        3
+        >>> find_missing_number([8,6,4,2,3,5,7,1])
+        9
 
     """
     """ALGORITHM"""
