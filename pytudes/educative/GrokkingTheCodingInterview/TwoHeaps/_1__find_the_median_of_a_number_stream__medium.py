@@ -1,4 +1,12 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4
+
+    Categories:
+        Blind 75
+        Heap
+
+    See Also:
+        https://leetcode.com/problems/find-median-from-data-stream/
+"""
 import heapq
 
 

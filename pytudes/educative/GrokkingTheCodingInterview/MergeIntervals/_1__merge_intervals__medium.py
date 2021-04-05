@@ -1,4 +1,12 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/3jyVPKRA8yx"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/3jyVPKRA8yx
+
+    Categories:
+        Blind 75
+        Interval
+
+    See Also:
+        https://leetcode.com/problems/merge-intervals/
+"""
 
 
 class Interval:

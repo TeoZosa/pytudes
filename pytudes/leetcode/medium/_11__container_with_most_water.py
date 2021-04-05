@@ -1,7 +1,15 @@
-"""
-https://leetcode.com/problems/container-with-most-water
-See Also:
-    pytudes/pytudes/hard/_42__trapping_rain_water.py
+""" https://leetcode.com/problems/container-with-most-water
+
+    Examples:
+        >>> Solution().maxArea([])
+        0
+
+    Categories:
+        Array
+        Blind 75
+
+    See Also:
+        pytudes/pytudes/hard/_42__trapping_rain_water.py
 """
 
 

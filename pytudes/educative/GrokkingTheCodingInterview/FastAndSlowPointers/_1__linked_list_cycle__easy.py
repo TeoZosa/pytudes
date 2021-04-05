@@ -1,4 +1,13 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/N7rwVyAZl6D"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/N7rwVyAZl6D
+
+    Categories:
+        Binary
+        Bit Manipulation
+        Blind 75
+
+    See Also:
+        https://leetcode.com/problems/linked-list-cycle/
+"""
 
 from pytudes.utils.linked_list import Node, NodeType, convert_list_to_linked_list
 
