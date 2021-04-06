@@ -9,13 +9,13 @@
         The sum of lists[i].length won't exceed 10^4.
 
     Examples:
-        >>> Solution().mergeKLists([[]])
-        []
+        >>> assert(Solution().mergeKLists([None]) is None)
 
     Categories:
         Heap
         Blind 75
 """
+import heapq
 from typing import Optional
 
 
@@ -33,6 +33,10 @@ class ListNode:
 
     def as_list(self):
         return [node.val for node in self]
+
+    # # If we could override ListNode definition, this would make algorithm using min heap cleaner
+    # def __lt__(self, other):
+    #     return self.val < other.val
 
 
 ListNodeType = Optional[ListNode]
@@ -55,7 +59,69 @@ def convert_to_listnode(arr: list[int]) -> ListNodeType:
 
 class Solution:
     def mergeKLists(self, lists: list[ListNodeType]) -> ListNodeType:
-        return _merge_k_lists(lists)
+        return merge_k_lists_heap(lists)
+
+
+def merge_k_lists_heap(lists: list[ListNodeType]) -> ListNodeType:
+    """Merge a list of linked-lists into a single, sorted linked-list
+
+    Args:
+        lists: array of linked-lists, each sorted in ascending order.
+
+    Returns: a single merged, sorted linked-list
+
+    Examples:
+        # >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
+        # >>> merge_k_lists_heap(list_nodes).as_list()
+        # [1, 1, 2, 3, 4, 4, 5, 6]
+        >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,1,4,5],[1,3,4],[2,6]]]
+        >>> merge_k_lists_heap(list_nodes).as_list()
+        [1, 1, 1, 2, 3, 4, 4, 5, 6]
+        >>> assert (merge_k_lists_heap([convert_to_listnode([])]) is None)
+        >>> assert(merge_k_lists_heap([]) is None)
+
+    """
+    ## EDGE CASES ##
+    if not lists:
+        return None
+
+    """ALGORITHM"""
+    ## INITIALIZE VARS ##
+    # res
+    min_heap = []
+
+    ## Push root nodes of linked list onto min heap
+    for list_idx, list_node in enumerate(lists):
+
+        # Add root list nodes to heap, ordered by `val` and then `list_idx`
+        # in other words, nodes with duplicate vals will be tie-broken by `list_idx
+        #   `val` x `list_idx` guaranteed to be unique since
+        #      - list_levels are unique
+        # (needed to prevent heapq from comparing ListNodes which do not implement comparison functions)
+        if list_node is not None:
+            heapq.heappush(min_heap, (list_node.val, list_idx, list_node))
+
+    ## PROCESS HEAP
+    # Until empty: Pop min elements from heap & push their `.next` nodes onto heap
+
+    # `head` is a handle to the final linked list we will return
+    # i.e., `head.next` points to the root of the final linked list
+    curr = head = ListNode()
+    while len(min_heap) > 0:
+        _, list_idx, next_node = heapq.heappop(min_heap)
+        curr.next = next_node
+        curr = curr.next
+
+        # Add inner list nodes to heap, ordered by `val` and then `list_idx`
+        # in other words, nodes with duplicate vals will be tie-broken by `list_idx
+        #   `val` x `list_idx` guaranteed to be unique since
+        #       - list_levels are unique
+        #       - ONLY *ONE* item from each list will be in the heap at any one time
+        # (needed to prevent heapq from comparing ListNodes which do not implement comparison functions)
+        if (list_node := curr.next) is not None:
+            heapq.heappush(min_heap, (list_node.val, list_idx, list_node))
+
+    return head.next
 
 
 def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
@@ -72,8 +138,7 @@ def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
         [1, 1, 2, 3, 4, 4, 5, 6]
         >>> _merge_k_lists([[]])
         []
-        >>> assert(_merge_k_lists([]) == None)
-
+        >>> assert(_merge_k_lists([]) is None)
 
     """
     ## EDGE CASES ##
