@@ -9,15 +9,19 @@ def find_max_in_bitonic_array(arr: list[int]) -> int:
     Bitonic: *strictly* increasing AND THEN *strictly* decreasing.
     i.e., arr[i] < arr[i+1] < ... < arr[max_element_idx] > ... > arr[j] > arr[j+1]
 
+    Complexity:
+        Time: Θ(logn) <=> O(logn) & Ω(logn)
+        Space: O(1)
+
     Args:
         arr: bitonic array
             (i.e., a *strictly* increasing sequence preceding a central peak
             followed by *strictly* a decreasing sequence)
-    Complexity:
-        Time: Θ(logn) <=> O(logn) & Ω(logn)
-        Space: O(1)
+
     Returns: the maximum value in bitonic array `arr`
+
     Raises: ValueError if the array is not strictly increasing/decreasing
+
     Examples:
         >>> find_max_in_bitonic_array([1, 3, 8, 12, 4, 2]) # Bitonic
         12
@@ -27,6 +31,7 @@ def find_max_in_bitonic_array(arr: list[int]) -> int:
         12
         >>> find_max_in_bitonic_array([10, 9, 8]) # Strictly decreasing (Bitonic w/ no increasing range)
         10
+
     """
     ## EDGE CASES ##
     if not arr:

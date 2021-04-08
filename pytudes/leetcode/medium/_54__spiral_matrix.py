@@ -1,15 +1,16 @@
 """https://leetcode.com/problems/spiral-matrix/
 
-    Categories:
-        Blind 75
-        Matrix
+Categories:
+    - Blind 75
+    - Matrix
 
-    Examples:
-        >>> Solution().spiralOrder([
-        ... [1,2,3],
-        ... [4,5,6],
-        ... [7,8,9]])
-        [1, 2, 3, 6, 9, 8, 7, 4, 5]
+Examples:
+    >>> Solution().spiralOrder([
+    ... [1,2,3],
+    ... [4,5,6],
+    ... [7,8,9]])
+    [1, 2, 3, 6, 9, 8, 7, 4, 5]
+
 """
 
 
@@ -24,6 +25,9 @@ def spiral_order(matrix: list[list[int]]) -> list[int]:
     Spiral order:
         left to right, top to bottom, right to left, bottom to top
         until all nodes are visited, visiting each node at most once.
+
+    Args:
+        matrix:
 
     Returns: the spiral order traversal of a matrix
 
@@ -61,6 +65,11 @@ def spiral_order(matrix: list[list[int]]) -> list[int]:
 def left_rot_90(matrix: list[list[int]]) -> list[list[int]]:
     """Reversing the row-order (i.e. horizontal flip) of the matrix's transposition gives us a 90º left-rotation
 
+    Args:
+        matrix:
+
+    Returns:
+
     Examples:
         [4,5,6]
         [7,8,9]
@@ -81,6 +90,11 @@ def transpose(matrix: list[list[int]]) -> list[list[int]]:
 
     Since zipping groups column elements in sequential order,
     zipping is equivalent to swapping rows & columns
+
+    Args:
+        matrix:
+
+    Returns:
 
     Examples:
         [1,2,3]

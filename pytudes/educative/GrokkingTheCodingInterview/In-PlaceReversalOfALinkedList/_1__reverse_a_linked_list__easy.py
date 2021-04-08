@@ -1,4 +1,13 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/3wENz1N4WW9"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/3wENz1N4WW9
+
+Categories:
+    - Linked List
+    - Blind 75
+
+See Also:
+   - https://leetcode.com/problems/reverse-linked-list/
+
+"""
 
 from pytudes.utils.linked_list import NodeType, convert_list_to_linked_list
 
@@ -9,11 +18,14 @@ from pytudes.utils.linked_list import NodeType, convert_list_to_linked_list
 # [p <(c.n)= c X n =(n.n)> n']; p, c = c, n
 def reverse(head: NodeType, recursive=False) -> NodeType:
     """
+
     Args:
         head: head of a linked list of nodes
         recursive: whether or not to perform reversal recursively
+
     Returns:
         the head of the in-place-reversed linked list (i.e. original tail)
+
     Examples:
         >>> head = convert_list_to_linked_list([2,4,6,8,10])
         >>> head.as_list()
@@ -21,17 +33,21 @@ def reverse(head: NodeType, recursive=False) -> NodeType:
         >>> head = reverse(head)
         >>> head.as_list()
         [10, 8, 6, 4, 2]
+
     """
     return reverse_recursive(head) if recursive else reverse_iterative(head)
 
 
 def reverse_iterative(curr: NodeType, prev: NodeType = None) -> NodeType:
     """
+
     Args:
         curr: head of a linked list of nodes
         prev: previous node (if one exists)
+
     Returns:
         the head of the in-place-reversed linked list (i.e. original tail)
+
     Examples:
         >>> head = convert_list_to_linked_list([2,4,6,8,10])
         >>> head.as_list()
@@ -39,6 +55,7 @@ def reverse_iterative(curr: NodeType, prev: NodeType = None) -> NodeType:
         >>> head = reverse_iterative(head)
         >>> head.as_list()
         [10, 8, 6, 4, 2]
+
     """
     while curr is not None:  # if not curr: return prev
         # reverse curr.next link, update prev & curr ptrs
@@ -48,11 +65,14 @@ def reverse_iterative(curr: NodeType, prev: NodeType = None) -> NodeType:
 
 def reverse_recursive(curr: NodeType, prev: NodeType = None) -> NodeType:
     """
+
     Args:
         curr: head of a linked list of nodes
         prev: previous node (if one exists)
+
     Returns:
         the head of the in-place-reversed linked list (i.e. original tail)
+
     Examples:
         >>> head = convert_list_to_linked_list([2,4,6,8,10])
         >>> head.as_list()
@@ -60,6 +80,7 @@ def reverse_recursive(curr: NodeType, prev: NodeType = None) -> NodeType:
         >>> head = reverse_recursive(head)
         >>> head.as_list()
         [10, 8, 6, 4, 2]
+
     """
     if not curr:
         return prev
@@ -70,10 +91,13 @@ def reverse_recursive(curr: NodeType, prev: NodeType = None) -> NodeType:
 
 def reverse_iterative_with_temp(head: NodeType) -> NodeType:
     """
+
     Args:
         head: head of a linked list of nodes
+
     Returns:
         the head of the in-place-reversed linked list (i.e. original tail)
+
     Examples:
         >>> head = convert_list_to_linked_list([2,4,6,8,10])
         >>> head.as_list()
@@ -81,6 +105,7 @@ def reverse_iterative_with_temp(head: NodeType) -> NodeType:
         >>> head = reverse_iterative_with_temp(head)
         >>> head.as_list()
         [10, 8, 6, 4, 2]
+
     """
 
     curr, prev = head, None

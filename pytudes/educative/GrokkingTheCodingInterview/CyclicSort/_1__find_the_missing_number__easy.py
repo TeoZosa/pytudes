@@ -1,28 +1,32 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/JPnp17NYXE9
 
-    Categories:
-        Binary
-        Bit Manipulation
-        Blind 75
+Categories:
+    - Binary
+    - Bit Manipulation
+    - Blind 75
 
-    See Also:
-        pytudes/educative/GrokkingTheCodingInterview/BitwiseXOR/_0__find_missing_number__easy.py
-        pytudes/leetcode/easy/_268__missing_number.py
+See Also:
+    - pytudes/educative/GrokkingTheCodingInterview/BitwiseXOR/_0__find_missing_number__easy.py
+    - pytudes/leetcode/easy/_268__missing_number.py
 
 """
 
 
 def find_missing_number(nums: list[int]) -> int:
     """
-    Args:
-        nums: array containing n distinct numbers
-              taken from the range [0,n]
-              (n+1 possible numbers)
+
     Complexity:
         N = len(nums)
             Time: O(N) (iterate the entire array)
             Space: O(1) (in-place computations)
+
+    Args:
+        nums: array containing n distinct numbers
+              taken from the range [0,n]
+              (n+1 possible numbers)
+
     Returns: the missing number in the range [0,n]
+
     Examples:
         >>> find_missing_number([])
         0
@@ -34,6 +38,7 @@ def find_missing_number(nums: list[int]) -> int:
         2
         >>> find_missing_number([8, 3, 5, 2, 4, 6, 0, 1])
         7
+
     """
     """ALGORITHM"""
 
@@ -62,6 +67,7 @@ def find_missing_number(nums: list[int]) -> int:
 
 def find_missing_number_via_closed_form_equation(nums: list[int]) -> int:
     """
+
     https://en.wikipedia.org/wiki/Triangular_number
        n          n
       ___        ___
@@ -69,15 +75,19 @@ def find_missing_number_via_closed_form_equation(nums: list[int]) -> int:
       ╱    i =  ╱    i = ------ =    2 ) = "n plus 1 choose 2"
       ‾‾‾        ‾‾‾         2
      i = 0      i = 1
+
     Args:
         nums: array containing n distinct numbers
               taken from the range [0,n]
               (n+1 possible numbers)
+
     Complexity:
         N = len(nums)
             Time: O(N) (iterate the entire array)
             Space: O(1) (in-place computations)
+
     Returns: the missing number in the range [0,n]
+
     Examples:
         >>> find_missing_number_via_closed_form_equation([])
         0
@@ -89,6 +99,7 @@ def find_missing_number_via_closed_form_equation(nums: list[int]) -> int:
         2
         >>> find_missing_number_via_closed_form_equation([8, 3, 5, 2, 4, 6, 0, 1])
         7
+
     """
     """ALGORITHM"""
     ## INITIALIZE VARS ##

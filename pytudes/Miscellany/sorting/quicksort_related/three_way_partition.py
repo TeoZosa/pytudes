@@ -1,7 +1,8 @@
 """Vanilla Quicksort robust to repeated elements
 
 See Also:
-    pytudes/Miscellany/sorting/dutch_nation_flag_problem.py
+    - pytudes/Miscellany/sorting/dutch_nation_flag_problem.py
+
 """
 
 import random
@@ -11,10 +12,18 @@ def partition_3_ways_and_get_left_end_right_start_indexes(
     items: list[int], start: int, end: int
 ) -> tuple[int, int]:
     """In-place partition of items[start:end+1]
+
     Complexity:
         Time: Θ(n)
         Space: O(1)
+
+    Args:
+        items:
+        start:
+        end:
+
     Returns: end index of left partition, start index of right partition
+
     Examples:
         >>> items = []
         >>> partition_3_ways_and_get_left_end_right_start_indexes(items, start=0, end=0)
@@ -32,6 +41,7 @@ def partition_3_ways_and_get_left_end_right_start_indexes(
         >>> items = [0,-4,2,-2,4]*3
         >>> partition_3_ways_and_get_left_end_right_start_indexes(items, start=0, end=len(items)-1 )
         (5, 9)
+
     """
 
     if not items or len(items) < end - start + 1:

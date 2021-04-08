@@ -6,13 +6,16 @@
 def search_min_diff_element(arr: list[int], val: int) -> int:
     """Binary search to find number that has min difference with ‘val’
 
-    Args:
-        arr: array of numbers sorted in ascending order
-        val: element in arr for which to find companion element with the min difference
     Complexity:
         Time: Θ(logn) <=> O(logn) & Ω(logn)
         Space: O(1)
+
+    Args:
+        arr: array of numbers sorted in ascending order
+        val: element in arr for which to find companion element with the min difference
+
     Returns: element in arr that has min difference with ‘val’
+
     Examples:
         >>> search_min_diff_element([4, 6, 10],7)
         6
@@ -22,6 +25,7 @@ def search_min_diff_element(arr: list[int], val: int) -> int:
         10
         >>> search_min_diff_element([4, 6, 10],17)
         10
+
     """
     ## EDGE CASES ##
     if val < arr[0]:  # smallest item has min difference with ‘val’

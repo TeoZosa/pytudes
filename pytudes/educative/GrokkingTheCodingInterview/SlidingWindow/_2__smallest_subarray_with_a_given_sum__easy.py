@@ -1,13 +1,18 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/7XMlMEQPnnQ"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/7XMlMEQPnnQ
+
+"""
 
 
 def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
     """
+
     Args:
         target_sum: target sum
         arr: numbers to explore
+
     Returns:
         LENGTH of smallest subarray with window_sum ≥ target_sum
+
     Examples:
         >>> smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])
         2
@@ -15,6 +20,7 @@ def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
         1
         >>> smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6])
         3
+
     """
 
     ## EDGE CASES ##

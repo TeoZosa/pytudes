@@ -64,13 +64,18 @@ Examples:
     >>> assert(uint("1110") << 4 >> 4 == uint("1110") == 14)
 
 See Also:
-    https://wiki.python.org/moin/BitwiseOperators
+    - https://wiki.python.org/moin/BitwiseOperators
 
 """
 
 
 def uint(bin_str: str) -> int:
     """
+
+    Args:
+        bin_str:
+
+    Returns: `bin_str` as an insigned integer
 
     Examples:
         >>> uint("0001")
@@ -87,6 +92,12 @@ def uint(bin_str: str) -> int:
 def set_union(A: int, B: int) -> int:
     """
 
+    Args:
+        A:
+        B:
+
+    Returns:
+
     Examples:
         >>> bin(set_union(int("0001", 2), int("1110", 2)))
         '0b1111'
@@ -100,6 +111,12 @@ def set_union(A: int, B: int) -> int:
 def set_intersection(A: int, B: int) -> int:
     """
 
+    Args:
+        A:
+        B:
+
+    Returns:
+
     Examples:
         >>> bin(set_intersection(int("0001", 2), int("1110", 2)))
         '0b0'
@@ -112,6 +129,13 @@ def set_intersection(A: int, B: int) -> int:
 
 def set_subtraction(A: int, B: int) -> int:
     """
+
+    Args:
+        A:
+        B:
+
+    Returns:
+
     Examples:
         >>> bin(set_subtraction(int("1001", 2), int("0111", 2)))
         '0b1000'
@@ -153,6 +177,9 @@ def set_negation(A: int) -> int:
          prefixed by `-` if the negation of A is negative (i.e., A was positive)
     <=>  must mask by WORD_SIZE_BITS to get the "true" binary representation
 
+    Args:
+        A:
+
     Returns: the complement of A <=>
         the number you get by switching each 1 for a 0 and each 0 for a 1 == (-A - 1).
 
@@ -188,6 +215,12 @@ def set_negation(A: int) -> int:
 def true_bin_repr(A: int, num_bits=4) -> int:
     """For negative numbers, noop for positive numbers since they're already in proper form
 
+    Args:
+        A:
+        num_bits:
+
+    Returns:
+
     Examples:
         >>> bin(true_bin_repr(~int("0001", 2), num_bits=4))
         '0b1110'
@@ -202,6 +235,12 @@ def true_bin_repr(A: int, num_bits=4) -> int:
 
 def set_bit_at_pos(A: int, pos: int) -> int:
     """0-indexed, little endian
+
+    Args:
+        A:
+        pos:
+
+    Returns:
 
     Examples:
         >>> bin(set_bit_at_pos(int("0000", 2), pos=0))
@@ -224,6 +263,12 @@ def set_bit_at_pos(A: int, pos: int) -> int:
 def clear_bit_at_pos(A: int, pos: int) -> int:
     """0-indexed, little endian
 
+    Args:
+        A:
+        pos:
+
+    Returns:
+
     Examples:
         >>> bin(clear_bit_at_pos(int("1111", 2), pos=0))
         '0b1110'
@@ -245,6 +290,12 @@ def clear_bit_at_pos(A: int, pos: int) -> int:
 def test_bit_at_pos(A: int, pos: int) -> bool:
     """0-indexed, little endian
 
+    Args:
+        A:
+        pos:
+
+    Returns:
+
     Examples:
         >>> test_bit_at_pos(int("1001", 2), pos=0)
         True
@@ -263,6 +314,11 @@ def test_bit_at_pos(A: int, pos: int) -> bool:
 
 def extract_last_bit(A: int) -> int:
     """
+
+    Args:
+        A:
+
+    Returns:
 
     Examples:
         >>> bin(extract_last_bit(int("1000", 2)))
@@ -289,6 +345,11 @@ def extract_last_bit(A: int) -> int:
 def remove_last_on_bit(A: int) -> int:
     """
 
+    Args:
+        A:
+
+    Returns:
+
     Examples:
         >>> bin(remove_last_on_bit(int("1000", 2)))
         '0b0'
@@ -305,6 +366,8 @@ def remove_last_on_bit(A: int) -> int:
 
 def all_1_bits() -> int:
     """
+
+    Returns:
 
     Examples:
         >>> all_1_bits()

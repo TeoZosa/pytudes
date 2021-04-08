@@ -1,13 +1,16 @@
-"""
+"""https://leetcode.com/problems/reverse-integer/
+
 Given a signed 32-bit integer x, return x with its digits reversed.
     If reversing x causes the value to go outside the
     signed 32-bit integer range [-2^31, 2^31 - 1],
     then return 0.
 
-Assume the environment does not allow you to store 64-bit integers
-(signed or unsigned).
-See Also:
-    https://leetcode.com/problems/reverse-integer/
+Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+
+Examples:
+    >>> Solution().reverse(0)
+    0
+
 """
 
 
@@ -21,8 +24,10 @@ def _reverse(x: int) -> int:
 
     Args:
         x: 32-bit signed integer
+
     Returns: x with digits reversed if it would fit in a 32-bit signed integer,
              0 otherwise
+
     Examples:
         >>> _reverse(123)
         321
@@ -40,6 +45,7 @@ def _reverse(x: int) -> int:
         -2147483648
         >>> _reverse(8463847412)
         0
+
     """
 
     """ALGORITHM"""
@@ -73,8 +79,10 @@ def _reverse_str_to_int(x: int) -> int:
 
     Args:
         x: 32-bit signed integer
+
     Returns: x with digits reversed if it would fit in a 32-bit signed integer,
              0 otherwise
+
     Examples:
         >>> _reverse_str_to_int(123)
         321
@@ -86,6 +94,7 @@ def _reverse_str_to_int(x: int) -> int:
         0
         >>> _reverse_str_to_int(1534236469)
         0
+
     """
 
     """ALGORITHM"""

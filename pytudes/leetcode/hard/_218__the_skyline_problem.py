@@ -1,7 +1,13 @@
 """https://leetcode.com/problems/the-skyline-problem/
 
+Examples:
+    >>> Solution().getSkyline([])
+    []
+
 See Also:
-    https://briangordon.github.io/2014/08/the-skyline-problem.html
+    - https://briangordon.github.io/2014/08/the-skyline-problem.html
+    - https://leetcode.com/problems/the-skyline-problem/discuss/61261/10-line-Python-solution-104-ms
+
 """
 
 import heapq
@@ -9,11 +15,6 @@ import heapq
 
 class Solution:
     def getSkyline(self, buildings: list[list[int]]) -> list[list[int]]:
-        """
-        Examples:
-            >>> Solution().getSkyline([])
-            []
-        """
         return get_skyline(buildings)
 
 
@@ -25,6 +26,11 @@ def get_skyline(buildings: list[list[int]]) -> list[list[int]]:
 
     You may assume all buildings are perfect rectangles
     grounded on an absolutely flat surface at height 0.
+
+    Complexity:
+        n = len(buildings)
+            Time: O(nlogn) (loop over 2n elements, popping/pushing exactly n elements to a heap during the entire loop)
+            Space: O(n) (2n for the heap and n for the skyline list)
 
     Args:
         buildings: locations and heights of all the buildings
@@ -49,6 +55,7 @@ def get_skyline(buildings: list[list[int]]) -> list[list[int]]:
                 For instance, [...,[2 3],[4 5],[7 5],[11 5],[12 7],...] is not acceptable;
                 the three lines of height 5 should be merged into one in the final output as such:
                 [...,[2 3],[4 5],[12 7],...]
+
     Examples:
         >>> get_skyline([[2,9,10],[3,7,15],[5,12,12],[15,20,10],[19,24,8]])
         [[2, 10], [3, 15], [7, 12], [12, 0], [15, 10], [20, 8], [24, 0]]
@@ -57,8 +64,6 @@ def get_skyline(buildings: list[list[int]]) -> list[list[int]]:
         >>> get_skyline([[1,2,1],[1,2,2],[1,2,3]])
         [[1, 3], [2, 0]]
 
-    See Also:
-        https://leetcode.com/problems/the-skyline-problem/discuss/61261/10-line-Python-solution-104-ms
     """
     """ALGORITHM"""
     heap_peek = lambda: min_heap[0]

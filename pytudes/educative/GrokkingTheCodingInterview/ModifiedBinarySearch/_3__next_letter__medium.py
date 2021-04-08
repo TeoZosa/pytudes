@@ -3,10 +3,10 @@
 Given an array of lowercase letters sorted in ascending order,
 find the smallest letter in the given array *strictly* greater than a given ‘key’.
 
-Assume the given array is a circular list, which means that
+Assume the given array is a circular list, which means that:
     the last letter is assumed to be connected with the first letter.
 
-This also means that
+This also means that:
     the first letter of the array is the smallest letter
     and is greater than the last letter of the array
         min(letters) == letters[0]
@@ -15,21 +15,24 @@ This also means that
         but val < letters[0] <=> letters[-1] < val
 
 See Also:
-    pytudes/Miscellany/insertion_sort.py:46
+    - pytudes/Miscellany/insertion_sort.py:46
+
 """
 
 
 def search_next_letter(letters: list[str], val: str) -> str:
-    """Binary search to find the successor of a given letter, defined as the
-    smallest element *strictly* greater than the given letter
+    """Binary search to find the successor of a given letter, defined as the smallest element *strictly* greater than the given letter
 
     Args:
         letters: circular array of letters sorted in ascending order
         val: element in letters for which to find the immediate successor
+
     Complexity:
         Time: Θ(logn) <=> O(logn) & Ω(logn) (since we must consider duplicates)
         Space: O(1)
+
     Returns: the immediate successor letter of val
+
     Examples:
         >>> search_next_letter(['a', 'c', 'f', 'h'],'f')
         'h'
@@ -39,6 +42,7 @@ def search_next_letter(letters: list[str], val: str) -> str:
         'a'
         >>> search_next_letter(['a', 'c', 'f', 'f', 'h'],'f')
         'h'
+
     """
 
     ## EDGE CASES ##

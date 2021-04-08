@@ -6,14 +6,18 @@
 def find_range(arr: list[int], val: int) -> list[int]:
     """Binary search to find the range of a given number ‘val’.
 
-        The range of val will be the first and last position of val in the arr.
-    Args:
-        arr: array of numbers sorted in ascending order
-        val: element in arr for which to find the inclusive range
+    The range of val will be the first and last position of val in the arr.
+
     Complexity:
         Time: Θ(logn) <=> O(logn) & Ω(logn) (since we must consider duplicates)
         Space: O(1)
+
+    Args:
+        arr: array of numbers sorted in ascending order
+        val: element in arr for which to find the inclusive range
+
     Returns: the inclusive range of val idxs if val is present, else [-1, -1]
+
     Examples:
         >>> find_range([4, 6, 6, 6, 9], 6)
         [1, 3]
@@ -21,10 +25,10 @@ def find_range(arr: list[int], val: int) -> list[int]:
         [3, 3]
         >>> find_range([1, 3, 8, 10, 15], 12)
         [-1, -1]
+
     """
 
     def binary_search(find_last_pos: bool) -> int:
-        """ALGORITHM"""
         check_left = lambda: val < arr[mid] or val == arr[mid] and not find_last_pos
         check_right = lambda: val > arr[mid] or val == arr[mid] and find_last_pos
         ## INITIALIZE VARS ##

@@ -1,4 +1,5 @@
 """
+
 NOTE:
 - Contiguous slice update is O(k) where k = size of the slice
     => same big O as single-item swaps.
@@ -12,8 +13,6 @@ import random
 def binary_insertion_sort(items: list) -> list:
     """
 
-    Args:
-        items:
     Complexity:
         Time: O(n^2)
         Space: O(1)
@@ -27,10 +26,13 @@ def binary_insertion_sort(items: list) -> list:
         than `insertion_val` (i.e., the IMMEDIATE SUCCESSOR)
 
         See Also:
-            pytudes/educative/ModifiedBinarySearch/_3__next_letter__medium.py
+            - pytudes/educative/ModifiedBinarySearch/_3__next_letter__medium.py
 
+    Args:
+        items:
 
-    Returns:
+    Returns: `items` sorted
+
     Examples:
         >>> binary_insertion_sort([5,4,3,2,1,0])
         [0, 1, 2, 3, 4, 5]
@@ -40,6 +42,7 @@ def binary_insertion_sort(items: list) -> list:
         [0, 0, 1, 1, 2, 2, 3, 3, 4, 4, 5, 5]
         >>> items = [random.randrange(0, 100) for _ in range(100)]
         >>> assert(binary_insertion_sort(items.copy()) == sorted(items))
+
     """
 
     for unsorted_start_idx in range(1, len(items)):
@@ -73,9 +76,11 @@ def binary_insertion_sort(items: list) -> list:
 
 def insertion_sort(items: list) -> list:
     """
+
     Examples:
         >>> items = [random.randrange(0, 100) for _ in range(100)]
         >>> assert(insertion_sort(items.copy()) == sorted(items))
+
     """
 
     for unsorted_start_idx in range(1, len(items)):
@@ -101,9 +106,11 @@ def insertion_sort_loops_combined(items: list) -> list:
         items:
 
     Returns:
+
     Examples:
         >>> items = [random.randrange(0, 100) for _ in range(100)]
         >>> assert(insertion_sort_loops_combined(items.copy()) == sorted(items))
+
     """
 
     for unsorted_start_idx in range(1, len(items)):

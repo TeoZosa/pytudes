@@ -1,17 +1,17 @@
 """https://leetcode.com/problems/missing-number/
 
-    Examples:
-        >>> Solution().missingNumber([])
-        0
+Categories:
+    - Binary
+    - Bit Manipulation
+    - Blind 75
 
-    Categories:
-        Binary
-        Bit Manipulation
-        Blind 75
+Examples:
+    >>> Solution().missingNumber([])
+    0
 
-    See Also:
-        pytudes/educative/GrokkingTheCodingInterview/BitwiseXOR/_0__find_missing_number__easy.py
-        pytudes/educative/GrokkingTheCodingInterview/CyclicSort/_1__find_the_missing_number__easy.py
+See Also:
+    - pytudes/educative/GrokkingTheCodingInterview/BitwiseXOR/_0__find_missing_number__easy.py
+    - pytudes/educative/GrokkingTheCodingInterview/CyclicSort/_1__find_the_missing_number__easy.py
 
 """
 

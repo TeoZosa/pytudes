@@ -19,6 +19,7 @@ def find_single_number(arr: list[int]) -> int:
     Examples:
         >>> find_single_number([1, 4, 2, 1, 3, 2, 3])
         4
+
     """
     """ALGORITHM"""
     ## INITIALIZE VARS ##

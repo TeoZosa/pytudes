@@ -1,8 +1,8 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/xV7E64m4lnz
 
 
-    See Also:
-        pytudes/leetcode/medium/_102__binary_tree_level_order_traversal.py
+See Also:
+    - pytudes/leetcode/medium/_102__binary_tree_level_order_traversal.py
 
 """
 from collections import deque
@@ -44,6 +44,7 @@ def traverse(root: TreeNodeType) -> list[list[int]]:
         >>> root.right.right = TreeNode(5)
         >>> traverse(root)
         [[12], [7, 1], [9, 10, 5]]
+
     """
     ## EDGE CASES ##
     if root is None:

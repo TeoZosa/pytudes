@@ -1,12 +1,13 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/N7rwVyAZl6D
 
-    Categories:
-        Binary
-        Bit Manipulation
-        Blind 75
+Categories:
+    - Binary
+    - Bit Manipulation
+    - Blind 75
 
-    See Also:
-        https://leetcode.com/problems/linked-list-cycle/
+See Also:
+    - https://leetcode.com/problems/linked-list-cycle/
+
 """
 
 from pytudes.utils.linked_list import Node, NodeType, convert_list_to_linked_list
@@ -14,10 +15,13 @@ from pytudes.utils.linked_list import Node, NodeType, convert_list_to_linked_lis
 
 def has_cycle(head: NodeType) -> bool:
     """
+
     Args:
         head: head of a singly-linked list of nodes
+
     Returns:
         whether or not the linked list has a cycle
+
     Examples:
         >>> has_cycle(None)
         False
@@ -34,6 +38,7 @@ def has_cycle(head: NodeType) -> bool:
         >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt.nxt
         >>> has_cycle(head)
         True
+
     """
     slow = fast = head
     while fast is not None and fast.nxt is not None:  # since fast ≥ slow

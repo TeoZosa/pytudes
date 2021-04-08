@@ -1,4 +1,6 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/xl2g3vxrMq3
+
+"""
 
 
 def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
@@ -20,8 +22,10 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
             Space: O(N+M)
                 O(M) (for HashMap if `pattern` has ALL DISTINCT CHARACTERS)
               + O(N) (for result list if M==1 & `input_str` contains ONLY that char)
+
     Returns:
         Anagrams of `pattern` in `input_str`.
+
     Examples:
         >>> find_string_anagrams("ppqp", "pq")
         ['pq', 'qp']
@@ -29,6 +33,7 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
         ['bca', 'cab', 'abc']
         >>> find_string_anagrams("aaaa", "a")
         ['a', 'a', 'a', 'a']
+
     """
 
     ## EDGE CASES ##

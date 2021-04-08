@@ -1,9 +1,11 @@
 """Three-way partitioning function.
-   e.g., for Quicksort variants to be robust to repeated elements
+
+e.g., for Quicksort variants to be robust to repeated elements
 
 See Also:
-    https://en.wikipedia.org/wiki/Dutch_national_flag_problem
-    pytudes/Miscellany/sorting/quicksort.py
+    - https://en.wikipedia.org/wiki/Dutch_national_flag_problem
+    - pytudes/Miscellany/sorting/quicksort.py
+
 """
 
 import copy
@@ -11,21 +13,31 @@ import copy
 
 def three_way_partition(items: list[int], pivot: int, in_place=True) -> list[int]:
     """
+
     Args:
         items:
         pivot: middle partition value; used to determine the partitions
         in_place: whether to perform partition in-place
+
     Complexity:
         Time: Θ(n)
         Space: O(1) (if in-place)
+
     Returns: items partitioned (i.e., RELATIVELY SORTED) according to mid value
+
     Examples:
+        >>> assert (three_way_partition([3,3,1,1,2,2], pivot=2, in_place=True) ==
+        ...         three_way_partition([3,3,1,1,2,2], pivot=2, in_place=False)
+        ... )
         >>> three_way_partition([3,3,1,1,2,2], pivot=2, in_place=True)
         [1, 1, 2, 2, 3, 3]
         >>> three_way_partition([3,2,1,1,2,3], pivot=2, in_place=True)
         [1, 1, 2, 2, 3, 3]
         >>> three_way_partition([0,-4,2,-2,4]*3, pivot=0, in_place=True)
         [-4, -2, -2, -4, -4, -2, 0, 0, 0, 4, 2, 2, 4, 4, 2]
+        >>> three_way_partition([], pivot=2, in_place=True)
+        []
+
     """
     if not items:
         return items

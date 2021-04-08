@@ -1,13 +1,13 @@
 """https://leetcode.com/problems/contains-duplicate/
 
+Categories:
+    - Array
+    - Blind 75
 
-    Examples:
-        >>> Solution().containsDuplicate([1,2,3])
-        False
+Examples:
+    >>> Solution().containsDuplicate([1,2,3])
+    False
 
-    Categories:
-        Array
-        Blind 75
 """
 
 
@@ -31,6 +31,7 @@ def contains_duplicate(nums: list[int]) -> bool:
         False
         >>> contains_duplicate([1,1,1,3,3,4,3,2,4,2])
         True
+
     """
     hash_table = {}
     for num in nums:

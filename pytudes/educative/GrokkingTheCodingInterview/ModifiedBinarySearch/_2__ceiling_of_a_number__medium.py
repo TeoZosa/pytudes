@@ -4,6 +4,7 @@ Given an array of numbers sorted in an ascending order,
 find the CEILING of a given number ‘val’.
     The CEILING of val will be the
     smallest element in the given array *greater than OR equal* to val.
+
 """
 
 
@@ -13,13 +14,16 @@ def search_ceiling_of_a_number(arr: list[int], val: int) -> int:
     The ceiling of a number is defined to be
     the smallest element *greater than OR equal* to val.
 
-    Args:
-        arr: array of numbers sorted in ascending order
-        val: element in arr for which to find the ceiling if the ceiling is in arr, else -1
     Complexity:
         Time: O(logn) & Ω(1)
         Space: O(1)
+
+    Args:
+        arr: array of numbers sorted in ascending order
+        val: element in arr for which to find the ceiling if the ceiling is in arr, else -1
+
     Returns: index of the ceiling of val being searched if ceiling is in items, else -1
+
     Examples:
         >>> search_ceiling_of_a_number([4, 6, 10], 6)
         1
@@ -29,6 +33,7 @@ def search_ceiling_of_a_number(arr: list[int], val: int) -> int:
         -1
         >>> search_ceiling_of_a_number([4, 6, 10], -1)
         0
+
     """
     ## EDGE CASES ##
     if not arr:

@@ -1,11 +1,12 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4
 
-    Categories:
-        Blind 75
-        Heap
+Categories:
+    - Blind 75
+    - Heap
 
-    See Also:
-        https://leetcode.com/problems/find-median-from-data-stream/
+See Also:
+    - https://leetcode.com/problems/find-median-from-data-stream/
+
 """
 import heapq
 
@@ -44,9 +45,11 @@ class MaxHeap(MinHeap):
 
 class NumberStreamTrackingMedian:
     """
+
     Invariant: at any time, either:
         1. max_heap is 1 element larger (odd) =>  median is max_heap root
         2. heap sizes are equal (even) => median is avg of heap roots
+
     Complexity:
         n = len(max_heap) + len(min_heap) <=> size of input number stream
         Time: O(nlogn)
@@ -54,6 +57,7 @@ class NumberStreamTrackingMedian:
             => Given invariant:
                 => len(max_heap) ~= n/2 = O(n)
                 => len(min_heap) ~= n/2 = O(n)
+
     Examples:
         >>> num_stream = NumberStreamTrackingMedian()
         >>> num_stream.insert_num(3)
@@ -66,6 +70,7 @@ class NumberStreamTrackingMedian:
         >>> num_stream.insert_num(4)
         >>> num_stream.find_median()
         3.5
+
     """
 
     def __init__(self):

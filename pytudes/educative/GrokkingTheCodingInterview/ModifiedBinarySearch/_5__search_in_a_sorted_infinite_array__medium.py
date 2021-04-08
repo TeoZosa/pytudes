@@ -26,14 +26,18 @@ def search_in_infinite_array(array_reader: ArrayReader, val: int) -> int:
 
         note: MAY NEVER FINISH if array is truly infinite (i.e., stream) and duplicates are allowed
         else it must eventually finish if val is < infinity
-    Args:
-        array_reader: infinite sorted array (or an array with unknown size) INTERFACE
-        val: element in array_read for which to find
+
     Complexity:
         N = size of finite subset (end - start +1) of infinite array
         Time: Θ(logn) <=> O(logn) & Ω(logn) (since we continously double array bounds to find finite subset)
         Space: O(1)
+
+    Args:
+        array_reader: infinite sorted array (or an array with unknown size) INTERFACE
+        val: element in array_read for which to find
+
     Returns: the idx of val if val is present, else -1
+
     Examples:
         >>> reader = ArrayReader([4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30])
         >>> search_in_infinite_array(reader, 16)
@@ -45,6 +49,7 @@ def search_in_infinite_array(array_reader: ArrayReader, val: int) -> int:
         4
         >>> search_in_infinite_array(reader, 200)
         -1
+
     """
     ## EDGE CASES ##
     if not array_reader:

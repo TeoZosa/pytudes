@@ -1,7 +1,8 @@
 """Vanilla Quicksort robust to repeated elements
 
 See Also:
-    pytudes/Miscellany/sorting/dutch_nation_flag_problem.py
+    - pytudes/Miscellany/sorting/dutch_nation_flag_problem.py
+
 """
 
 import copy
@@ -10,6 +11,7 @@ import random
 
 def quicksort(items: list[int], in_place: bool = True) -> list[int]:
     """
+
     Complexity:
         n = len(items)
             Time: O(nlogn) *on average* | O(n^2) worst-case
@@ -17,12 +19,14 @@ def quicksort(items: list[int], in_place: bool = True) -> list[int]:
                 *MUST* sort smaller side first,
                 tail-recurse into the larger side
                 (i.e., tail-call optimization/elimination)
-                See Also: https://en.wikipedia.org/wiki/Quicksort#Space_complexity
+                See Also:
+                    - https://en.wikipedia.org/wiki/Quicksort#Space_complexity
 
                 Note: DOES NOT APPLY IN PYTHON:
                     TCO does not exist in Python,
                     but doing anyway to remember the theory
                     which does apply in languages that do perform TCO.
+
     Examples:
         >>> quicksort([3,3,1,1,2,2], in_place=False)
         [1, 1, 2, 2, 3, 3]
@@ -32,6 +36,7 @@ def quicksort(items: list[int], in_place: bool = True) -> list[int]:
         [1, 1, 2, 2, 3, 3]
         >>> quicksort([0,-4,2,-2,4]*3, in_place=True)
         [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4, 4, 4]
+
     """
     if not in_place:
         items = copy.deepcopy(items)

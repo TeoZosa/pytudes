@@ -1,19 +1,19 @@
 """https://leetcode.com/problems/counting-bits/
 
-    Examples:
-        >>> Solution().countBits(2)
-        [0, 1, 1]
-        >>> Solution().countBits(5)
-        [0, 1, 1, 2, 1, 2]
+Categories:
+    - Binary
+    - Bit Manipulation
+    - Blind 75
+    - Dynamic Programming (DP)
 
-    Categories:
-        Binary
-        Bit Manipulation
-        Blind 75
-        Dynamic Programming (DP)
+Examples:
+    >>> Solution().countBits(2)
+    [0, 1, 1]
+    >>> Solution().countBits(5)
+    [0, 1, 1, 2, 1, 2]
 
-    See Also:
-        pytudes/leetcode/easy/_191__number_of_1_bits.py
+See Also:
+    - pytudes/leetcode/easy/_191__number_of_1_bits.py
 
 """
 

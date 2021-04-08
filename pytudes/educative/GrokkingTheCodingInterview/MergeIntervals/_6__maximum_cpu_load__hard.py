@@ -1,4 +1,6 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/3jyVPKRA8yx"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/3jyVPKRA8yx
+
+"""
 import heapq
 
 
@@ -34,11 +36,14 @@ class MinHeap:
 
 def find_max_cpu_load(jobs: list[Job]) -> int:
     """
+
     Complexity:
         n = len(jobs)
             Time: O(nlogn) for the initial sort
             Space: O(n) for the worst case of all non-vacuous jobs with the same end time
+
     Returns: the missing number in the range [0,n]
+
     Examples:
         >>> find_max_cpu_load(jobs=[])
         0

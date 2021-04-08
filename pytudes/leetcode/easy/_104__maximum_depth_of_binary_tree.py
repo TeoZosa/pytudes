@@ -1,9 +1,13 @@
 """https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
+Categories:
+    - Tree
+    - Blind 75
 
-    Examples:
-        >>> Solution().maxDepth(None)
-        0
+Examples:
+    >>> Solution().maxDepth(None)
+    0
+
 """
 
 from typing import Optional
@@ -30,6 +34,7 @@ class Solution:
 
 def max_depth(root: TreeNodeType) -> int:
     """
+
     Args:
         root: TreeNode root of a binary tree
 

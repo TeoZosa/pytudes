@@ -1,7 +1,12 @@
-"""
-https://leetcode.com/problems/trapping-rain-water/
+""" https://leetcode.com/problems/trapping-rain-water/
+
+Examples:
+    >>> Solution().trap([])
+    0
+
 See Also:
-    pytudes/pytudes/medium/_11__container_with_most_water.py
+    - pytudes/pytudes/medium/_11__container_with_most_water.py
+
 """
 
 
@@ -37,12 +42,14 @@ def compute_trapped_rain_water(heights: list[int]) -> int:
         0|2|1|2|0|1|2|1|1|2|0
         = trapped_rain_water_at_each_idx
         => sum(trapped_rain_water_at_each_idx) = trapped_rain_water
+
     Args:
         heights: list of non-negative integers [a1, a2, ..., an],
                 where each represents a point at coordinate (i, ai)
                 i.e., the height of a vertical line at y-coordinate i is ai
-    Returns:
-        Sum of areas between heights unbroken by
+
+    Returns: Sum of areas between heights unbroken
+
     Examples:
         >>> compute_trapped_rain_water(heights=[0,1,0,2,1,0,1,3,2,1,2,1])
         6
@@ -56,6 +63,7 @@ def compute_trapped_rain_water(heights: list[int]) -> int:
         0
         >>> compute_trapped_rain_water(heights=[])
         0
+
     """
     ## EDGE CASES ##
     if not heights:

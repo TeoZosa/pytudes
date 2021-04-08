@@ -1,8 +1,12 @@
-"""
+"""https://leetcode.com/problems/median-of-two-sorted-arrays/
+
+Examples:
+    >>> Solution().findMedianSortedArrays([0], [0])
+    0.0
 
 See Also:
-    https://leetcode.com/problems/median-of-two-sorted-arrays/
-    https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn)))-solution-with-explanation
+    - https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn)))-solution-with-explanation
+
 """
 
 
@@ -13,11 +17,21 @@ class Solution:
 
 def compute_median_sort(nums1: list[int], nums2: list[int]) -> float:
     """
+
     Complexity:
         N = len(nums1) + len(nums2)
         Time: O(nlogn) for sort
         Space: O(n) for sort space
-    Returns:
+
+    Args:
+        nums1:
+        nums2:
+
+    Returns: median of `nums1` and `nums2`
+
+    Raises:
+        ValueError: if `nums1` and `nums2` are empty
+
     Examples:
         >>> compute_median_sort([2],[1,3])
         2
@@ -29,6 +43,11 @@ def compute_median_sort(nums1: list[int], nums2: list[int]) -> float:
         1
         >>> compute_median_sort([],[2])
         2
+        >>> compute_median_sort([],[])
+        Traceback (most recent call last):
+        ...
+        ValueError
+
     """
     ## EDGE CASES ##
     if not nums2 and not nums1:
@@ -48,14 +67,21 @@ def compute_median_sort(nums1: list[int], nums2: list[int]) -> float:
 
 def compute_median_merge(nums1: list[int], nums2: list[int]) -> float:
     """
-    Args:
-        nums1:
-        nums2:
+
     Complexity:
         N = len(smaller_arr) + len(bigger_arr)
         Time: O(n) for merge
         Space: O(n) for merged array space
-    Returns:
+
+    Args:
+        nums1:
+        nums2:
+
+    Returns: median of `nums1` and `nums2`
+
+    Raises:
+        ValueError: if `nums1` and `nums2` are empty
+
     Examples:
         >>> compute_median_merge([2],[1,3])
         2
@@ -67,6 +93,11 @@ def compute_median_merge(nums1: list[int], nums2: list[int]) -> float:
         1
         >>> compute_median_merge([],[2])
         2
+        >>> compute_median_merge([],[])
+        Traceback (most recent call last):
+        ...
+        ValueError
+
     """
     ## EDGE CASES ##
     if not nums2 and not nums1:
@@ -256,19 +287,19 @@ def compute_median_binary_search(
             and smaller_arr[S_right_idx-1] <= larger_arr[L_right_idx],
             ( where L_right_idx = (S_size + L_size + 1)/2 - S_right_idx )
 
-        And we can do a binary search following steps described below:
-
-
-
-
+    Complexity:
+        Time: O(log(smaller_arr))
+        Space: O(1)
 
     Args:
         smaller_arr:
         larger_arr:
-    Complexity:
-        Time: O(log(smaller_arr))
-        Space: O(1)
-    Returns:
+
+    Returns: median of `nums1` and `nums2`
+
+    Raises:
+        ValueError: if `nums1` and `nums2` are empty
+
     Examples:
         >>> compute_median_binary_search([2],[1,3])
         2
@@ -280,10 +311,15 @@ def compute_median_binary_search(
         1
         >>> compute_median_binary_search([],[2])
         2
+        >>> compute_median_binary_search([],[])
+        Traceback (most recent call last):
+        ...
+        ValueError
         >>> A,B = [1,2,3,4,5], [1,1,1,1,2,2,2,2,10,11,12]
         >>> assert(compute_median_binary_search(A,B) == compute_median_sort(A,B))
         >>> A,B = [1,2,3,4,5,6,7,8,9,10], [1,2,3,4] + [i for i in range(5,700)]
         >>> assert(compute_median_binary_search(A,B) == compute_median_sort(A,B))
+
     """
     ## EDGE CASES ##
     if not larger_arr and not smaller_arr:

@@ -1,5 +1,5 @@
-"""
-https://www.educative.io/courses/grokking-the-coding-interview/7D5NNZWQ8Wr
+""" https://www.educative.io/courses/grokking-the-coding-interview/7D5NNZWQ8Wr
+
 """
 
 
@@ -49,6 +49,7 @@ def find_averages_of_subarrays_pythonic(K: int, arr: list[int]) -> list[float]:
 
 def find_averages_of_subarrays(target_window_size: int, arr: list[int]) -> list[float]:
     """
+
     Args:
         target_window_size: subarray (window) size
         arr: input array

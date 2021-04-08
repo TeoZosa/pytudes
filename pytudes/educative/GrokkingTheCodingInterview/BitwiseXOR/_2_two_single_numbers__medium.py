@@ -21,6 +21,7 @@ def find_single_numbers(nums: list[int]) -> list[int]:
         [6, 4]
         >>> find_single_numbers([2, 1, 3, 2])
         [3, 1]
+
     """
     """ALGORITHM"""
     # XOR of all values in `nums`:

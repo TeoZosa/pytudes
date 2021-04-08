@@ -1,15 +1,16 @@
 """ https://leetcode.com/problems/container-with-most-water
 
-    Examples:
-        >>> Solution().maxArea([])
-        0
+Categories:
+    - Array
+    - Blind 75
 
-    Categories:
-        Array
-        Blind 75
+Examples:
+    >>> Solution().maxArea([])
+    0
 
-    See Also:
-        pytudes/pytudes/hard/_42__trapping_rain_water.py
+See Also:
+    - pytudes/pytudes/hard/_42__trapping_rain_water.py
+
 """
 
 
@@ -20,17 +21,20 @@ class Solution:
 
 def compute_max_area(heights: list[int]) -> int:
     """
+
     Given n non-negative integers a1, a2, ..., an , where each represents a
     point at coordinate (i, ai). n vertical lines are drawn such that the
     two endpoints of the line i is at (i, ai) and (i, 0). Find two lines,
     which, together with the x-axis forms a container, such that the
     container contains the most water.
+
     Args:
         heights: list of non-negative integers [a1, a2, ..., an],
                 where each represents a point at coordinate (i, ai)
                 i.e., the height of a vertical line at y-coordinate i is ai
-    Returns:
-        Maximum area achievable between any two elements in heights
+
+    Returns: Maximum area achievable between any two elements in heights
+
     Examples:
         >>> compute_max_area(heights=[1,8,6,2,5,4,8,3,7])
         49
@@ -43,6 +47,7 @@ def compute_max_area(heights: list[int]) -> int:
         >>> compute_max_area(heights=[1])
         0
         >>> compute_max_area(heights=[])
+
         0
     """
     ## EDGE CASES ##

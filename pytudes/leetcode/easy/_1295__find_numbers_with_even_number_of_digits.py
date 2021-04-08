@@ -1,6 +1,9 @@
-"""
-See Also:
-    https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+"""https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+
+Examples:
+    >>> Solution().findNumbers([])
+    0
+
 """
 
 
@@ -16,11 +19,13 @@ def find_num_even_digit_numbers_via_str_len(nums: list[int]) -> int:
         nums:
 
     Returns:
+
     Examples:
         >>> find_num_even_digit_numbers_via_str_len([12,345,2,6,7896])
         2
         >>> find_num_even_digit_numbers_via_str_len([555,901,482,1771])
         1
+
     """
     return len([num for num in nums if len(str(num)) % 2 == 0])
 
@@ -32,11 +37,13 @@ def find_num_even_digit_numbers_via_repeated_division(nums: list[int]) -> int:
         nums:
 
     Returns:
+
     Examples:
         >>> find_num_even_digit_numbers_via_repeated_division([12,345,2,6,7896])
         2
         >>> find_num_even_digit_numbers_via_repeated_division([555,901,482,1771])
         1
+
     """
     num_even_digit_numbers = 0
 

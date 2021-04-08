@@ -1,4 +1,13 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/qVANqMonoB2"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/qVANqMonoB2
+
+Categories:
+    - Linked List
+    - Blind 75
+
+See Also:
+    - https://leetcode.com/problems/linked-list-cycle/
+
+"""
 
 from pytudes.utils.linked_list import NodeType, convert_list_to_linked_list
 
@@ -9,10 +18,13 @@ def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:
 
 def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     """
+
     Given the head of a LinkedList and 1-indexed positions `start_pos` and
     `end_pos`, reverse the LinkedList from position `start_pos` to `end_pos`.
+
     Returns:
         the head of the in-place sublist-reversed LinkedList
+
     Examples:
         >>> head = convert_list_to_linked_list([1,2,3,4,5])
         >>> head.as_list()
@@ -24,6 +36,7 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
         >>> head = _reverse_sub_list(head,10,15)
         >>> head.as_list()
         [1, 2, 3, 4, 5]
+
     """
     ## EDGE CASES ##
     if not head:  # Vacuous linked list

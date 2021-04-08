@@ -1,19 +1,20 @@
 """https://leetcode.com/problems/merge-k-sorted-lists/
 
-    Constraints:
-        k == lists.length
-        0 <= k <= 10^4
-        0 <= lists[i].length <= 500
-        -10^4 <= lists[i][j] <= 10^4
-        lists[i] is sorted in ascending order.
-        The sum of lists[i].length won't exceed 10^4.
+Constraints:
+    k == lists.length
+    0 <= k <= 10^4
+    0 <= lists[i].length <= 500
+    -10^4 <= lists[i][j] <= 10^4
+    lists[i] is sorted in ascending order.
+    The sum of lists[i].length won't exceed 10^4.
 
-    Examples:
-        >>> assert(Solution().mergeKLists([None]) is None)
+Categories:
+    - Heap
+    - Blind 75
 
-    Categories:
-        Heap
-        Blind 75
+Examples:
+    >>> assert(Solution().mergeKLists([None]) is None)
+
 """
 import heapq
 from typing import Optional
@@ -71,9 +72,9 @@ def merge_k_lists_heap(lists: list[ListNodeType]) -> ListNodeType:
     Returns: a single merged, sorted linked-list
 
     Examples:
-        # >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
-        # >>> merge_k_lists_heap(list_nodes).as_list()
-        # [1, 1, 2, 3, 4, 4, 5, 6]
+        >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
+        >>> merge_k_lists_heap(list_nodes).as_list()
+        [1, 1, 2, 3, 4, 4, 5, 6]
         >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,1,4,5],[1,3,4],[2,6]]]
         >>> merge_k_lists_heap(list_nodes).as_list()
         [1, 1, 1, 2, 3, 4, 4, 5, 6]

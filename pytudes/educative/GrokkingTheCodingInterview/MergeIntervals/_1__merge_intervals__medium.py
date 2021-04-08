@@ -1,11 +1,12 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/3jyVPKRA8yx
 
-    Categories:
-        Blind 75
-        Interval
+Categories:
+    - Blind 75
+    - Interval
 
-    See Also:
-        https://leetcode.com/problems/merge-intervals/
+See Also:
+    - https://leetcode.com/problems/merge-intervals/
+
 """
 
 
@@ -28,6 +29,7 @@ def merge(intervals: list[Interval]) -> list[Interval]:
         n = len(intervals)
             Time: O(nlogn) for the initial sort
             Space: O(n) for the worst case of no overlapping intervals
+
     Examples:
         >>> [i.as_list() for i in merge(
         ... intervals=[Interval(1, 4), Interval(2, 5), Interval(7, 9)])
@@ -41,6 +43,7 @@ def merge(intervals: list[Interval]) -> list[Interval]:
         ... intervals=[Interval(1, 4), Interval(2, 6),Interval(3, 5)])
         ... ]
         [[1, 6]]
+
     """
     ## EDGE CASES ##
     if not intervals or len(intervals) < 2:

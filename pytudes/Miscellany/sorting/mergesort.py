@@ -1,16 +1,20 @@
 def mergesort(nums: list, in_place: bool = True) -> list:
     """
+
     Complexity:
         n = len(nums)
             Time: O(nlogn)
             Space: O(n) for copies of sorted subarrays
+
     Examples:
+        >>> assert(mergesort([3,3,1,1,2,2], in_place=True) == mergesort([3,3,1,1,2,2], in_place=False))
         >>> mergesort([3,3,1,1,2,2], in_place=True)
         [1, 1, 2, 2, 3, 3]
         >>> mergesort([3,2,1,1,2,3], in_place=True)
         [1, 1, 2, 2, 3, 3]
         >>> mergesort([0,-4,2,-2,4]*3, in_place=True)
         [-4, -4, -4, -2, -2, -2, 0, 0, 0, 2, 2, 2, 4, 4, 4]
+
     """
     if not in_place:
         return _mergesort(nums)
@@ -21,11 +25,13 @@ def mergesort(nums: list, in_place: bool = True) -> list:
 
 def _mergesort(nums: list) -> list:
     """
+
     Complexity:
         n = len(nums)
             Space: 2n = O(n)
                 for (2 * n/2) copies of sorted left/right subarrays
                 and (1 * n) copy of merged array
+
     """
     ## EDGE CASES ##
     if not nums:
@@ -71,10 +77,12 @@ def _merge(left: list, right: list) -> list:
 
 def _mergesort_space_optimized(nums: list, start: int, end: int) -> None:
     """Performing merge operation in-place by overwriting associated indexes of input array
+
     Complexity:
         n = len(nums)
             Space: n = O(n)
                 for (2 * n/2) copies of sorted left/right subarrays
+
     """
     ## EDGE CASES ##
     if not nums:

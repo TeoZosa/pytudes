@@ -6,13 +6,16 @@
 def binary_search(arr: list[int], val: int) -> int:
     """Binary search modified to operate on both ascending and descending sorted arrays
 
-    Args:
-        arr: array of numbers sorted in ascending or descending order
-        val: element in arr for which to search
     Complexity:
         Time: O(logn) & Ω(1)
         Space: O(1)
+
+    Args:
+        arr: array of numbers sorted in ascending or descending order
+        val: element in arr for which to search
+
     Returns: index of val being searched if val is in items, else -1
+
     Examples:
         >>> binary_search([4, 6, 10],10)
         2
@@ -22,6 +25,7 @@ def binary_search(arr: list[int], val: int) -> int:
         0
         >>> binary_search([10, 6, 4],4)
         2
+
     """
     ## EDGE CASES ##
     if not arr:
@@ -54,6 +58,7 @@ def binary_search_orig(arr: list[int], val: int) -> int:
         val:
 
     Returns:
+
     Examples:
         >>> binary_search_orig([4, 6, 10],10)
         2

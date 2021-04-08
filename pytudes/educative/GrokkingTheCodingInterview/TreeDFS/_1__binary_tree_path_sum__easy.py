@@ -43,6 +43,7 @@ def has_path(root: TreeNodeType, target_sum: int) -> bool:
         True
         >>> has_path(root,16)
         False
+
     """
     ## EDGE CASES ##
 

@@ -1,13 +1,17 @@
-"""https://www.educative.io/courses/grokking-the-coding-interview/JPKr0kqLGNP"""
+"""https://www.educative.io/courses/grokking-the-coding-interview/JPKr0kqLGNP
+
+"""
 
 
 def max_sum_sub_array_of_size_k(K: int, arr: list[int]) -> int:
     """
+
     Examples:
         >>> max_sum_sub_array_of_size_k(3,[2, 1, 5, 1, 3, 2])
         9
         >>> max_sum_sub_array_of_size_k(2,[2, 3, 4, 1, 5])
         7
+
     """
     ## EDGE CASES ##
     if not arr or K <= 0:

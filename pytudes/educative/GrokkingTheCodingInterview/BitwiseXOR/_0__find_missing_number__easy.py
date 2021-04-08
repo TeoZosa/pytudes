@@ -1,13 +1,14 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/RLPGq6Vx0YY
 
-    Categories:
-        Binary
-        Bit Manipulation
-        Blind 75
+Categories:
+    - Binary
+    - Bit Manipulation
+    - Blind 75
 
-    See Also:
-        pytudes/educative/GrokkingTheCodingInterview/CyclicSort/_1__find_the_missing_number__easy.py
-        pytudes/leetcode/easy/_268__missing_number.py
+See Also:
+    - pytudes/educative/GrokkingTheCodingInterview/CyclicSort/_1__find_the_missing_number__easy.py
+    - pytudes/leetcode/easy/_268__missing_number.py
+
 """
 
 
@@ -50,6 +51,7 @@ def find_missing_number(arr: list[int]) -> int:
 
 def find_missing_number_code_golf(arr: list[int]) -> int:
     """
+
     Since XOR is commutative and associative,
     use a single variable to reduce XORs
 
@@ -59,6 +61,7 @@ def find_missing_number_code_golf(arr: list[int]) -> int:
         Space: O(1)
 
     Returns:
+
     Examples:
         >>> find_missing_number_code_golf([1, 5, 2, 6, 4])
         3

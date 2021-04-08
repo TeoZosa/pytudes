@@ -1,12 +1,11 @@
 """https://leetcode.com/problems/binary-tree-level-order-traversal/
 
+Examples:
+    >>> Solution().levelOrder(binary_tree.build_tree([1,None,2]))
+    [[1], [2]]
 
-    Examples:
-        >>> Solution().levelOrder(binary_tree.build_tree([1,None,2]))
-        [[1], [2]]
-
-    See Also:
-        pytudes/educative/GrokkingTheCodingInterview/TreeBFS/_1_binary_tree_level_order_traversal__easy.py
+See Also:
+    - pytudes/educative/GrokkingTheCodingInterview/TreeBFS/_1_binary_tree_level_order_traversal__easy.py
 
 """
 from collections import deque
@@ -34,6 +33,7 @@ class Solution:
 
 def level_order(root: TreeNodeType) -> list[list[int]]:
     """
+
     Args:
         root: TreeNode root of a binary tree
 

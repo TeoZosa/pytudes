@@ -1,13 +1,14 @@
 """https://leetcode.com/problems/sum-of-two-integers/
 
-    Examples:
-        >>> Solution().getSum(1,1)
-        2
+Categories:
+    - Binary
+    - Bit Manipulation
+    - Blind 75
 
-    Categories:
-        Binary
-        Bit Manipulation
-        Blind 75
+
+Examples:
+    >>> Solution().getSum(1,1)
+    2
 
 """
 
@@ -23,6 +24,10 @@ def get_sum(num1: int, num2: int) -> int:
     Note: in 2's complement arithmetic,
       summation rules work the same for positive and negative numbers
       <=> num1 - num2 is `get_sum(num1, -num2)`
+
+    Args:
+        num1:
+        num2:
 
     Returns: sum of input integers
 

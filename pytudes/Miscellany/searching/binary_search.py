@@ -30,17 +30,17 @@ Note:
 
     BUT in Python INTEGERS DO NOT TYPICALLY OVERFLOW;
     from https://docs.python.org/3/library/exceptions.html#OverflowError:
-    ```
-    exception OverflowError
-        Raised when the result of an arithmetic operation is too large to be represented.
-        This cannot occur for integers
-        (which would rather raise MemoryError than give up).
-        However, for historical reasons,
-        OverflowError is sometimes raised for integers that are outside a required range.
-        Because of the lack of standardization of floating point exception handling in C,
-        most floating point operations are not checked.
+        ```
+        exception OverflowError
+            Raised when the result of an arithmetic operation is too large to be represented.
+            This cannot occur for integers
+            (which would rather raise MemoryError than give up).
+            However, for historical reasons,
+            OverflowError is sometimes raised for integers that are outside a required range.
+            Because of the lack of standardization of floating point exception handling in C,
+            most floating point operations are not checked.
 
-    ```
+        ```
 """
 
 
@@ -52,6 +52,7 @@ def binary_search(items: list, val) -> int:
         val:
 
     Returns: index of val being searched if val is in items, else -1
+
     Examples:
         >>> binary_search([0,1,2,3,4,5], val = 6)
         -1
@@ -63,6 +64,7 @@ def binary_search(items: list, val) -> int:
         3
         >>> binary_search([0,1,2,2,3,4,5], val = 0)
         0
+
     """
     start, end = 0, len(items) - 1
     while start <= end:
@@ -85,6 +87,7 @@ def binary_search_recursive(items: list, val) -> int:
         val:
 
     Returns:
+
     Examples:
         >>> binary_search_recursive([0,1,2,3,4,5], val = 6)
         -1
@@ -96,6 +99,7 @@ def binary_search_recursive(items: list, val) -> int:
         3
         >>> binary_search_recursive([0,1,2,2,3,4,5], val = 0)
         0
+
     """
     return _binary_search_recursive(items, 0, len(items) - 1, val)
 

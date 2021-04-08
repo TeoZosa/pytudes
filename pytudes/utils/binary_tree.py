@@ -1,8 +1,8 @@
 """
 
-    See Also:
-        pytudes/educative/GrokkingTheCodingInterview/TreeBFS/_1_binary_tree_level_order_traversal__easy.py
-        pytudes/leetcode/easy/_104__maximum_depth_of_binary_tree.py
+See Also:
+    - pytudes/educative/GrokkingTheCodingInterview/TreeBFS/_1_binary_tree_level_order_traversal__easy.py
+    - pytudes/leetcode/easy/_104__maximum_depth_of_binary_tree.py
 
 """
 
@@ -23,6 +23,7 @@ TreeNodeType = Optional[TreeNode]
 
 def build_tree(arr: list[int], is_1_indexed=False) -> TreeNodeType:
     """Builds a TreeNode binary tree from the values in arr
+
     Assumes the values in arr are ordered as a binary tree
 
     If `arr` is 0-indexed, internally pads `arr` to be 1-indexed for easier
@@ -118,6 +119,7 @@ def get_child_idx_right(index: int) -> int:
         index: index of the binary tree element in an array representation
 
     Returns: the right-child index of the binary tree element
+
     Examples:
         >>> arr = [None,3,9,20,None,None,15,7]
         >>> arr[get_child_idx_right(1)] # 3
