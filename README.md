@@ -11,6 +11,8 @@ pytudes
 
 ---
 
+**Documentation**: [https://pytudes.readthedocs.io](https://pytudes.readthedocs.io)
+
 **Source Code**: [https://github.com/TeoZosa/pytudes](https://github.com/TeoZosa/pytudes)
 
 ---

@@ -61,7 +61,7 @@ ifeq ($(shell command -v poetry),)
 	false
 else
 	poetry update --lock -v
-	poetry install -v
+	poetry install --extras docs -v
 endif
 
 .PHONY: install-pre-commit-hooks
@@ -135,6 +135,15 @@ pre-commit-%: export SKIP= # Reset `SKIP` env var to force single hooks to alway
 pre-commit-%:
 	$(MAKE) pre-commit PRECOMMIT_HOOK_ID=$*
 
+.PHONY: docs-%
+## Build documentation in the format specified after `-`
+## e.g.,
+## `make docs-html` builds the docs in HTML format,
+## `make docs-confluence` builds and publishes the docs on confluence (see `docs/source/conf.py` for details),
+## `make docs-clean` cleans the docs build directory
+docs-%:
+	$(MAKE) $* -C docs
+
 .PHONY: update-dependencies
 ## Install Python dependencies,
 ## updating packages in `poetry.lock` with any newer versions specified in
@@ -142,14 +151,15 @@ pre-commit-%:
 update-dependencies:
 	poetry update --lock
 ifneq (${CI}, true)
-	poetry install
+	poetry install --extras docs
 endif
 
 .PHONY: generate-requirements
 ## Generate project requirements files from `pyproject.toml`
 generate-requirements:
 	poetry export -f requirements.txt --without-hashes > requirements.txt # subset
-	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset
+	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset w/o docs
+	poetry export --extras docs --dev -f requirements.txt --without-hashes > requirements-all.txt # superset
 
 .PHONY: clean-requirements
 ## clean generated project requirements files
