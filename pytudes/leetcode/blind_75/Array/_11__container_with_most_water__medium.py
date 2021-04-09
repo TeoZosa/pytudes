@@ -1,9 +1,5 @@
 """ https://leetcode.com/problems/container-with-most-water
 
-Categories:
-    - Array
-    - Blind 75
-
 Examples:
     >>> Solution().maxArea([])
     0
@@ -47,8 +43,8 @@ def compute_max_area(heights: list[int]) -> int:
         >>> compute_max_area(heights=[1])
         0
         >>> compute_max_area(heights=[])
-
         0
+
     """
     ## EDGE CASES ##
     if not heights:

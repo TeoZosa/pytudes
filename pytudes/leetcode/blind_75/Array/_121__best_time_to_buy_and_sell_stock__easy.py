@@ -1,9 +1,5 @@
 """https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-Categories:
-    - Array
-    - Blind 75
-
 Examples:
     >>> Solution().maxProfit([50, 30, 32, 24, 30, 40])
     16

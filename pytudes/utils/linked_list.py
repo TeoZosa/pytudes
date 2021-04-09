@@ -15,15 +15,15 @@ class Node:
 
     """
 
-    def __init__(self, value: Any, nxt: "NodeType" = None):
+    def __init__(self, value: Any, next: "NodeType" = None):
         self.value = value
-        self.nxt = nxt
+        self.next = next
 
     def __iter__(self):
         curr = self
         while curr is not None:
             yield curr
-            curr = curr.nxt
+            curr = curr.next
 
     def as_list(self):
         return [node.value for node in self]
@@ -60,8 +60,8 @@ def convert_list_to_linked_list(arr: list[Any], recursive=False) -> NodeType:
         first, rest = arr[0], arr[1:]
         head = curr = Node(first)
         for val in rest:
-            curr.nxt = Node(val)
-            curr = curr.nxt
+            curr.next = Node(val)
+            curr = curr.next
         return head
 
     def convert_list_to_linked_list_recursive(arr: list[Any]) -> NodeType:
@@ -69,7 +69,7 @@ def convert_list_to_linked_list(arr: list[Any], recursive=False) -> NodeType:
             return None
         first, rest = arr[0], arr[1:]
         head = Node(first)
-        head.nxt = convert_list_to_linked_list_recursive(rest)
+        head.next = convert_list_to_linked_list_recursive(rest)
         return head
 
     return (

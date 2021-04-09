@@ -4,9 +4,6 @@ Categories:
     - Linked List
     - Blind 75
 
-See Also:
-    - https://leetcode.com/problems/linked-list-cycle/
-
 """
 
 from pytudes.utils.linked_list import NodeType, convert_list_to_linked_list
@@ -53,7 +50,7 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     ## FIND sublist 1 & 2 ##
     curr, prev = head, None
     while curr is not None and curr_pos < start_pos:
-        prev, curr = curr, curr.nxt
+        prev, curr = curr, curr.next
         curr_pos += 1
     s2_head, s1_tail = curr, prev
 
@@ -63,15 +60,15 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     ## REVERSE sublist2 ##
     curr, prev = s2_head, None
     while curr is not None and start_pos <= curr_pos <= end_pos:
-        curr.nxt, prev, curr = prev, curr, curr.nxt  # reverse node
+        curr.next, prev, curr = prev, curr, curr.next  # reverse node
         curr_pos += 1
     # POST-CONDITION: list size < end_pos XOR end_pos < curr_pos
     s3_head, s2_reversed_head = curr, prev
     s2_reversed_tail = s2_head  # Readable alias
 
     ## RE-LINK sublists ##
-    s1_tail.nxt = s2_reversed_head
-    s2_reversed_tail.nxt = s3_head
+    s1_tail.next = s2_reversed_head
+    s2_reversed_tail.next = s3_head
 
     return head
 

@@ -6,11 +6,6 @@ Constraints:
 Follow up: If this function is called many times, how would you optimize it?
     Answer: DP table as cache (see below)
 
-Categories:
-    - Binary
-    - Bit Manipulation
-    - Blind 75
-
 Examples:
     >>> Solution().hammingWeight(0)
     0
@@ -22,7 +17,7 @@ Examples:
     31
 
 See Also:
-    - pytudes/leetcode/medium/_338__counting_bits.py
+    - pytudes/leetcode/medium/_338__counting_bits__medium.py
 
 """
 

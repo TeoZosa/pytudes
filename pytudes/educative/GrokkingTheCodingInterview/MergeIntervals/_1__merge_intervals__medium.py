@@ -5,7 +5,7 @@ Categories:
     - Interval
 
 See Also:
-    - https://leetcode.com/problems/merge-intervals/
+    - pytudes/leetcode/blind_75/Interval/_56__merge_intervals__medium.py
 
 """
 
@@ -43,6 +43,10 @@ def merge(intervals: list[Interval]) -> list[Interval]:
         ... intervals=[Interval(1, 4), Interval(2, 6),Interval(3, 5)])
         ... ]
         [[1, 6]]
+        >>> [i.as_list() for i in merge(
+        ... intervals=[Interval(1, 4)])
+        ... ]
+        [[1, 4]]
 
     """
     ## EDGE CASES ##

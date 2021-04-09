@@ -5,7 +5,7 @@ Categories:
     - Blind 75
 
 See Also:
-   - https://leetcode.com/problems/reverse-linked-list/
+   - pytudes/leetcode/blind_75/LinkedList/_2106__reverse_linked_list__easy.py
 
 """
 
@@ -59,7 +59,7 @@ def reverse_iterative(curr: NodeType, prev: NodeType = None) -> NodeType:
     """
     while curr is not None:  # if not curr: return prev
         # reverse curr.next link, update prev & curr ptrs
-        curr.nxt, prev, curr = prev, curr, curr.nxt  # do reversal
+        curr.next, prev, curr = prev, curr, curr.next  # do reversal
     return prev
 
 
@@ -85,7 +85,7 @@ def reverse_recursive(curr: NodeType, prev: NodeType = None) -> NodeType:
     if not curr:
         return prev
     # reverse next link, update prev & curr ptrs
-    curr.nxt, prev, curr = prev, curr, curr.nxt  # do reversal at curr node
+    curr.next, prev, curr = prev, curr, curr.next  # do reversal at curr node
     return reverse_recursive(curr, prev)
 
 
@@ -110,10 +110,10 @@ def reverse_iterative_with_temp(head: NodeType) -> NodeType:
 
     curr, prev = head, None
     while curr is not None:
-        ## temp nxt var
-        nxt = curr.nxt
+        ## temp next var
+        nxt = curr.next
         ## reverse curr.next link
-        curr.nxt = prev
+        curr.next = prev
         ## update prev & curr ptrs
         prev, curr = curr, nxt
     return prev

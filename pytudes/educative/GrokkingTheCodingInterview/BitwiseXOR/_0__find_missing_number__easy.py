@@ -7,7 +7,7 @@ Categories:
 
 See Also:
     - pytudes/educative/GrokkingTheCodingInterview/CyclicSort/_1__find_the_missing_number__easy.py
-    - pytudes/leetcode/easy/_268__missing_number.py
+    - pytudes/leetcode/blind_75/Binary/_268__missing_number__easy.py
 
 """
 

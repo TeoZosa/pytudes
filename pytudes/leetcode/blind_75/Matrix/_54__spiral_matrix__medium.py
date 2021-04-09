@@ -1,9 +1,5 @@
 """https://leetcode.com/problems/spiral-matrix/
 
-Categories:
-    - Blind 75
-    - Matrix
-
 Examples:
     >>> Solution().spiralOrder([
     ... [1,2,3],

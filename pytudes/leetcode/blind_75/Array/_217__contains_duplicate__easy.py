@@ -1,9 +1,5 @@
 """https://leetcode.com/problems/contains-duplicate/
 
-Categories:
-    - Array
-    - Blind 75
-
 Examples:
     >>> Solution().containsDuplicate([1,2,3])
     False

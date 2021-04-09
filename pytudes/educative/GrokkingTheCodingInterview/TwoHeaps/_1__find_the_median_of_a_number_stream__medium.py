@@ -1,11 +1,7 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4
 
-Categories:
-    - Blind 75
-    - Heap
-
 See Also:
-    - https://leetcode.com/problems/find-median-from-data-stream/
+    - pytudes/leetcode/blind_75/Heap/_295__find_median_from_data_stream__hard.py
 
 """
 import heapq
@@ -79,8 +75,13 @@ class NumberStreamTrackingMedian:
 
     def insert_num(self, num: int) -> None:
         """
+
+        Args:
+            num:
+
         Complexity:
                 Time: O(logn)
+
         """
         ## PUSH to correct HEAP ##
         # O(logn) push
@@ -98,10 +99,35 @@ class NumberStreamTrackingMedian:
 
     def find_median(self) -> float:
         """
-        Returns: Median of number stream
+
         Complexity:
                 Time: O(1)
+
+        Returns: Median of number stream
+
+        Raises:
+            RuntimeError: if there are no numbers stored in the MedianFinder object or if
+            RuntimeError: if the heaps have invalid sizes
+
+        Examples:
+            >>> num_stream = NumberStreamTrackingMedian()
+            >>> num_stream.find_median()
+            Traceback (most recent call last):
+            ...
+            RuntimeError
+            >>> num_stream._max_heap.push(0)
+            >>> num_stream._max_heap.push(0)
+            >>> num_stream.find_median()
+            Traceback (most recent call last):
+            ...
+            RuntimeError: INVARIANT BROKEN:
+            Heaps have invalid sizes;
+            Were they modified manually??
+
         """
+        if len(self._max_heap) == 0:
+            raise RuntimeError
+
         if len(self._max_heap) - 1 == len(self._min_heap):  # odd
             return float(self._max_heap.peek())
         elif len(self._max_heap) == len(self._min_heap):  # even

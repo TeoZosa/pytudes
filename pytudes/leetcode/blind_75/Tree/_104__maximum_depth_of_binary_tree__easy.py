@@ -1,9 +1,5 @@
 """https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
-Categories:
-    - Tree
-    - Blind 75
-
 Examples:
     >>> Solution().maxDepth(None)
     0

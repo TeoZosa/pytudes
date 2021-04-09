@@ -1,11 +1,5 @@
 """https://leetcode.com/problems/sum-of-two-integers/
 
-Categories:
-    - Binary
-    - Bit Manipulation
-    - Blind 75
-
-
 Examples:
     >>> Solution().getSum(1,1)
     2

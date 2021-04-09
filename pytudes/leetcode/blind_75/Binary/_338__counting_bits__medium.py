@@ -1,9 +1,6 @@
 """https://leetcode.com/problems/counting-bits/
 
 Categories:
-    - Binary
-    - Bit Manipulation
-    - Blind 75
     - Dynamic Programming (DP)
 
 Examples:
@@ -13,7 +10,7 @@ Examples:
     [0, 1, 1, 2, 1, 2]
 
 See Also:
-    - pytudes/leetcode/easy/_191__number_of_1_bits.py
+    - pytudes/leetcode/blind_75/Binary/_191__number_of_1_bits__easy.py
 
 """
 

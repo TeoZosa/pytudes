@@ -6,7 +6,7 @@ Categories:
     - Blind 75
 
 See Also:
-    - https://leetcode.com/problems/linked-list-cycle/
+    - pytudes/leetcode/blind_75/LinkedList/_141__linked_list_cycle__easy.py
 
 """
 
@@ -26,24 +26,24 @@ def has_cycle(head: NodeType) -> bool:
         >>> has_cycle(None)
         False
         >>> head = Node("self-edge")
-        >>> head.nxt = head
+        >>> head.next = head
         >>> has_cycle(head)
         True
         >>> head = convert_list_to_linked_list([1,2,3,4,5,6])
         >>> has_cycle(head)
         False
-        >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt
+        >>> head.next.next.next.next.next.next = head.next.next
         >>> has_cycle(head)
         True
-        >>> head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt.nxt
+        >>> head.next.next.next.next.next.next = head.next.next.next
         >>> has_cycle(head)
         True
 
     """
     slow = fast = head
-    while fast is not None and fast.nxt is not None:  # since fast ≥ slow
-        slow = slow.nxt
-        fast = fast.nxt.nxt
+    while fast is not None and fast.next is not None:  # since fast ≥ slow
+        slow = slow.next
+        fast = fast.next.next
         if slow == fast:
             return True  # found the cycle
     else:
@@ -54,10 +54,10 @@ def main():
     head = convert_list_to_linked_list([1, 2, 3, 4, 5, 6])
     print("LinkedList has cycle: " + str(has_cycle(head)))
 
-    head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt
+    head.next.next.next.next.next.next = head.next.next
     print("LinkedList has cycle: " + str(has_cycle(head)))
 
-    head.nxt.nxt.nxt.nxt.nxt.nxt = head.nxt.nxt.nxt
+    head.next.next.next.next.next.next = head.next.next.next
     print("LinkedList has cycle: " + str(has_cycle(head)))
 
 

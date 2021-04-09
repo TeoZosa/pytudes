@@ -1,10 +1,5 @@
 """https://leetcode.com/problems/missing-number/
 
-Categories:
-    - Binary
-    - Bit Manipulation
-    - Blind 75
-
 Examples:
     >>> Solution().missingNumber([])
     0

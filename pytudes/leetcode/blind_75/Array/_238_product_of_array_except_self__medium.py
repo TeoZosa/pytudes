@@ -1,9 +1,5 @@
 """https://leetcode.com/problems/product-of-array-except-self/
 
-Categories:
-    - Array
-    - Blind 75
-
 Examples:
     >>> Solution().productExceptSelf([])
     []

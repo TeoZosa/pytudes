@@ -2,7 +2,7 @@
 
 See Also:
     - pytudes/educative/GrokkingTheCodingInterview/TreeBFS/_1_binary_tree_level_order_traversal__easy.py
-    - pytudes/leetcode/easy/_104__maximum_depth_of_binary_tree.py
+    - pytudes/leetcode/blind_75/Tree/_104__maximum_depth_of_binary_tree__easy.py
 
 """
 
