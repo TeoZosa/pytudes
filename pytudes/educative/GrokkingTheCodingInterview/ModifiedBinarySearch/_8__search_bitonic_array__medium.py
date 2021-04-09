@@ -21,7 +21,7 @@ def search_bitonic_array(arr: list[int], val: int) -> int:
     Returns: an index of `val` in bitonic array `arr` if val is in `arr`, else -1
         Note: index not guaranteed to be distinct
 
-    Raises: ValueError if the array is not strictly increasing/decreasing
+    Raises: ValueError if the array is not strictly increasing/decreasing (NOT guaranteed to be detected)
 
     Examples:
         >>> search_bitonic_array([1, 3, 8, 4, 3], 4) # Bitonic
@@ -32,6 +32,14 @@ def search_bitonic_array(arr: list[int], val: int) -> int:
         3
         >>> search_bitonic_array([10, 9, 8], 10) # Strictly decreasing (Bitonic w/ no increasing range)
         0
+        >>> search_bitonic_array([], 0)
+        Traceback (most recent call last):
+        ...
+        ValueError
+        >>> search_bitonic_array([1,2,3,3,2,1], 3)
+        Traceback (most recent call last):
+        ...
+        ValueError: Input NOT Bitonic: adjacent duplicates detected
 
     """
     ## EDGE CASES ##
@@ -64,7 +72,7 @@ def find_max_idx_in_bitonic_array(arr: list[int]) -> int:
         elif arr[mid] < arr[mid + 1]:  # INCREASING <=> RIGHT
             start = mid + 1
         else:
-            raise ValueError("Input NOT Bitonic: duplicates detected")
+            raise ValueError("Input NOT Bitonic: adjacent duplicates detected")
     # arr[start] is peak
     #   since start is only updated if new start is greater than mid
     return start

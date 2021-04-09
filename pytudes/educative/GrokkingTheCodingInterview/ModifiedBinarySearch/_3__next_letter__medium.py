@@ -33,6 +33,9 @@ def search_next_letter(letters: list[str], val: str) -> str:
 
     Returns: the immediate successor letter of val
 
+    Raises:
+        ValueError: if `letters` is empty
+
     Examples:
         >>> search_next_letter(['a', 'c', 'f', 'h'],'f')
         'h'
@@ -42,6 +45,10 @@ def search_next_letter(letters: list[str], val: str) -> str:
         'a'
         >>> search_next_letter(['a', 'c', 'f', 'f', 'h'],'f')
         'h'
+        >>> search_next_letter([],'f')
+        Traceback (most recent call last):
+        ...
+        ValueError
 
     """
 

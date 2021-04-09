@@ -3,7 +3,7 @@
 """
 
 
-def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
+def smallest_subarray_with_given_sum(arr: list[int], target_sum: int) -> int:
     """
 
     Args:
@@ -14,12 +14,14 @@ def smallest_subarray_with_given_sum(target_sum: int, arr: list[int]) -> int:
         LENGTH of smallest subarray with window_sum ≥ target_sum
 
     Examples:
-        >>> smallest_subarray_with_given_sum(7, [2, 1, 5, 2, 3, 2])
+        >>> smallest_subarray_with_given_sum([2, 1, 5, 2, 3, 2],7)
         2
-        >>> smallest_subarray_with_given_sum(8, [2, 1, 5, 2, 8])
+        >>> smallest_subarray_with_given_sum([2, 1, 5, 2, 8],8)
         1
-        >>> smallest_subarray_with_given_sum(8, [3, 4, 1, 1, 6])
+        >>> smallest_subarray_with_given_sum([3, 4, 1, 1, 6],8)
         3
+        >>> smallest_subarray_with_given_sum([],8)
+        0
 
     """
 

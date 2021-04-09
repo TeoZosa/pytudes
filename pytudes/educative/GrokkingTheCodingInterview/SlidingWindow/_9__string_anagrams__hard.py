@@ -33,6 +33,12 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
         ['bca', 'cab', 'abc']
         >>> find_string_anagrams("aaaa", "a")
         ['a', 'a', 'a', 'a']
+        >>> find_string_anagrams("`not pattern`", "")
+        []
+        >>> find_string_anagrams("", "`not `input_str`")
+        []
+        >>> find_string_anagrams("a", "`len(pattern) > len(input_str)`")
+        []
 
     """
 

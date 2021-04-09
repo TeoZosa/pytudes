@@ -21,6 +21,8 @@ def find_k_largest_numbers(nums: list[int], k: int) -> list[int]:
         [5, 12, 11]
         >>> find_k_largest_numbers([5, 12, 11, -1, 12], 3)
         [11, 12, 12]
+        >>> find_k_largest_numbers([], 3)
+        []
 
     """
     ## EDGE CASES ##

@@ -33,6 +33,9 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
         >>> head = _reverse_sub_list(head,10,15)
         >>> head.as_list()
         [1, 2, 3, 4, 5]
+        >>> assert (_reverse_sub_list(None,0,0) is None)
+        >>> assert (head == _reverse_sub_list(head,0,1))
+        >>> assert (head == _reverse_sub_list(head,1,1))
 
     """
     ## EDGE CASES ##
@@ -71,13 +74,3 @@ def _reverse_sub_list(head: NodeType, start_pos: int, end_pos: int) -> NodeType:
     s2_reversed_tail.next = s3_head
 
     return head
-
-
-def main():
-    head = convert_list_to_linked_list([1, 2, 3, 4, 5])
-    orig_vals = head.as_list()
-    print(f"{orig_vals=}")
-
-    head = _reverse_sub_list(head, 2, 4)  # Update local head ptr
-    reversed_vals = head.as_list()
-    print(f"{reversed_vals=}")

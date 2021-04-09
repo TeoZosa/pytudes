@@ -20,7 +20,7 @@ def find_max_in_bitonic_array(arr: list[int]) -> int:
 
     Returns: the maximum value in bitonic array `arr`
 
-    Raises: ValueError if the array is not strictly increasing/decreasing
+    Raises: ValueError if the array is not strictly increasing/decreasing (NOT guaranteed to be detected)
 
     Examples:
         >>> find_max_in_bitonic_array([1, 3, 8, 12, 4, 2]) # Bitonic
@@ -31,6 +31,14 @@ def find_max_in_bitonic_array(arr: list[int]) -> int:
         12
         >>> find_max_in_bitonic_array([10, 9, 8]) # Strictly decreasing (Bitonic w/ no increasing range)
         10
+        >>> find_max_in_bitonic_array([])
+        Traceback (most recent call last):
+        ...
+        ValueError
+        >>> find_max_in_bitonic_array([1,2,3,3,2,1])
+        Traceback (most recent call last):
+        ...
+        ValueError: Input NOT Bitonic: adjacent duplicates detected
 
     """
     ## EDGE CASES ##
@@ -45,7 +53,7 @@ def find_max_in_bitonic_array(arr: list[int]) -> int:
         elif arr[mid] < arr[mid + 1]:  # INCREASING <=> RIGHT
             start = mid + 1
         else:
-            raise ValueError("Input NOT Bitonic: duplicates detected")
+            raise ValueError("Input NOT Bitonic: adjacent duplicates detected")
     # arr[start] is peak
     #   since start is only updated if new start is greater than mid
     return arr[start]

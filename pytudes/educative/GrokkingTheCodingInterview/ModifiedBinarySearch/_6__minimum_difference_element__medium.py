@@ -25,6 +25,8 @@ def search_min_diff_element(arr: list[int], val: int) -> int:
         10
         >>> search_min_diff_element([4, 6, 10],17)
         10
+        >>> search_min_diff_element([1],0)
+        1
 
     """
     ## EDGE CASES ##

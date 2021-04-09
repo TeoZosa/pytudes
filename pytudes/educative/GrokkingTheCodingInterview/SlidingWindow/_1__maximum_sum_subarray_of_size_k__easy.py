@@ -3,14 +3,18 @@
 """
 
 
-def max_sum_sub_array_of_size_k(K: int, arr: list[int]) -> int:
+def max_sum_sub_array_of_size_k(arr: list[int], K: int) -> int:
     """
 
     Examples:
-        >>> max_sum_sub_array_of_size_k(3,[2, 1, 5, 1, 3, 2])
+        >>> max_sum_sub_array_of_size_k([2, 1, 5, 1, 3, 2],3)
         9
-        >>> max_sum_sub_array_of_size_k(2,[2, 3, 4, 1, 5])
+        >>> max_sum_sub_array_of_size_k([2, 3, 4, 1, 5],2)
         7
+        >>> max_sum_sub_array_of_size_k([],2)
+        0
+        >>> max_sum_sub_array_of_size_k([1],0)
+        0
 
     """
     ## EDGE CASES ##

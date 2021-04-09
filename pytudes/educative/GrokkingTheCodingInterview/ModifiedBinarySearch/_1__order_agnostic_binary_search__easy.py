@@ -25,6 +25,10 @@ def binary_search(arr: list[int], val: int) -> int:
         0
         >>> binary_search([10, 6, 4],4)
         2
+        >>> binary_search([],0)
+        -1
+        >>> binary_search([1],0)
+        -1
 
     """
     ## EDGE CASES ##
@@ -50,47 +54,48 @@ def binary_search(arr: list[int], val: int) -> int:
         return -1  # element not found
 
 
-def binary_search_orig(arr: list[int], val: int) -> int:
-    """
-
-    Args:
-        arr:
-        val:
-
-    Returns:
-
-    Examples:
-        >>> binary_search_orig([4, 6, 10],10)
-        2
-        >>> binary_search_orig([1, 2, 3, 4, 5, 6, 7],5)
-        4
-        >>> binary_search_orig([10, 6, 4],10)
-        0
-        >>> binary_search_orig([10, 6, 4],4)
-        2
-
-    """
-    start, end = 0, len(arr) - 1
-    isAscending = arr[start] < arr[end]
-
-    while start <= end:
-        # calculate the middle of the current range
-        mid = (start + end) // 2
-
-        if val == arr[mid]:
-            return mid
-
-        if isAscending:  # ascending order
-            if val < arr[mid]:
-                end = mid - 1  # the 'key' can be in the first half
-            elif val > arr[mid]:
-                start = mid + 1  # the 'key' can be in the second half
-            else:  # key > arr[mid]
-                return mid
-        else:  # descending order
-            if val > arr[mid]:
-                end = mid - 1  # the 'key' can be in the first half
-            else:  # key < arr[mid]
-                start = mid + 1  # the 'key' can be in the second half
-
-    return -1  # element not found
+#
+# def binary_search_orig(arr: list[int], val: int) -> int:
+#     """
+#
+#     Args:
+#         arr:
+#         val:
+#
+#     Returns:
+#
+#     Examples:
+#         >>> binary_search_orig([4, 6, 10],10)
+#         2
+#         >>> binary_search_orig([1, 2, 3, 4, 5, 6, 7],5)
+#         4
+#         >>> binary_search_orig([10, 6, 4],10)
+#         0
+#         >>> binary_search_orig([10, 6, 4],4)
+#         2
+#
+#     """
+#     start, end = 0, len(arr) - 1
+#     isAscending = arr[start] < arr[end]
+#
+#     while start <= end:
+#         # calculate the middle of the current range
+#         mid = (start + end) // 2
+#
+#         if val == arr[mid]:
+#             return mid
+#
+#         if isAscending:  # ascending order
+#             if val < arr[mid]:
+#                 end = mid - 1  # the 'key' can be in the first half
+#             elif val > arr[mid]:
+#                 start = mid + 1  # the 'key' can be in the second half
+#             else:  # key > arr[mid]
+#                 return mid
+#         else:  # descending order
+#             if val > arr[mid]:
+#                 end = mid - 1  # the 'key' can be in the first half
+#             else:  # key < arr[mid]
+#                 start = mid + 1  # the 'key' can be in the second half
+#
+#     return -1  # element not found

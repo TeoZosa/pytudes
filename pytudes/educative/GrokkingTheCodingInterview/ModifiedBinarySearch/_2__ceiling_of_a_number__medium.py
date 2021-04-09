@@ -29,10 +29,12 @@ def search_ceiling_of_a_number(arr: list[int], val: int) -> int:
         1
         >>> search_ceiling_of_a_number([1, 3, 8, 10, 15], 12)
         4
-        >>> search_ceiling_of_a_number([4, 6, 10], 17)
-        -1
         >>> search_ceiling_of_a_number([4, 6, 10], -1)
         0
+        >>> search_ceiling_of_a_number([], 1)
+        -1
+        >>> search_ceiling_of_a_number([4, 6, 10], 17)
+        -1
 
     """
     ## EDGE CASES ##

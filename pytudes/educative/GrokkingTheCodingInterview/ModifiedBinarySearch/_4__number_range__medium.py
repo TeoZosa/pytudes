@@ -25,6 +25,8 @@ def find_range(arr: list[int], val: int) -> list[int]:
         [3, 3]
         >>> find_range([1, 3, 8, 10, 15], 12)
         [-1, -1]
+        >>> find_range([], 12)
+        [-1, -1]
 
     """
 
@@ -63,24 +65,25 @@ def find_range(arr: list[int], val: int) -> list[int]:
     return [first_pos, last_pos]
 
 
-# modified Binary Search
-def binary_search_orig(arr: list[int], val: int, find_max_index: bool) -> int:
-    ## INITIALIZE VARS ##
-    keyIndex = -1
-    start, end = 0, len(arr) - 1
-
-    ## BINARY SEARCH ##
-    while start <= end:
-        mid = (start + end) // 2
-        if val < arr[mid]:
-            end = mid - 1
-        elif val > arr[mid]:
-            start = mid + 1
-        else:  # key == arr[mid]
-            keyIndex = mid
-            if find_max_index:
-                start = mid + 1  # search ahead to find the last index of 'key'
-            else:
-                end = mid - 1  # search behind to find the first index of 'key'
-
-    return keyIndex
+#
+# # modified Binary Search
+# def binary_search_orig(arr: list[int], val: int, find_max_index: bool) -> int:
+#     ## INITIALIZE VARS ##
+#     keyIndex = -1
+#     start, end = 0, len(arr) - 1
+#
+#     ## BINARY SEARCH ##
+#     while start <= end:
+#         mid = (start + end) // 2
+#         if val < arr[mid]:
+#             end = mid - 1
+#         elif val > arr[mid]:
+#             start = mid + 1
+#         else:  # key == arr[mid]
+#             keyIndex = mid
+#             if find_max_index:
+#                 start = mid + 1  # search ahead to find the last index of 'key'
+#             else:
+#                 end = mid - 1  # search behind to find the first index of 'key'
+#
+#     return keyIndex

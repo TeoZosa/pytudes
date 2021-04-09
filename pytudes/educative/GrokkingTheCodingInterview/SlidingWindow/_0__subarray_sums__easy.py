@@ -3,19 +3,23 @@
 """
 
 
-def find_averages_of_subarrays_pythonic(K: int, arr: list[int]) -> list[float]:
+def find_averages_of_subarrays_pythonic(arr: list[int], K: int) -> list[float]:
     """
 
     Args:
-        K: subarray (window) size
         arr: input array
+        K: subarray (window) size
 
     Returns:
         average of all K-length subarrays
 
     Examples:
-        >>> find_averages_of_subarrays_pythonic(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])
+        >>> find_averages_of_subarrays_pythonic([1, 3, 2, 6, -1, 4, 1, 8, 2],5)
         [2.2, 2.8, 2.4, 3.6, 2.8]
+        >>> find_averages_of_subarrays_pythonic([],5)
+        []
+        >>> find_averages_of_subarrays_pythonic([1],0)
+        []
 
     """
 
@@ -47,20 +51,24 @@ def find_averages_of_subarrays_pythonic(K: int, arr: list[int]) -> list[float]:
     return res
 
 
-def find_averages_of_subarrays(target_window_size: int, arr: list[int]) -> list[float]:
+def find_averages_of_subarrays(arr: list[int], target_window_size: int) -> list[float]:
     """
 
     Args:
-        target_window_size: subarray (window) size
         arr: input array
+        target_window_size: subarray (window) size
 
     Returns:
         average of all K-length subarrays
         i.e. of size len(arr)-K + 1
 
     Examples:
-        >>> find_averages_of_subarrays(5, [1, 3, 2, 6, -1, 4, 1, 8, 2])
+        >>> find_averages_of_subarrays([1, 3, 2, 6, -1, 4, 1, 8, 2],5)
         [2.2, 2.8, 2.4, 3.6, 2.8]
+        >>> find_averages_of_subarrays([],5)
+        []
+        >>> find_averages_of_subarrays([1],0)
+        []
 
     """
     ## EDGE CASES ##

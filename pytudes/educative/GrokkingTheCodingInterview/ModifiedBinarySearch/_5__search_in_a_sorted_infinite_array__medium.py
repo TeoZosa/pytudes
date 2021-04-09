@@ -49,6 +49,8 @@ def search_in_infinite_array(array_reader: ArrayReader, val: int) -> int:
         4
         >>> search_in_infinite_array(reader, 200)
         -1
+        >>> search_in_infinite_array(None, -1)
+        -1
 
     """
     ## EDGE CASES ##
