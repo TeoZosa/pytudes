@@ -15,12 +15,13 @@ class Solution:
 def max_profit_from_stock(prices: list[int]) -> int:
     """Computes the maximum possible profit from buying a single unit of stock and selling it at different day in the future
 
-    Args:
-        prices: a chronologically-ordered list of stock prices for a single stock
-
     Complexity:
         Time: O(n)
         Space: O(1)
+
+    Args:
+        prices: a chronologically-ordered list of stock prices for a single stock
+
     Examples:
         >>> max_profit_from_stock([])
         0
@@ -30,6 +31,9 @@ def max_profit_from_stock(prices: list[int]) -> int:
         5
         >>> max_profit_from_stock([50, 30, 32, 24, 30, 40])
         16
+        >>> max_profit_from_stock([6,0,-1,10])
+        11
+
     """
     ## EDGE CASES ##
     if not prices:
