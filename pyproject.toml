@@ -62,7 +62,7 @@ pylint = "^2.6.0"
 # Static type checker
 mypy = "^0.812"
 # Linting & formatting orchestrator
-pre-commit = "^2.9.3"
+pre-commit = "^2.12.1"
 
 # Documentation
 darglint = "^1.5.8"
