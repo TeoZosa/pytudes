@@ -15,8 +15,8 @@ class Node:
 
     """
 
-    def __init__(self, value: Any, next: "NodeType" = None):
-        self.value = value
+    def __init__(self, val: Any, next: "NodeType" = None):
+        self.val = val
         self.next = next
 
     def __iter__(self):
@@ -26,7 +26,7 @@ class Node:
             curr = curr.next
 
     def as_list(self):
-        return [node.value for node in self]
+        return [node.val for node in self]
 
 
 NodeType = Optional[Node]
