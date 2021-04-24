@@ -1,5 +1,11 @@
 """https://leetcode.com/problems/missing-number/
 
+Constraints:
+    - n == nums.length
+    - 1 ≤ n ≤ 104
+    - 0 ≤ nums[i] ≤ n
+    - All the numbers of nums are unique.
+
 Examples:
     >>> Solution().missingNumber([])
     0
