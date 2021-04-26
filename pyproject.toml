@@ -33,7 +33,7 @@ scipy = "^1.6.1"
 
 # Documentation
 importlib-metadata = "^3.10.0"
-myst-parser = { version = "^0.13.6", optional = true}
+myst-parser = { version = "^0.13.7", optional = true}
 pygments = { version = "^2.7.3", optional = true}
 python-dotenv = "^0.17.0"
 sphinx = { version = "^3.5.4", optional = true}
