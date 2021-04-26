@@ -5,7 +5,7 @@
 from typing import Any, Optional
 
 
-class Node:
+class ListNode:
     """
 
     Notes:
@@ -29,7 +29,7 @@ class Node:
         return [node.val for node in self]
 
 
-NodeType = Optional[Node]
+NodeType = Optional[ListNode]
 
 
 def convert_list_to_linked_list(arr: list[Any], recursive=False) -> NodeType:
@@ -58,9 +58,9 @@ def convert_list_to_linked_list(arr: list[Any], recursive=False) -> NodeType:
             return None
 
         first, rest = arr[0], arr[1:]
-        head = curr = Node(first)
+        head = curr = ListNode(first)
         for val in rest:
-            curr.next = Node(val)
+            curr.next = ListNode(val)
             curr = curr.next
         return head
 
@@ -68,7 +68,7 @@ def convert_list_to_linked_list(arr: list[Any], recursive=False) -> NodeType:
         if not arr:
             return None
         first, rest = arr[0], arr[1:]
-        head = Node(first)
+        head = ListNode(first)
         head.next = convert_list_to_linked_list_recursive(rest)
         return head
 

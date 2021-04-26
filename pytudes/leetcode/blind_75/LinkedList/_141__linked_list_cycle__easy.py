@@ -11,9 +11,9 @@ Examples:
     False
 
 """
-from pytudes.utils.linked_list import Node, convert_list_to_linked_list
+from pytudes.utils.linked_list import ListNode, convert_list_to_linked_list
 
-ListNode = Node
+ListNode = ListNode
 # Definition for singly-linked list.
 # class ListNode:
 #     def __init__(self, x: int):

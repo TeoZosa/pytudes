@@ -10,7 +10,7 @@ See Also:
 
 """
 
-from pytudes.utils.linked_list import Node, NodeType, convert_list_to_linked_list
+from pytudes.utils.linked_list import ListNode, NodeType, convert_list_to_linked_list
 
 
 def has_cycle(head: NodeType) -> bool:
@@ -25,7 +25,7 @@ def has_cycle(head: NodeType) -> bool:
     Examples:
         >>> has_cycle(None)
         False
-        >>> head = Node("self-edge")
+        >>> head = ListNode("self-edge")
         >>> head.next = head
         >>> has_cycle(head)
         True
