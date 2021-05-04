@@ -75,7 +75,7 @@ def two_sum_two_pointers(nums: list[int], target: int) -> list[int]:
         nums: sorted array of numbers
         target: value for which we are finding a two sum
 
-    Returns: 
+    Returns:
         distinct *1-indexed* indices of two numbers that add up to `target`
         where 1 ≤ answer[0] < answer[1] ≤ numbers.length.
 

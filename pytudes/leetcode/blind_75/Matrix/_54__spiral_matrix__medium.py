@@ -78,7 +78,7 @@ def left_rot_90(matrix: list[list[int]]) -> list[list[int]]:
         [4, 7]
 
     """
-    return transpose(matrix)[::-1] # Note: right_rot_90 =transpose(matrix[::-1])
+    return transpose(matrix)[::-1]  # Note: right_rot_90 =transpose(matrix[::-1])
 
 
 def transpose(matrix: list[list[int]]) -> list[list[int]]:
