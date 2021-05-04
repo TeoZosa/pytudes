@@ -10,8 +10,8 @@ Examples:
     [[-2, 2]]
 
 See Also:
-    - pytudes/Miscellany/sorting/dutch_nation_flag_problem.py
-    - pytudes/Miscellany/sorting/quicksort.py
+    - pytudes/miscellany/sorting/dutch_nation_flag_problem.py
+    - pytudes/miscellany/sorting/quicksort.py
 
 """
 

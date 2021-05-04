@@ -5,7 +5,7 @@ Examples:
     0
 
 See Also:
-    - pytudes/leetcode/blind_75/Array/_11__container_with_most_water__medium.py
+    - pytudes/leetcode/blind_75/array/_11__container_with_most_water__medium.py
 
 """
 
