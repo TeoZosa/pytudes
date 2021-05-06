@@ -12,6 +12,7 @@ See Also:
     - https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/
 
 """
+import functools
 
 
 class Solution:
@@ -105,12 +106,92 @@ def compute_edit_distance(word1: str, word2: str) -> int:
             insertion_distance = edit_distance[word1_char_num - 1][word2_char_num] + 1
             deletion_distance = edit_distance[word1_char_num][word2_char_num - 1] + 1
 
-            substition_distance = edit_distance[word1_char_num - 1][word2_char_num - 1]
+            substitution_distance = edit_distance[word1_char_num - 1][
+                word2_char_num - 1
+            ]
             if word2[word2_char_num - 1] != word1[word1_char_num - 1]:
-                substition_distance += 1
+                substitution_distance += 1
 
             edit_distance[word1_char_num][word2_char_num] = min(
-                insertion_distance, deletion_distance, substition_distance
+                insertion_distance, deletion_distance, substitution_distance
             )
 
     return edit_distance[len(word1)][len(word2)]
+
+
+def compute_edit_distance_cache(word1: str, word2: str) -> int:
+    """Returns the Levenshtein (edit) distance between two words
+
+    The edit distance is the minimum number of operations required to convert
+    word1 to word2.
+
+    Based on the observation that word transformation can be achieved via three
+    distinct character operations:
+        1. Insertion
+        2. Deletion
+        3. Substitution
+
+    Args:
+        word2:
+        word1:
+
+    Examples:
+        >>> compute_edit_distance_cache('','')
+        0
+        >>> compute_edit_distance_cache("a",'')
+        1
+        >>> compute_edit_distance_cache('',"a")
+        1
+        >>> compute_edit_distance_cache("abc",'')
+        3
+        >>> compute_edit_distance_cache('',"abc")
+        3
+        >>> compute_edit_distance_cache("islander","slander")
+        1
+        >>> compute_edit_distance_cache("mart","karma")
+        3
+        >>> compute_edit_distance_cache("kitten","sitting")
+        3
+        >>> compute_edit_distance_cache("ball","football")
+        4
+        >>> compute_edit_distance_cache("football","foot")
+        4
+
+        >>> compute_edit_distance_cache("horse","ros")
+        3
+        >>> # horse -> rorse (replace "h" with "r")
+        >>> # rorse -> rose (remove "r")
+        >>> # rose -> ros (remove "e")
+
+        >>> compute_edit_distance_cache("intention","execution")
+        5
+        >>> # intention -> inention (remove "t")
+        >>> # inention -> enention (replace "i" with "e")
+        >>> # enention -> exention (replace "n" with "x")
+        >>> # exention -> exection (replace "n" with "c")
+        >>> # exection -> execution (insert "u")
+
+    """
+    ## EDGE CASES ##
+    # if one or both strings are empty,
+    # edit distance is the length of the longer string
+    if min(len(word1), len(word2)) == 0:
+        return max(len(word1), len(word2))
+
+    @functools.lru_cache(maxsize=None)
+    def edit_distance(word1_char_num: int, word2_char_num: int) -> int:
+        if word1_char_num == 0:
+            return word2_char_num
+
+        if word2_char_num == 0:
+            return word1_char_num
+
+        insertion_distance = edit_distance(word1_char_num - 1, word2_char_num) + 1
+        deletion_distance = edit_distance(word1_char_num, word2_char_num - 1) + 1
+        substitution_distance = edit_distance(word1_char_num - 1, word2_char_num - 1)
+        if word1[word1_char_num - 1] != word2[word2_char_num - 1]:
+            substitution_distance += 1
+
+        return min(insertion_distance, deletion_distance, substitution_distance)
+
+    return edit_distance(len(word1), len(word2))
