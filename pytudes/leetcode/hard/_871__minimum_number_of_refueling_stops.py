@@ -63,7 +63,7 @@ def minRefuelStops_DP(
         4
 
     """
-    ##Initialize
+    ## Initialize
 
     # vars
     pass
@@ -145,7 +145,7 @@ def minRefuelStops_maxheap(
         4
 
     """
-    ##Initialize
+    ## Initialize
 
     # vars
     next_station_idx = 0
