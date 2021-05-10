@@ -20,6 +20,8 @@ class Solution:
 def max_subarray_greedy(nums: list[int]) -> int:
     """Returns the largest non-empty contiguous subarray sum
 
+    A variant of Kadane's Algorithm.
+
     Args:
         nums: An array of integers drawn from the range [-10^5, 10^5]
 
@@ -50,6 +52,51 @@ def max_subarray_greedy(nums: list[int]) -> int:
         max_sum = max(max_sum, curr_sum)
 
     return max_sum
+
+
+def max_subarray_kadane(nums: list[int]) -> tuple[int, list[int]]:
+    """Returns the largest non-empty contiguous subarray sum and corresponding subarray
+
+    A variant of Kadane's Algorithm
+
+    Args:
+        nums: An array of integers drawn from the range [-10^5, 10^5]
+
+    Examples:
+        >>> max_subarray_kadane([-2,1,-3,4,-1,2,1,-5,4])
+        (6, [4, -1, 2, 1])
+        >>> max_subarray_kadane([1])
+        (1, [1])
+        >>> max_subarray_kadane([5,4,-1,7,8])
+        (23, [5, 4, -1, 7, 8])
+        >>> max_subarray_kadane([])
+        (0, [])
+
+    """
+    ## EDGE CASE ##
+    if not nums:
+        return 0, nums
+
+    ## INITIALIZE VARS ##
+    max_sum = -float("inf")
+    max_subarray_start_index = max_subarray_end_idx = 0
+
+    curr_sum = 0
+    start_index = 0
+    for end_index, num in enumerate(nums):
+        curr_sum += num
+
+        if curr_sum > max_sum:
+            max_sum = curr_sum
+            max_subarray_start_index, max_subarray_end_idx = start_index, end_index
+
+        # Reset subarray vars if current subarray sum is negative (i.e.,
+        # adding it to any element would produce a smaller sum).
+        if curr_sum < 0:
+            curr_sum = 0
+            start_index = end_index + 1
+
+    return max_sum, nums[max_subarray_start_index : max_subarray_end_idx + 1]
 
 
 def max_subarray_tabulate(nums: list[int]) -> int:
