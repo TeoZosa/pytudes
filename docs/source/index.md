@@ -7,7 +7,7 @@
    :maxdepth: 1
 
    readme
-   Project Reference <ref/api/modules>
+   Project Reference <autoapi/pytudes/index>
    License <license>
    Changelog <changelog>
 ```
