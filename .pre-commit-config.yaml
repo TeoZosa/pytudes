@@ -42,7 +42,7 @@ repos:
     hooks:
       - id: markdown-toc
         args: [--maxdepth=3, -i]
-        exclude: ^(docs/source/.*)$
+        exclude: ^((docs/source|pytudes)/.*)$
 
   - repo: local
     hooks:
