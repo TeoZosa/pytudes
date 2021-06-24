@@ -46,7 +46,7 @@ The project files are organized under problem source namespaces
 (i.e., educative.io, leetcode, etc.)
 and further organized into ad-hoc categories.
 
-At the module-level, files are:
+At the module level, files are:
 
 - Prefixed with their problem number
   (the canonical number if one exists, by order of introduction otherwise)
