@@ -32,13 +32,48 @@ GIT_VERSION := $(shell git describe --tags --long --always --dirty)-$(diff_check
 endif
 TAG := $(shell date +v%Y%m%d)-$(GIT_VERSION)
 
+#################################################################################
+# HELPER TARGETS                                                                #
+#################################################################################
+
+.PHONY: get-make-var-%
+get-make-var-%:
+	@echo $($*)
+
 .PHONY: strong-version-tag
-strong-version-tag:
-	@echo $(TAG)
+strong-version-tag: get-make-var-TAG
 
 .PHONY: strong-version-tag-dateless
-strong-version-tag-dateless:
-	@echo $(GIT_VERSION)
+strong-version-tag-dateless: get-make-var-GIT_VERSION
+
+.PHONY: update-dependencies
+## Install Python dependencies,
+## updating packages in `poetry.lock` with any newer versions specified in
+## `pyproject.toml`, and install pytudes source code
+update-dependencies:
+	poetry update --lock
+ifneq (${CI}, true)
+	poetry install --extras docs
+endif
+
+.PHONY: generate-requirements
+## Generate project requirements files from `pyproject.toml`
+generate-requirements:
+	poetry export -f requirements.txt --without-hashes > requirements.txt # subset
+	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset w/o docs
+	poetry export --extras docs --dev -f requirements.txt --without-hashes > requirements-all.txt # superset
+
+.PHONY: clean-requirements
+## Clean generated project requirements files
+clean-requirements:
+	find . -type f -name "requirements*.txt" -delete -maxdepth 1
+
+.PHONY: clean
+## Delete all compiled Python files
+clean:
+	find . -type f -name "*.py[co]" -delete
+	find . -type d -name "__pycache__" -delete
+
 #################################################################################
 # COMMANDS                                                                      #
 #################################################################################
@@ -50,8 +85,8 @@ ifeq ($(shell command -v poetry),)
 	@echo "poetry could not be found!"
 	@echo "Please install poetry!"
 	@echo "Ex.: 'curl -sSL \
-	https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - \
-	&& source $$HOME/.poetry/env'"
+	https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py  | python - \
+	&& source $$HOME/.local/env'"
 	@echo "see:"
 	@echo "- https://python-poetry.org/docs/#installation"
 	@echo "Note: 'pyenv' recommended for Python version management"
@@ -143,34 +178,6 @@ pre-commit-%:
 ## `make docs-clean` cleans the docs build directory
 docs-%:
 	$(MAKE) $* -C docs
-
-.PHONY: update-dependencies
-## Install Python dependencies,
-## updating packages in `poetry.lock` with any newer versions specified in
-## `pyproject.toml`, and install pytudes source code
-update-dependencies:
-	poetry update --lock
-ifneq (${CI}, true)
-	poetry install --extras docs
-endif
-
-.PHONY: generate-requirements
-## Generate project requirements files from `pyproject.toml`
-generate-requirements:
-	poetry export -f requirements.txt --without-hashes > requirements.txt # subset
-	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset w/o docs
-	poetry export --extras docs --dev -f requirements.txt --without-hashes > requirements-all.txt # superset
-
-.PHONY: clean-requirements
-## clean generated project requirements files
-clean-requirements:
-	find . -type f -name "requirements*.txt" -delete -maxdepth 0
-
-.PHONY: clean
-## Delete all compiled Python files
-clean:
-	find . -type f -name "*.py[co]" -delete
-	find . -type d -name "__pycache__" -delete
 
 #################################################################################
 # Self Documenting Commands                                                     #
