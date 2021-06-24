@@ -11,6 +11,7 @@ updates:
     labels:
       - "dependencies"
       - "python"
+    open-pull-requests-limit: 99
   # Github Actions
   - package-ecosystem: github-actions
     directory: "/"
@@ -22,7 +23,7 @@ updates:
       - "dependencies"
       - "github_actions"
     open-pull-requests-limit: 99
-  # GitHub Actions Python dependencies `constraints_satisfied` file
+  # GitHub Actions Python dependencies `constraints` file
   - package-ecosystem: pip
     directory: "/.github/workflows"
     schedule:

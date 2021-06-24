@@ -2,14 +2,16 @@
 name: Release
 
 on:  # yamllint disable-line rule:truthy
-  push:
-    branches:
-      - main  # forward-compatibility with new GitHub default branch naming
-      - master  # backward-compatibility with old GitHub default branch naming
-  pull_request:
-    branches:
-      - main  # forward-compatibility with new GitHub default branch naming
-      - master  # backward-compatibility with old GitHub default branch naming
+  workflow_run:
+    workflows:
+      # Upstream workflow runs on pushes/PRs to main/master and always
+      # completes; needed because Dependabot-initiated pushes to master do not
+      # have access to repository secrets on which this workflow relies.
+      # see: dependabot/dependabot-core/issues/3253
+      - Dependabot Trunk Push Check
+      - Dependabot PR Check
+    types:
+      - completed
 
 jobs:
   release:
@@ -43,7 +45,7 @@ jobs:
 
       - name: Detect and tag new version
         id: check-version
-        if: steps.check-parent-commit.outputs.sha
+        if: "steps.check-parent-commit.outputs.sha"
         run: |
           BRANCH_NAME=$(git rev-parse --abbrev-ref HEAD)
           git checkout HEAD~
