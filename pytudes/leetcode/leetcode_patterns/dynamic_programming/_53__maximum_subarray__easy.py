@@ -258,4 +258,4 @@ def max_subarray_cache(nums: list[int]) -> int:
 
         return max(nums[i], max_subarray_sum_ending_at_index(i - 1) + nums[i])
 
-    return max([max_subarray_sum_ending_at_index(i) for i in range(len(nums))])
+    return max(max_subarray_sum_ending_at_index(i) for i in range(len(nums)))
