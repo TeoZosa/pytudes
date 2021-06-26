@@ -8,7 +8,25 @@ import heapq
 
 
 class MinHeap:
-    """heapq-based interface"""
+    """heapq-based interface
+
+    Examples:
+        >>> heap = MinHeap()
+        >>> heap.push(1)
+        >>> heap.push(2)
+        >>> heap.push(3)
+        >>> len(heap)
+        3
+        >>> heap.peek()
+        1
+        >>> heap.pop()
+        1
+        >>> heap.pop()
+        2
+        >>> heap.pop()
+        3
+
+    """
 
     def __init__(self):
         self._heap = []
@@ -27,7 +45,23 @@ class MinHeap:
 
 
 class MaxHeap(MinHeap):
-    """MinHeap with negated numbers"""
+    """MinHeap with negated numbers
+
+    Examples:
+        >>> heap = MaxHeap()
+        >>> heap.push(1)
+        >>> heap.push(2)
+        >>> heap.push(3)
+        >>> heap.peek()
+        3
+        >>> heap.pop()
+        3
+        >>> heap.pop()
+        2
+        >>> heap.pop()
+        1
+
+    """
 
     def push(self, num: int) -> None:
         super().push(-num)
