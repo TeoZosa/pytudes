@@ -77,3 +77,6 @@ docs/source/ref/api/pytudes.*
 
 # Local log files
 .logs/
+
+# Private files
+pytudes/miscellany/technical_interviews/
