@@ -57,7 +57,7 @@ pytest-emoji = "^0.2.0"
 pytest-mock = "^3.6.1"
 pytest-sugar = "^0.9.4"
 pytest-xdist = "^2.3.0"
-xdoctest = "^0.15.5"
+xdoctest = "^0.15.6"
 tox = "^3.24.0"
 
 # Linting
