@@ -62,7 +62,7 @@ def binary_insertion_sort(items: list) -> list:
                 left = mid_idx + 1
         insertion_idx = left
         # items[left] is now IMMEDIATE SUCCESSOR of insertion_val
-        #   See Also: pytudes/miscellany/searching/binary_search.py:19
+        #   See Also: pytudes/_2021/miscellany/searching/binary_search.py:19
 
         ## BISECT LEFT ##
         # Shift right items in the range [insertion_idx, len(items))

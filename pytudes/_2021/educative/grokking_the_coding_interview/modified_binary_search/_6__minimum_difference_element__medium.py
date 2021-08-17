@@ -46,7 +46,7 @@ def search_min_diff_element(arr: list[int], val: int) -> int:
             return arr[mid]  # diff == 0 min_diff found
     else:
         # arr[start] & arr[end] are immediate successor & predecessor, respectively, of `val`
-        #   See Also: pytudes/miscellany/searching/binary_search.py:18
+        #   See Also: pytudes/_2021/miscellany/searching/binary_search.py:18
 
         # Since edge cases take care of bounds checks, find the min diff of arr[start], arr[end].
         compute_diff = lambda other_val: abs(val - other_val)

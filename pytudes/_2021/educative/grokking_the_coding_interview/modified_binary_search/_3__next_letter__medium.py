@@ -15,7 +15,7 @@ This also means that:
         but val < letters[0] <=> letters[-1] < val
 
 See Also:
-    - pytudes/miscellany/insertion_sort.py:46
+    - pytudes/_2021/miscellany/insertion_sort.py:46
 
 """
 
@@ -70,6 +70,6 @@ def search_next_letter(letters: list[str], val: str) -> str:
         else:  # val >= letters[mid]:
             start = mid + 1
     # letters[start] is the immediate successor to val
-    # See Also: pytudes/miscellany/searching/binary_search.py:19
+    # See Also: pytudes/_2021/miscellany/searching/binary_search.py:19
 
     return letters[start % len(letters)]  # Note: redundant given edge-case check

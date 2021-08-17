@@ -58,7 +58,7 @@ def search_ceiling_of_a_number(arr: list[int], val: int) -> int:
             return mid
     else:  # greater than case
         # arr[start] is the immediate successor to val
-        #   See Also: pytudes/miscellany/searching/binary_search.py:19
+        #   See Also: pytudes/_2021/miscellany/searching/binary_search.py:19
         # Note: start < len(arr)
         #   since we only execute binary search if the ceiling exists
         return start
