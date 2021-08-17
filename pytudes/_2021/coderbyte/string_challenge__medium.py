@@ -5,8 +5,9 @@ Description:
     actual number.
 
 """
-import re
 import operator
+import re
+
 
 def StringChallenge(strParam: str) -> str:
     """Returns the evaluation of the arithmetic expression in a given string
@@ -42,22 +43,22 @@ def StringChallenge(strParam: str) -> str:
         return "zero"
 
     word_to_digit_map = {
-            "zero": "0",
-            "one": "1",
-            "two": "2",
-            "three": "3",
-            "four": "4",
-            "five": "5",
-            "six": "6",
-            "seven": "7",
-            "eight": "8",
-            "nine": "9",
-            }
+        "zero": "0",
+        "one": "1",
+        "two": "2",
+        "three": "3",
+        "four": "4",
+        "five": "5",
+        "six": "6",
+        "seven": "7",
+        "eight": "8",
+        "nine": "9",
+    }
 
     arithmetic_operations = {
-            "+": operator.add,
-            "-": operator.sub,
-            }
+        "+": operator.add,
+        "-": operator.sub,
+    }
 
     strParam = strParam.lower()
 
@@ -65,7 +66,9 @@ def StringChallenge(strParam: str) -> str:
         strParam = re.sub(digit_word, digit_str, strParam)
 
     for operator_word, operator_symbol in {"plus": "+", "minus": "-"}.items():
-        strParam = re.sub(operator_word, f" {operator_symbol} ", strParam) # add whitespace
+        strParam = re.sub(
+            operator_word, f" {operator_symbol} ", strParam
+        )  # add whitespace
 
     infix_expression_components = strParam.split()
     # Since only addition and subtraction are defined and we are using infix notation,
@@ -74,13 +77,16 @@ def StringChallenge(strParam: str) -> str:
         left_operand, operation, right_operand = infix_expression_components[:3]
         result = arithmetic_operations[operation](int(left_operand), int(right_operand))
         infix_expression_components[2] = result  # store last result
-        infix_expression_components = infix_expression_components[2:]  # truncate away used operator & operand
+        infix_expression_components = infix_expression_components[
+            2:
+        ]  # truncate away used operator & operand
 
     evaluation_str = str(infix_expression_components[-1])
     for word, symbol in {**word_to_digit_map, "negative": "-"}.items():
         evaluation_str = re.sub(symbol, word, evaluation_str)
 
     return evaluation_str
+
 
 # keep this function call here
 # print(StringChallenge(input()))
