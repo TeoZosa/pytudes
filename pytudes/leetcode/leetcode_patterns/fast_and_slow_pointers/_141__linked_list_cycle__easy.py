@@ -10,7 +10,7 @@ Examples:
     False
 
 """
-from pytudes.utils import linked_list
+from pytudes._2021.utils import linked_list
 
 ListNode = linked_list.ListNode
 # Definition for singly-linked list.

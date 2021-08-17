@@ -12,7 +12,7 @@ Examples:
 # Definition for a binary tree node.
 from typing import Optional
 
-from pytudes.utils import binary_tree
+from pytudes._2021.utils import binary_tree
 
 # # Definition for a binary tree node.
 # class TreeNode:

@@ -9,7 +9,7 @@ Examples:
     >>> Solution().mergeTwoLists(None, None)
 
 """
-from pytudes.utils import linked_list
+from pytudes._2021.utils import linked_list
 
 ListNode = linked_list.ListNode
 

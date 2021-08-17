@@ -6,7 +6,7 @@ Categories:
 
 """
 
-from pytudes.utils.linked_list import NodeType, convert_list_to_linked_list
+from pytudes._2021.utils.linked_list import NodeType, convert_list_to_linked_list
 
 
 def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:

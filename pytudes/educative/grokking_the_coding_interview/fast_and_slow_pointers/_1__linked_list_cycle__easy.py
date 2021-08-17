@@ -10,7 +10,11 @@ See Also:
 
 """
 
-from pytudes.utils.linked_list import ListNode, NodeType, convert_list_to_linked_list
+from pytudes._2021.utils.linked_list import (
+    ListNode,
+    NodeType,
+    convert_list_to_linked_list,
+)
 
 
 def has_cycle(head: NodeType) -> bool:

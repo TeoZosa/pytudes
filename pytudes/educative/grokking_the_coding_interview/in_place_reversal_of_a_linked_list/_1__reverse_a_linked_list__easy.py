@@ -9,7 +9,7 @@ See Also:
 
 """
 
-from pytudes.utils.linked_list import NodeType, convert_list_to_linked_list
+from pytudes._2021.utils.linked_list import NodeType, convert_list_to_linked_list
 
 
 # [p =(p.n)> c =(c.n)> ...]
