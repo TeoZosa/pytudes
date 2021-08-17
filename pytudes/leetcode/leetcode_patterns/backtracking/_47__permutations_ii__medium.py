@@ -174,7 +174,7 @@ def permute_unique_i(nums: list[int]) -> list[list[int]]:
     """
     """ALGORITHM"""
 
-    def get_last_valid_insertion_idx(perm, item):
+    def get_last_valid_insertion_idx(perm, item):  # nosemgrep
         """Restrict insertion past the first occurrence of a duplicate value (if one exists)"""
         # equivalent to `(perm + [item]).index(item)`
         try:
