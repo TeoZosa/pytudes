@@ -4,7 +4,7 @@ e.g., for Quicksort variants to be robust to repeated elements
 
 See Also:
     - https://en.wikipedia.org/wiki/Dutch_national_flag_problem
-    - pytudes/miscellany/sorting/quicksort.py
+    - pytudes/_2021/miscellany/sorting/quicksort.py
 
 """
 

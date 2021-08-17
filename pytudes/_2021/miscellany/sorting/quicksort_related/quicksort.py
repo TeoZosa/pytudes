@@ -1,7 +1,7 @@
 """Vanilla Quicksort robust to repeated elements
 
 See Also:
-    - pytudes/miscellany/sorting/dutch_nation_flag_problem.py
+    - pytudes/_2021/miscellany/sorting/dutch_nation_flag_problem.py
 
 """
 
