@@ -12,7 +12,9 @@ Examples:
 
 """
 
-from pytudes.leetcode.medium._150__evaluate_reverse_polish_notation import eval_RPN
+from pytudes._2021.leetcode.medium._150__evaluate_reverse_polish_notation import (
+    eval_RPN,
+)
 
 
 class Solution:

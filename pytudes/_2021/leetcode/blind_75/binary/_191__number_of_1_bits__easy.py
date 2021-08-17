@@ -17,7 +17,7 @@ Examples:
     31
 
 See Also:
-    - pytudes/leetcode/medium/_338__counting_bits__medium.py
+    - pytudes/_2021/leetcode/medium/_338__counting_bits__medium.py
 
 """
 

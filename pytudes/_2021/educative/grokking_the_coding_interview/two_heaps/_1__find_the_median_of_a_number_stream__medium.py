@@ -1,7 +1,7 @@
 """https://www.educative.io/courses/grokking-the-coding-interview/3Yj2BmpyEy4
 
 See Also:
-    - pytudes/leetcode/blind_75/heap/_295__find_median_from_data_stream__hard.py
+    - pytudes/_2021/leetcode/blind_75/heap/_295__find_median_from_data_stream__hard.py
 
 """
 import heapq

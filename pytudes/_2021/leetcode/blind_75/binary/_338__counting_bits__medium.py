@@ -10,7 +10,7 @@ Examples:
     [0, 1, 1, 2, 1, 2]
 
 See Also:
-    - pytudes/leetcode/blind_75/binary/_191__number_of_1_bits__easy.py
+    - pytudes/_2021/leetcode/blind_75/binary/_191__number_of_1_bits__easy.py
 
 """
 

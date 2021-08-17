@@ -5,7 +5,7 @@ Examples:
     0
 
 See Also:
-    - pytudes/pytudes/hard/_42__trapping_rain_water.py
+    - pytudes/_2021/leetcode/hard/_42__trapping_rain_water.py
 
 """
 

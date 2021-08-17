@@ -7,7 +7,7 @@ Categories:
 
 See Also:
     - pytudes/_2021/educative/grokking_the_coding_interview/bitwise_xor/_0__find_missing_number__easy.py
-    - pytudes/leetcode/blind_75/binary/_268__missing_number__easy.py
+    - pytudes/_2021/leetcode/blind_75/binary/_268__missing_number__easy.py
 
 """
 

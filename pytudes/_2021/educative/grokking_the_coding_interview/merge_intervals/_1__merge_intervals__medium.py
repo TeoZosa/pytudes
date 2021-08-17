@@ -5,7 +5,7 @@ Categories:
     - Interval
 
 See Also:
-    - pytudes/leetcode/blind_75/interval/_56__merge_intervals__medium.py
+    - pytudes/_2021/leetcode/blind_75/interval/_56__merge_intervals__medium.py
 
 """
 

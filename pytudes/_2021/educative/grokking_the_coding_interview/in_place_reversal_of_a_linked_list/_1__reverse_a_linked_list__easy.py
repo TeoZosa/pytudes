@@ -5,7 +5,7 @@ Categories:
     - Blind 75
 
 See Also:
-   - pytudes/leetcode/blind_75/linked_list/_2106__reverse_linked_list__easy.py
+   - pytudes/_2021/leetcode/blind_75/linked_list/_2106__reverse_linked_list__easy.py
 
 """
 
