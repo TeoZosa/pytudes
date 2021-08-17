@@ -6,7 +6,7 @@ Examples:
     2
 
 See Also:
-    - pytudes/miscellany/Interviews/_871__minimum_number_of_refueling_stops.py
+    - pytudes/_2021/miscellany/technical_interviews/_871__minimum_number_of_refueling_stops.py
 
 """
 
