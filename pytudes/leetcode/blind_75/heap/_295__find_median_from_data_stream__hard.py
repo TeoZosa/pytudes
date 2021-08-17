@@ -1,7 +1,7 @@
 """https://leetcode.com/problems/find-median-from-data-stream/
 
 See Also:
-    - pytudes/educative/grokking_the_coding_interview/two_heaps/_1__find_the_median_of_a_number_stream__medium.py
+    - pytudes/_2021/educative/grokking_the_coding_interview/two_heaps/_1__find_the_median_of_a_number_stream__medium.py
 
 """
 import heapq

@@ -11,8 +11,8 @@ Examples:
     0
 
 See Also:
-    - pytudes/educative/grokking_the_coding_interview/bitwise_xor/_0__find_missing_number__easy.py
-    - pytudes/educative/grokking_the_coding_interview/cyclic_sort/_1__find_the_missing_number__easy.py
+    - pytudes/_2021/educative/grokking_the_coding_interview/bitwise_xor/_0__find_missing_number__easy.py
+    - pytudes/_2021/educative/grokking_the_coding_interview/cyclic_sort/_1__find_the_missing_number__easy.py
 
 """
 

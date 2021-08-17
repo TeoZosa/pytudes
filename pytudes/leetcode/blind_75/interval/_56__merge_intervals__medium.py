@@ -10,7 +10,7 @@ Examples:
     []
 
 See Also:
-    - pytudes/educative/grokking_the_coding_interview/merge_intervals/_1__merge_intervals__medium.py
+    - pytudes/_2021/educative/grokking_the_coding_interview/merge_intervals/_1__merge_intervals__medium.py
 
 """
 

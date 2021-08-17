@@ -59,7 +59,7 @@ def search_bitonic_array(arr: list[int], val: int) -> int:
 
 
 def find_max_idx_in_bitonic_array(arr: list[int]) -> int:
-    """pytudes/educative/modified_binary_search/_7__bitonic_array_maximum__easy.py
+    """pytudes/_2021/educative/grokking_the_coding_interview/modified_binary_search/_7__bitonic_array_maximum__easy.py
 
     Returns: index of max value in arr
 
@@ -79,7 +79,7 @@ def find_max_idx_in_bitonic_array(arr: list[int]) -> int:
 
 
 def binary_search_order_agnostic(arr: list[int], val: int, start: int, end: int) -> int:
-    """pytudes/educative/modified_binary_search/_1__order_agnostic_binary_search__easy.py
+    """pytudes/_2021/educative/grokking_the_coding_interview/modified_binary_search/_1__order_agnostic_binary_search__easy.py
 
     Args:
         arr: array of numbers sorted in ascending or descending order

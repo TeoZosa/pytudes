@@ -4,7 +4,7 @@ Examples:
     >>> assert(Solution().reverseList(None) is None)
 
 See Also:
-    - pytudes/educative/grokking_the_coding_interview/in_place_reversal_of_a_linked_list/_1__reverse_a_linked_list__easy.py
+    - pytudes/_2021/educative/grokking_the_coding_interview/in_place_reversal_of_a_linked_list/_1__reverse_a_linked_list__easy.py
 
 """
 from pytudes._2021.utils.linked_list import ListNode, convert_list_to_linked_list

@@ -5,7 +5,7 @@ Examples:
     [[1], [2]]
 
 See Also:
-    - pytudes/educative/grokking_the_coding_interview/tree_bfs/_1_binary_tree_level_order_traversal__easy.py
+    - pytudes/_2021/educative/grokking_the_coding_interview/tree_bfs/_1_binary_tree_level_order_traversal__easy.py
 
 """
 from collections import deque
