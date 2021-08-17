@@ -79,4 +79,4 @@ docs/source/ref/api/pytudes.*
 .logs/
 
 # Private files
-pytudes/miscellany/technical_interviews/
+pytudes/_2021/miscellany/technical_interviews/
