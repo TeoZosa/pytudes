@@ -1,4 +1,4 @@
-pytudes
+Pytudes
 ==============================
 ![CI](https://github.com/TeoZosa/pytudes/workflows/CI/badge.svg)
 ![codecov](https://codecov.io/gh/TeoZosa/pytudes/branch/master/graph/badge.svg?token=3HF21UWY82)
