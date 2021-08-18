@@ -162,10 +162,10 @@ def merge_alt(left, right):
         # return the non-None ListNode, if one exists
         return left or right
     elif left.val < right.val:
-        left.next = merge_default(left.next, right)
+        left.next = merge_alt(left.next, right)
         return left
     else:
-        right.next = merge_default(left, right.next)
+        right.next = merge_alt(left, right.next)
         return right
 
 
