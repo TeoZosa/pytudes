@@ -4,6 +4,9 @@ Categories:
     - Linked List
     - Blind 75
 
+Examples:
+    >>> assert (reverse_sub_list(None,0,0) is None)
+
 """
 
 from pytudes._2021.utils.linked_list import NodeType, convert_list_to_linked_list
