@@ -34,6 +34,8 @@ def print_orders(prerequisites: list[list[int]], num_tasks: int):
         [1, 3, 0, 4, 2, 5]
         [1, 3, 2, 0, 5, 4]
         [1, 3, 2, 0, 4, 5]
+        >>> print_orders([[0, 1], [1, 2]], num_tasks=0)
+        False
 
     """
     if num_tasks <= 0:

@@ -32,6 +32,10 @@ def _mergesort(nums: list) -> list:
                 for (2 * n/2) copies of sorted left/right subarrays
                 and (1 * n) copy of merged array
 
+    Examples:
+        >>> _mergesort([])
+        []
+
     """
     ## EDGE CASES ##
     if not nums:
@@ -82,6 +86,9 @@ def _mergesort_space_optimized(nums: list, start: int, end: int) -> None:
         n = len(nums)
             Space: n = O(n)
                 for (2 * n/2) copies of sorted left/right subarrays
+
+    Examples:
+        >>> _mergesort_space_optimized([], 0, 0)
 
     """
     ## EDGE CASES ##
