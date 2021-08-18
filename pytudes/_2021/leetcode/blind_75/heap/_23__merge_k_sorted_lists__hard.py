@@ -157,8 +157,8 @@ def _merge_k_lists(
     return merge(left, right, do_iterative_merge=do_iterative_merge)
 
 
-def merge(*args, do_iterative_merge: bool):
-    return merge_default(*args) if do_iterative_merge else merge_alt(*args)
+def merge(left, right, do_iterative_merge: bool):
+    return merge_default(left, right) if do_iterative_merge else merge_alt(left, right)
 
 
 def merge_alt(left, right):
