@@ -136,6 +136,8 @@ def _merge_k_lists(
         >>> def get_test_list_nodes(): return [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
         >>> _merge_k_lists(get_test_list_nodes()).as_list()
         [1, 1, 2, 3, 4, 4, 5, 6]
+        >>> _merge_k_lists(get_test_list_nodes(), do_iterative_merge=False).as_list()
+        [1, 1, 2, 3, 4, 4, 5, 6]
         >>> _merge_k_lists([[]])
         []
         >>> assert(_merge_k_lists([]) is None)
