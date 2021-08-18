@@ -61,7 +61,7 @@ def count_primes(n: int) -> int:
     # (since (√n)^2 = n ≤ n), so we terminate the outer loop when num > √n
 
     for num in range(2, int(n ** 0.5) + 1):
-        if is_prime[num]:
+        if is_prime[num]:  # pragma: no branch
             # Mark all multiples of `num` as non-prime,
             # starting from num^2 (since the other multiples of `num`
             # will have already been marked as non-prime in previous iterations)
@@ -128,7 +128,7 @@ def count_primes_separate_loop_for_2(n: int) -> int:
         is_prime[multiple_of_num] = False
 
     for num in range(3, int(n ** 0.5) + 1):
-        if is_prime[num]:
+        if is_prime[num]:  # pragma: no branch
 
             for multiple_of_num in range(num ** 2, len(is_prime), 2 * num):
                 is_prime[multiple_of_num] = False

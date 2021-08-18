@@ -46,7 +46,7 @@ def find_range(arr: list[int], val: int) -> list[int]:
 
             if check_left():
                 end = mid - 1
-            elif check_right():
+            elif check_right():  # pragma: no branch
                 start = mid + 1
 
         # first or last pos of val_idx if val exists, -1 otherwise

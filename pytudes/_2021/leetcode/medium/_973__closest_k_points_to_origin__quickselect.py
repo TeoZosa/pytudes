@@ -206,7 +206,7 @@ def _quickselect_iterative(
     get_distance = lambda i: sum(coord ** 2 for coord in points[i])
 
     ## BASE CASE ##
-    while start < end:
+    while start < end:  # pragma: no branch
 
         ## INITIALIZE VARS ##
         pivot_idx = random.randint(start, end)  # inclusive range

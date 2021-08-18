@@ -38,6 +38,11 @@ def StringChallenge(strParam: str) -> str:
       'threefour'
       >>> # 34
 
+      >>> # Empty string (degenerate case)
+      >>> StringChallenge("")
+      'zero'
+      >>> # 0
+
     """
     if not strParam:
         return "zero"

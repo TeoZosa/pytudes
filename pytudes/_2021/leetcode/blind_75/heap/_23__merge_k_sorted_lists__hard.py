@@ -121,17 +121,22 @@ def merge_k_lists_heap(lists: list[ListNodeType]) -> ListNodeType:
     return head.next
 
 
-def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
+def _merge_k_lists(
+    lists: list[ListNodeType], do_iterative_merge: bool = True
+) -> ListNodeType:
     """Merge a list of linked-lists into a single, sorted linked-list
 
     Args:
         lists: array of linked-lists, each sorted in ascending order.
+        do_iterative_merge: flag to specify which internal merge implementation to use.
 
     Returns: a single merged, sorted linked-list
 
     Examples:
-        >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
-        >>> _merge_k_lists(list_nodes).as_list()
+        >>> def get_test_list_nodes(): return [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
+        >>> _merge_k_lists(get_test_list_nodes()).as_list()
+        [1, 1, 2, 3, 4, 4, 5, 6]
+        >>> _merge_k_lists(get_test_list_nodes(), do_iterative_merge=False).as_list()
         [1, 1, 2, 3, 4, 4, 5, 6]
         >>> _merge_k_lists([[]])
         []
@@ -149,12 +154,11 @@ def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
 
     mid = len(lists) // 2
     left, right = _merge_k_lists(lists[:mid]), _merge_k_lists(lists[mid:])
-    return merge(left, right)
+    return merge(left, right, do_iterative_merge=do_iterative_merge)
 
 
-def merge(*args):
-    default = False
-    return merge_default(*args) if default else merge_alt(*args)
+def merge(left, right, do_iterative_merge: bool):
+    return merge_default(left, right) if do_iterative_merge else merge_alt(left, right)
 
 
 def merge_alt(left, right):
@@ -162,10 +166,10 @@ def merge_alt(left, right):
         # return the non-None ListNode, if one exists
         return left or right
     elif left.val < right.val:
-        left.next = merge_default(left.next, right)
+        left.next = merge_alt(left.next, right)
         return left
     else:
-        right.next = merge_default(left, right.next)
+        right.next = merge_alt(left, right.next)
         return right
 
 

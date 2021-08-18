@@ -238,7 +238,7 @@ def eval_RPN_classic(tokens: list[str]) -> int:
                 new_operand = left_operand - right_operand
             elif token == "*":
                 new_operand = left_operand * right_operand
-            elif token == "/":
+            else:  # token == "/"
                 # Integer division is truncated toward zero.
                 new_operand = int(left_operand / right_operand)
         else:

@@ -339,7 +339,7 @@ def compute_median_binary_search(
     #   S[S_left_idx]  ≤  L[L_right_idx]
     #   L[L_left_idx]  ≤  S[S_right_idx]
     #   (i.e. monotonically increasing)
-    while S_start_idx <= S_end_idx:
+    while S_start_idx <= S_end_idx:  # pragma: no branch
         S_right_idx = (S_start_idx + S_end_idx) // 2
         S_left_idx = S_right_idx - 1
 

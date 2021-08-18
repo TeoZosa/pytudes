@@ -85,6 +85,8 @@ def calculate_separate_operator_conditionals(expression: str) -> int:
         1
         >>> calculate_separate_operator_conditionals(" 3+5 / 2 ")
         5
+        >>> calculate_separate_operator_conditionals(" 3 - 1/2 ")
+        3
 
     """
 
@@ -110,7 +112,7 @@ def calculate_separate_operator_conditionals(expression: str) -> int:
             # Perform '*', '/' against last stored number to respect operator precedence
             elif last_operator == "*":
                 new_operand = operand_stack.pop() * curr_num
-            elif last_operator == "/":
+            else:  # last_operator == "/"
                 new_operand = int(operand_stack.pop() / curr_num)  # truncate towards 0
 
             operand_stack.append(new_operand)

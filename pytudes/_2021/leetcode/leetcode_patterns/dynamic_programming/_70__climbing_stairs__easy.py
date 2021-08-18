@@ -49,7 +49,12 @@ class Solution:
 
     """
 
-    memo = {i: i for i in range(3)}  # base case for [0,2]
+    _base_cases_memo = {i: i for i in range(3)}  # base case for [0,2]
+    memo = _base_cases_memo.copy()
+
+    @classmethod
+    def _clear_cache(cls):
+        cls.memo = cls._base_cases_memo.copy()
 
     def climbStairs(self, n: int) -> int:
         """Alias to `climb_stairs_memoize`"""
@@ -86,7 +91,8 @@ class Solution:
 
         Args:
             n: The number of stairs to climb
-
+        Examples:
+            >>> Solution()._clear_cache() # reset cache for valid method testing
             >>> Solution().climb_stairs_tabulate(2)
             2
             >>> Solution().climb_stairs_tabulate(3)

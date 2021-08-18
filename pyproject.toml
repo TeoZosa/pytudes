@@ -96,6 +96,14 @@ docs = [
 [tool.coverage.run]
 branch = true
 concurrency = ["multiprocessing"]
+omit =[
+    # Private (unversioned) files
+    "pytudes/_2021/google_kickstart/*",
+    "pytudes/_2021/miscellany/network_partition_hashing/*",
+    "pytudes/_2021/miscellany/python_dict_implementation/*",
+    "pytudes/_2021/miscellany/sorting/bitonic_mergesort/*",
+    "pytudes/_2021/miscellany/technical_interviews/*",
+]
 parallel = true
 source = ["pytudes"]
 
@@ -106,7 +114,7 @@ exclude_lines =[
     "raise NotImplementedError",
     "if __name__ == .__main__.:",
 ]
-fail_under = 0
+fail_under = 100
 show_missing = true
 skip_covered = true
 
