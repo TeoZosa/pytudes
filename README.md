@@ -1,4 +1,4 @@
-pytudes
+Pytudes
 ==============================
 ![CI](https://github.com/TeoZosa/pytudes/workflows/CI/badge.svg)
 ![codecov](https://codecov.io/gh/TeoZosa/pytudes/branch/master/graph/badge.svg?token=3HF21UWY82)
@@ -16,8 +16,8 @@ pytudes
 
 ---
 
-Overview
---------
+:teacher: Overview
+------------------
 Miscellaneous programming challenges for the purpose of personal/professional
 edification, inspired
 by [Peter Norvig's `pytudes` repository](https://github.com/norvig/pytudes):
@@ -40,7 +40,7 @@ with sufficiently succinct, collocated documentation and tests.
 > final solutions are **always** informed by preexisting implementations.
 > As such, I make no explicit claims of originality.
 
-### Project Structure
+### :world_map: Project Structure
 
 The project files are organized under problem source namespaces
 (i.e., educative.io, leetcode, etc.)
@@ -73,22 +73,26 @@ Table of Contents
 <!-- toc -->
 
 - [:rocket: Usage](#rocket-usage)
+  * [:children_crossing: Running The Project](#children_crossing-running-the-project)
 - [:wrench: Development](#wrench-development)
-    * [Package and Dependencies Installation](#package-and-dependencies-installation)
-    * [Testing](#testing)
-    * [Code Quality](#code-quality)
-        + [Automate via Git Pre-Commit Hooks](#automate-via-git-pre-commit-hooks)
-    * [Documentation](#documentation)
+  * [:building_construction: Package and Dependencies Installation](#building_construction-package-and-dependencies-installation)
+  * [:white_check_mark: Testing](#white_check_mark-testing)
+  * [:rotating_light: Code Quality](#rotating_light-code-quality)
+    + [:arrows_counterclockwise: Automate via Git Pre-Commit Hooks](#arrows_counterclockwise-automate-via-git-pre-commit-hooks)
+  * [:memo: Documentation](#memo-documentation)
 - [:clipboard: Summary](#clipboard-summary)
 - [:books: Further Reading](#books-further-reading)
-- [:page_facing_up: Legal](#page_facing_up-legal)
-    * [License](#license)
-    * [Credits](#credits)
+- [:judge: Legal](#judge-legal)
+  * [:page_facing_up: License](#page_facing_up-license)
+  * [:busts_in_silhouette: Credits](#busts_in_silhouette-credits)
 
 <!-- tocstop -->
 
 :rocket: Usage
 ==============
+
+:children_crossing: Running The Project
+----------------------------------------
 The workflow I've found that has worked best for me:
 
 1. Create a file adhering to project structure rules.
@@ -125,8 +129,8 @@ encapsulated in single [Make](https://www.gnu.org/software/make/) targets.
 > Invoking `make` without any arguments will display
 > auto-generated documentation on available commands.
 
-Package and Dependencies Installation
---------------------------------------
+:building_construction: Package and Dependencies Installation
+-------------------------------------------------------------
 
 Make sure you have Python 3.9+ and [`poetry`](https://python-poetry.org/)
 installed and configured.
@@ -141,8 +145,8 @@ make provision-environment
 > Invoking the above without `poetry` installed will emit a
 > helpful error message letting you know how you can install Poetry.
 
-Testing
-------------
+:white_check_mark: Testing
+--------------------------
 
 We use [`tox`](https://tox.readthedocs.io/en/latest/)
 and [`pytest`](https://pytest.readthedocs.io/) for our test automation and testing
@@ -154,8 +158,8 @@ To invoke the tests, run:
 make test
 ```
 
-Code Quality
-------------
+:rotating_light: Code Quality
+-----------------------------
 
 We use [`pre-commit`](https://pre-commit.com/) for our static analysis automation and
 management framework.
@@ -171,7 +175,7 @@ make lint
 > so it is recommended to automatically run the above locally
 > prior to every commit that is pushed.
 
-### Automate via Git Pre-Commit Hooks
+### :arrows_counterclockwise: Automate via Git Pre-Commit Hooks
 
 To automatically run code quality validation on every commit (over to-be-committed
 files), run:
@@ -186,8 +190,8 @@ make install-pre-commit-hooks
 > or a file is modified by an auto-formatting job;
 > in the latter case, you may simply repeat the commit and it should pass.
 
-Documentation
---------------
+:memo: Documentation
+--------------------
 
 ```shell script
 make docs-clean docs-html
@@ -213,18 +217,18 @@ as well!
 
 ---
 
-:page_facing_up: Legal
-======================
+:judge: Legal
+=============
 
-License
--------
+:page_facing_up: License
+------------------------
 
 Pytudes is licensed under the Apache License, Version 2.0. See [LICENSE](./LICENSE) for
 the full license text.
 
 
-Credits
--------
+:busts_in_silhouette: Credits
+-----------------------------
 
 This project was generated from
 [`@TeoZosa`'s](https://github.com/TeoZosa)
