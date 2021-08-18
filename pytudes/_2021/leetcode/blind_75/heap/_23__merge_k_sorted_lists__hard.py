@@ -121,11 +121,14 @@ def merge_k_lists_heap(lists: list[ListNodeType]) -> ListNodeType:
     return head.next
 
 
-def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
+def _merge_k_lists(
+    lists: list[ListNodeType], do_iterative_merge: bool = True
+) -> ListNodeType:
     """Merge a list of linked-lists into a single, sorted linked-list
 
     Args:
         lists: array of linked-lists, each sorted in ascending order.
+        do_iterative_merge: flag to specify which internal merge implementation to use.
 
     Returns: a single merged, sorted linked-list
 
@@ -149,12 +152,11 @@ def _merge_k_lists(lists: list[ListNodeType]) -> ListNodeType:
 
     mid = len(lists) // 2
     left, right = _merge_k_lists(lists[:mid]), _merge_k_lists(lists[mid:])
-    return merge(left, right)
+    return merge(left, right, do_iterative_merge=do_iterative_merge)
 
 
-def merge(*args):
-    default = False
-    return merge_default(*args) if default else merge_alt(*args)
+def merge(*args, do_iterative_merge: bool):
+    return merge_default(*args) if do_iterative_merge else merge_alt(*args)
 
 
 def merge_alt(left, right):
