@@ -91,7 +91,8 @@ class Solution:
 
         Args:
             n: The number of stairs to climb
-
+        Examples:
+            >>> Solution()._clear_cache() # reset cache for valid method testing
             >>> Solution().climb_stairs_tabulate(2)
             2
             >>> Solution().climb_stairs_tabulate(3)
