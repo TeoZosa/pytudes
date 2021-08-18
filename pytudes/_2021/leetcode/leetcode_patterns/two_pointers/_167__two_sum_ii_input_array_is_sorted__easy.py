@@ -194,7 +194,7 @@ def bisect_right(nums, val, start_idx, end_idx):
         mid_idx = start_idx + (end_idx - start_idx) // 2
         if nums[mid_idx] <= val:
             start_idx = mid_idx + 1
-        elif nums[mid_idx] > val:
+        elif nums[mid_idx] > val:  # pragma: no branch
             end_idx = mid_idx - 1
     return start_idx
 
@@ -204,6 +204,6 @@ def bisect_left(nums, val, start_idx, end_idx):
         mid_idx = start_idx + (end_idx - start_idx) // 2
         if nums[mid_idx] < val:
             start_idx = mid_idx + 1
-        elif nums[mid_idx] >= val:
+        elif nums[mid_idx] >= val:  # pragma: no branch
             end_idx = mid_idx - 1
     return end_idx

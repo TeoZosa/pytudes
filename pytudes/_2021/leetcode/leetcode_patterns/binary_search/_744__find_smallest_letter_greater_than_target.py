@@ -52,7 +52,7 @@ def next_greatest_letter(letters: list[str], target: str) -> str:
         mid_idx = start_idx + (end_idx - start_idx) // 2
         if letters[mid_idx] <= target:
             start_idx = mid_idx + 1
-        elif letters[mid_idx] > target:
+        elif letters[mid_idx] > target:  # pragma: no branch
             end_idx = mid_idx - 1
 
     # If start_idx pointer exceeded the array bounds, this implies that

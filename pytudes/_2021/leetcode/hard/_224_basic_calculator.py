@@ -49,9 +49,9 @@ def calculate_via_rpn(expression: str) -> int:
             if operator_precedence[token] >= operator_precedence[last_operator]:
                 rpn_tokens.append(intermediate_operator_tokens.pop())
             else:
-                if last_operator == "(":  # Current scope is now empty
-                    # Discard open parenthesis belonging to current scope which no
-                    # longer contains operators
+                if last_operator == "(":  # pragma: no branch
+                    # Current scope is now empty; discard open parenthesis belonging to
+                    # current scope which no longer contains operators
                     intermediate_operator_tokens.pop()
                 break
 
@@ -73,7 +73,7 @@ def calculate_via_rpn(expression: str) -> int:
 
         # Build number from multi-digit strings
         if token.isdigit():
-            if num is None:
+            if num is None:  # pragma: no branch
                 num = 0
             num = num * 10 + int(token)
 
