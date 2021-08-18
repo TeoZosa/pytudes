@@ -85,6 +85,8 @@ def calculate_separate_operator_conditionals(expression: str) -> int:
         1
         >>> calculate_separate_operator_conditionals(" 3+5 / 2 ")
         5
+        >>> calculate_separate_operator_conditionals(" 3 - 1/2 ")
+        3
 
     """
 
