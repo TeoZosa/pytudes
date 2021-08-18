@@ -133,8 +133,8 @@ def _merge_k_lists(
     Returns: a single merged, sorted linked-list
 
     Examples:
-        >>> list_nodes = [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
-        >>> _merge_k_lists(list_nodes).as_list()
+        >>> def get_test_list_nodes(): return [convert_to_listnode(sublist) for sublist in [[1,4,5],[1,3,4],[2,6]]]
+        >>> _merge_k_lists(get_test_list_nodes()).as_list()
         [1, 1, 2, 3, 4, 4, 5, 6]
         >>> _merge_k_lists([[]])
         []
