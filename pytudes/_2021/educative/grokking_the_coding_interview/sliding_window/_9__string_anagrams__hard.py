@@ -59,9 +59,10 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
 
     ## SLIDING ##
     for window_end in range(len(input_str)):
+        left_char, right_char = input_str[window_start], input_str[window_end]
 
         ## EXPANSION ##
-        if (right_char := input_str[window_end]) in pattern_char_count:
+        if right_char in pattern_char_count:
             pattern_char_count[right_char] -= 1  # Decrement the character count
             if pattern_char_count[right_char] == 0:
                 num_fully_matched_chars += 1  # Increment the matched count
@@ -73,7 +74,7 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
 
         ## CONTRACTION ##
         if get_curr_win_size() == len(pattern):
-            if (left_char := input_str[window_start]) in pattern_char_count:
+            if left_char in pattern_char_count:
                 if pattern_char_count[left_char] == 0:
                     num_fully_matched_chars -= 1  # Decrement the matched count
                 pattern_char_count[left_char] += 1  # Re-increment the character count
