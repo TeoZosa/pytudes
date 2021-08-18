@@ -79,8 +79,4 @@ docs/source/ref/api/pytudes.*
 .logs/
 
 # Private files
-pytudes/_2021/google_kickstart/
-pytudes/_2021/miscellany/network_partition_hashing/
-pytudes/_2021/miscellany/python_dict_implementation/
-pytudes/_2021/miscellany/sorting/bitonic_mergesort/
-pytudes/_2021/miscellany/technical_interviews/
+pytudes/_2021/private/
