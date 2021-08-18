@@ -10,6 +10,7 @@ from pytudes._2021.utils.linked_list import NodeType, convert_list_to_linked_lis
 
 
 def reverse_sub_list(head: NodeType, p: int, q: int) -> NodeType:
+    """Driver method for `_reverse_sub_list()`"""
     return _reverse_sub_list(head, p, q)
 
 
