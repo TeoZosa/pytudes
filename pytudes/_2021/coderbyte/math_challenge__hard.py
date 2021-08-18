@@ -158,7 +158,7 @@ def MathChallenge_cases(rpn_expression: str) -> int:
                 processed_token = left_operand - right_operand
             elif char == "*":
                 processed_token = left_operand * right_operand
-            elif char == "/":
+            else:  # char == "/"
                 processed_token = int(
                     left_operand / right_operand
                 )  # truncate fractions
