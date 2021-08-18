@@ -73,6 +73,10 @@ def single_number_hashtable(nums: list[int]) -> int:
         4
         >>> single_number_hashtable([1])
         1
+        >>> single_number_hashtable([1,1])
+        Traceback (most recent call last):
+        ...
+        ValueError: No element in `nums` appears exactly once.
 
     """
 
@@ -85,3 +89,5 @@ def single_number_hashtable(nums: list[int]) -> int:
     for num, count in num_counts.items():
         if count == 1:
             return num
+    else:
+        raise ValueError("No element in `nums` appears exactly once.")
