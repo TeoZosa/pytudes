@@ -52,7 +52,7 @@ mypy = "^0.910" # Static type checker
 
 # Testing
 pytest = "^6.2.5"
-pytest-cov = "^2.12.1"
+pytest-cov = "^3.0.0"
 pytest-emoji = "^0.2.0"
 pytest-mock = "^3.6.1"
 pytest-sugar = "^0.9.4"
