@@ -32,7 +32,7 @@ scikit-learn = "^1.0.2"
 scipy = "^1.6.1"
 
 # Documentation
-emoji = { version = "^1.6.1", optional = true}
+emoji = { version = "^1.6.3", optional = true}
 importlib-metadata = { version = "^4.10.1", optional = true}
 myst-parser = { version = "^0.16.1", optional = true}
 pygments = { version = "^2.11.2", optional = true}
