@@ -1,7 +1,7 @@
 """ https://leetcode.com/problems/container-with-most-water
 
 Examples:
-    >>> Solution().maxArea([])
+    >>> Solution().max_area([])
     0
 
 See Also:
@@ -10,8 +10,9 @@ See Also:
 """
 
 
-class Solution:
-    def maxArea(self, height: list[int]) -> int:
+class Solution:  # pylint: disable=too-few-public-methods
+    @staticmethod
+    def max_area(height: list[int]) -> int:
         return compute_max_area(height)
 
 
@@ -51,22 +52,22 @@ def compute_max_area(heights: list[int]) -> int:
         return 0
 
     ## INITIALIZE VARS ##
-    l, r = 0, len(heights) - 1
+    left, right = 0, len(heights) - 1
 
     # res
     max_area = 0
 
     ## TWO POINTERS ##
-    while l < r:
-        interval_width = r - l
-        left_height, right_height = heights[l], heights[r]
+    while left < right:
+        interval_width = right - left
+        left_height, right_height = heights[left], heights[right]
         min_height = min(left_height, right_height)
         max_area = max(max_area, interval_width * min_height)
 
         ## MOVE POINTER(S) ##
         if left_height < right_height:
-            l += 1
+            left += 1
         else:
-            r -= 1
+            right -= 1
 
     return max_area

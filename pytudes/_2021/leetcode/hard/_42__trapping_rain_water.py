@@ -10,8 +10,9 @@ See Also:
 """
 
 
-class Solution:
-    def trap(self, height: list[int]) -> int:
+class Solution:  # pylint: disable=too-few-public-methods
+    @staticmethod
+    def trap(height: list[int]) -> int:
         return compute_trapped_rain_water(height)
 
 
@@ -70,15 +71,15 @@ def compute_trapped_rain_water(heights: list[int]) -> int:
         return 0
 
     ## INITIALIZE VARS ##
-    l, r = 0, len(heights) - 1
+    left, right = 0, len(heights) - 1
     left_max_height, right_max_height = 0, 0
 
     # res
     trapped_water = 0
 
     ## TWO POINTERS ##
-    while l < r:
-        left_height, right_height = heights[l], heights[r]
+    while left < right:
+        left_height, right_height = heights[left], heights[right]
         left_max_height = max(left_max_height, left_height)
         right_max_height = max(right_max_height, right_height)
 
@@ -86,9 +87,9 @@ def compute_trapped_rain_water(heights: list[int]) -> int:
         # Add `min(left_max_height, right_max_height) - heights[i]`
         if left_max_height <= right_max_height:
             trapped_water += left_max_height - left_height
-            l += 1
+            left += 1
         else:
             trapped_water += right_max_height - right_height
-            r -= 1
+            right -= 1
 
     return trapped_water
