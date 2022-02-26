@@ -142,6 +142,7 @@ pycodestyle = ["+*",
     #   (e.g., generally independent modules)
     "-E266", # Too many leading '#' (e.g., salient sub-section headers idiosyncratic to this project)
     "-E731", # Lambda expression assignment; simplifies code formatting for trivial functions/implicitly documents through naming
+    "-E402", # Module level import not at top of file; for a given problem in a module, that module may contain different algorithms, with dependent libraries imported prior to the definition of those algorithms
 ]
 
 [tool.interrogate]
