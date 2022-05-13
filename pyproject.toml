@@ -28,7 +28,7 @@ coolname = "^1.1.0"
 jupyter = "^1.0.0"
 pandas = "^1.4.2"
 pydantic = "^1.9"
-scikit-learn = "^1.0.2"
+scikit-learn = "^1.1.0"
 scipy = "^1.6.1"
 
 # Documentation
