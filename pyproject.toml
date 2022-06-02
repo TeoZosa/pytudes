@@ -48,7 +48,7 @@ types-emoji = { version = "^1.7.0", optional = true} # PEP 561 compliant stub pa
 cruft = "^2.10.2" # Automated Cookiecutter template synchronization
 
 # Type Checking and Data Validation
-mypy = "^0.931" # Static type checker
+mypy = "^0.960" # Static type checker
 
 # Testing
 pytest = "^7.1.2"
