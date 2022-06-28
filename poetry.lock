@@ -1946,7 +1946,7 @@ test = ["shellingham (>=1.3.0,<2.0.0)", "pytest (>=4.4.0,<5.4.0)", "pytest-cov (
 
 [[package]]
 name = "types-emoji"
-version = "1.7.1"
+version = "1.7.2"
 description = "Typing stubs for emoji"
 category = "main"
 optional = true
@@ -2084,7 +2084,7 @@ docs = ["emoji", "importlib-metadata", "myst-parser", "pygments", "python-dotenv
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "7a098ecdef31f8e4b7ce398aaaa7bd2d94b67b5161c1927e9f044329f75c932b"
+content-hash = "8af3c3df500deed0e498599926a8d9fabc6ca05de83ea7578b992a8d409d5eba"
 
 [metadata.files]
 alabaster = [
@@ -3223,8 +3223,8 @@ typer = [
     {file = "typer-0.4.0.tar.gz", hash = "sha256:63c3aeab0549750ffe40da79a1b524f60e08a2cbc3126c520ebf2eeaf507f5dd"},
 ]
 types-emoji = [
-    {file = "types-emoji-1.7.1.tar.gz", hash = "sha256:a4c7ae598a9c2c34339f36d6f2a4cc44c997505ad08ff10787b47313afee88b6"},
-    {file = "types_emoji-1.7.1-py3-none-any.whl", hash = "sha256:06fc3fb5c7bcc4b9db0e9a66284581b8ccc1cc1c5240fefd16276489ed7b0692"},
+    {file = "types-emoji-1.7.2.tar.gz", hash = "sha256:a7660fb507b30cb80bcec2d01417d828f1258b9b2cd9fa80918e8e5470c5e037"},
+    {file = "types_emoji-1.7.2-py3-none-any.whl", hash = "sha256:f4c18bb43e33dc267c650b73d7ae0cd71708c75c79063706d0b91fa9416190c8"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.1.1-py3-none-any.whl", hash = "sha256:21c85e0fe4b9a155d0799430b0ad741cdce7e359660ccbd8b530613e8df88ce2"},
