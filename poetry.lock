@@ -394,7 +394,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
 [[package]]
 name = "emoji"
-version = "1.7.0"
+version = "2.0.0"
 description = "Emoji for Python"
 category = "main"
 optional = true
@@ -2155,7 +2155,7 @@ docs = ["emoji", "importlib-metadata", "myst-parser", "pygments", "python-dotenv
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "a5430aa14ffe39cc515ae4d0a67c2f8120cddc7fb6c5477dff187265facc6015"
+content-hash = "3764abf724558788229bab871ec6563987199dfb7e38b506d49a533c9c72a516"
 
 [metadata.files]
 alabaster = [
@@ -2469,7 +2469,7 @@ docutils = [
     {file = "docutils-0.17.1.tar.gz", hash = "sha256:686577d2e4c32380bb50cbb22f575ed742d58168cee37e99117a854bcd88f125"},
 ]
 emoji = [
-    {file = "emoji-1.7.0.tar.gz", hash = "sha256:65c54533ea3c78f30d0729288998715f418d7467de89ec258a31c0ce8660a1d1"},
+    {file = "emoji-2.0.0.tar.gz", hash = "sha256:297fac7ec9e86f7b602792c28eb6f04819ba67ab88a34c56afcde52243a9a105"},
 ]
 entrypoints = [
     {file = "entrypoints-0.4-py3-none-any.whl", hash = "sha256:f174b5ff827504fd3cd97cc3f8649f3693f51538c7e4bdf3ef002c8429d42f9f"},
