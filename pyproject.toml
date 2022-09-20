@@ -75,20 +75,20 @@ tox-gh-actions = "^2.9.1"
 # Documentation
 darglint = "^1.8.1"
 
-[tool.poetry.extras]
-docs = [
-    "emoji", # Render emoji shortcodes
-    "importlib-metadata",
-    "myst-parser",
-    "pygments",
-    "python-dotenv",
-    "sphinx",
-    "sphinx-autoapi",
-    "sphinx-rtd-theme",
-    "sphinxcontrib-confluencebuilder",
-    "types-emoji",
-]
+[tool.poetry.group.docs]
+optional = true
 
+[tool.poetry.group.docs.dependencies]
+emoji = "^1.7.0"
+importlib-metadata = "^4.12.0"
+myst-parser = "^0.18.0"
+pygments = "^2.13.0"
+python-dotenv = "^0.21.0"
+sphinx = "^5.1.1"
+sphinx-autoapi = "^1.9.0"
+sphinx-rtd-theme = "^1.0.0"
+sphinxcontrib-confluencebuilder = "^1.9.0"
+types-emoji = "^2.0.1" # PEP 561 compliant stub package for mypy
 #################################################################################
 # Tooling configs                                                               #
 #################################################################################
