@@ -2,16 +2,12 @@
 name: Release
 
 on:  # yamllint disable-line rule:truthy
-  workflow_run:
-    workflows:
-      # Upstream workflow runs on pushes/PRs to main/master and always
-      # completes; needed because Dependabot-initiated pushes to master do not
-      # have access to repository secrets on which this workflow relies.
-      # see: dependabot/dependabot-core/issues/3253
-      - Dependabot Trunk Push Check
-      - Dependabot PR Check
-    types:
-      - completed
+  push:
+    branches:
+      - main  # forward-compatibility with new GitHub default branch naming
+      - master  # backward-compatibility with old GitHub default branch naming
+  workflow_dispatch:
+  pull_request:
 
 jobs:
 
@@ -26,13 +22,12 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
         with:
-          ref: ${{ github.event.workflow_run.head_branch }}
           fetch-depth: 2
 
       - name: Set up Python
         uses: actions/setup-python@v4.2.0
         with:
-          python-version: "3.9"
+          python-version: "3.10"
 
       - name: Upgrade pip
         run: |
@@ -49,7 +44,7 @@ jobs:
         run: |
           echo "::set-output name=sha::$(git rev-parse --verify --quiet HEAD^)"
 
-      - name: Detect and tag new version
+      - name: Detect new version tag
         id: detect-new-version-tag
         if: "steps.check-parent-commit.outputs.sha"
         run: |
@@ -78,11 +73,13 @@ jobs:
     runs-on: ubuntu-latest
     needs:
       - get-tag-xor-dev-version
+    permissions:
+      pull-requests: write
+      contents: write
+
     steps:
       - name: Check out the repository
         uses: actions/checkout@v3
-        with:
-          ref: ${{ github.event.workflow_run.head_branch }}
 
       - name: Publish the release notes
         uses: release-drafter/release-drafter@v5.21.0

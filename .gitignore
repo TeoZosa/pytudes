@@ -80,3 +80,5 @@ docs/source/ref/api/pytudes.*
 
 # Private files
 pytudes/_2021/private/
+
+.venv

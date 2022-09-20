@@ -36,17 +36,23 @@ TAG := $(shell date +v%Y%m%d)-$(GIT_VERSION)
 # HELPER TARGETS                                                                #
 #################################################################################
 
+.PHONY: strong-version-tag
+strong-version-tag: get-make-var-TAG
+
+.PHONY: strong-version-tag-dateless
+strong-version-tag-dateless: get-make-var-GIT_VERSION
+
 .PHONY: get-make-var-%
 get-make-var-%:
 	@echo $($*)
 
-.PHONY: _validate_poetry_installation
-_validate_poetry_installation:
+.PHONY: _validate-poetry-installation
+_validate-poetry-installation:
 ifeq ($(shell command -v poetry),)
 	@echo "poetry could not be found!"
 	@echo "Please install poetry!"
 	@echo "Ex.: 'curl -sSL \
-	https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py  | python - \
+	https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py  | python - \
 	&& source $$HOME/.local/env'"
 	@echo "see:"
 	@echo "- https://python-poetry.org/docs/#installation"
@@ -59,28 +65,33 @@ else
 	@echo "Using $(shell poetry --version) in $(shell which poetry)"
 endif
 
-.PHONY: strong-version-tag
-strong-version-tag: get-make-var-TAG
-
-.PHONY: strong-version-tag-dateless
-strong-version-tag-dateless: get-make-var-GIT_VERSION
-
 .PHONY: update-dependencies
-## Install Python dependencies,
-## updating packages in `poetry.lock` with any newer versions specified in
-## `pyproject.toml`, and install pytudes source code
+## Update and install Python dependencies,
+## updating packages in `poetry.lock` with any newer versions
+## that adhere to `pyproject.toml` version range constraints
 update-dependencies:
 	poetry update --lock
 ifneq (${CI}, true)
-	poetry install --extras docs
+	$(MAKE) install-dependencies
 endif
+
+.PHONY: install-dependencies
+## Install Python dependencies specified in `poetry.lock`
+install-dependencies:
+	poetry install --no-interaction --no-root --with docs -vv
+
+.PHONY: install-project
+## Install {} source code (in editable mode)
+install-project:
+	poetry install --no-interaction -vv
+	$(MAKE) clean
 
 .PHONY: generate-requirements
 ## Generate project requirements files from `pyproject.toml`
 generate-requirements:
-	poetry export -f requirements.txt --without-hashes > requirements.txt # subset
-	poetry export --dev -f requirements.txt --without-hashes > requirements-dev.txt # superset w/o docs
-	poetry export --extras docs --dev -f requirements.txt --without-hashes > requirements-all.txt # superset
+	poetry export --format requirements.txt --without-hashes --output requirements.txt # subset
+	poetry export --with dev --format requirements.txt --without-hashes --output requirements-dev.txt # superset w/o docs
+	poetry export --with dev,docs --format requirements.txt --without-hashes --output requirements-all.txt # superset
 
 .PHONY: clean-requirements
 ## Clean generated project requirements files
@@ -98,10 +109,8 @@ clean:
 #################################################################################
 
 .PHONY: provision-environment
-## Set up Python virtual environment with installed project dependencies
-provision-environment: _validate_poetry_installation
-	poetry update --lock -v
-	poetry install --extras docs -v
+## Set up a Python virtual environment with installed project dependencies
+provision-environment: _validate-poetry-installation install-dependencies install-project
 
 .PHONY: install-pre-commit-hooks
 ## Install git pre-commit hooks locally
@@ -113,11 +122,18 @@ install-pre-commit-hooks:
 get-project-version-number:
 	@poetry version --short
 
+#  Note: The new version should ideally be a valid semver string or a valid bump rule:
+#  "patch", "minor", "major", "prepatch", "preminor", "premajor", "prerelease".
 .PHONY: bump-commit-and-push-project-version-number-%
-##  Bumps the version of the project, writes the new version back to
-##  pyproject.toml if a valid bump rule is provided, commits it to VCS, and pushes it to the remote repository.
-##  The new version should ideally be a valid semver string or a valid bump rule:
-##  "patch", "minor", "major", "prepatch", "preminor", "premajor", "prerelease".
+##  *ATOMICALLY*:
+##  1.) Bump the version of the project
+##  2.) Write the new version back to `pyproject.toml` (assuming a valid bump rule is provided)
+##  3.) Commit the version bump to VCS
+##  4.) Push the commit to the remote repository
+##  (e.g.,
+##  `bump-commit-and-push-project-version-number-patch`,
+##  `bump-commit-and-push-project-version-number-minor`,
+##  etc.)
 bump-commit-and-push-project-version-number-%: VERSION_NUM_FILE:=pyproject.toml
 bump-commit-and-push-project-version-number-%:
 	# shell out to ensure next line gets updated version number;
@@ -131,20 +147,21 @@ bump-commit-and-push-project-version-number-%:
 
 .PHONY: tox-%
 ## Run specified tox testenvs
-tox-%: clean update-dependencies generate-requirements
-	poetry run tox -e $* -- $(POSARGS)
+tox-%: generate-requirements
+	poetry run tox -e "$*" -- $(POSARGS)
 	$(MAKE) clean-requirements
 
 .PHONY: test
-## Test via tox in poetry env
 ifeq (${CI}, true)
 test: export TOX_PARALLEL_NO_SPINNER=1
 endif
-test: clean update-dependencies generate-requirements
+## Run pre-defined test suite via tox
+test: generate-requirements
 	poetry run tox --parallel
 	$(MAKE) clean-requirements
 
 .PHONY: test-%
+## Run Python version-specific tests (e.g., `make test-py39`)
 test-%:
 	$(MAKE) tox-$*,coverage
 
@@ -160,7 +177,8 @@ scan-dependencies:
 	$(MAKE) tox-security
 
 .PHONY: pre-commit
-## Lint using pre-commit hooks (see `.pre-commit-config.yaml`)
+## Lint using *ALL* pre-commit hooks
+## (see `.pre-commit-config.yaml`)
 pre-commit:
 	# Note: Running through `tox` since some hooks rely on finding their executables
 	# in the `.tox/precommit/bin` directory and to provide an extra layer of isolation
@@ -168,17 +186,18 @@ pre-commit:
 	$(MAKE) tox-precommit POSARGS=$(PRECOMMIT_HOOK_ID)
 
 .PHONY: pre-commit-%
-## Lint using a single specific pre-commit hook (see `.pre-commit-config.yaml`)
+## Lint using a *SINGLE* specific pre-commit hook (e.g., `make pre-commit-mypy`)
+## (see `.pre-commit-config.yaml`)
 pre-commit-%: export SKIP= # Reset `SKIP` env var to force single hooks to always run
 pre-commit-%:
 	$(MAKE) pre-commit PRECOMMIT_HOOK_ID=$*
 
 .PHONY: docs-%
 ## Build documentation in the format specified after `-`
-## e.g.,
+## (e.g.,
 ## `make docs-html` builds the docs in HTML format,
 ## `make docs-confluence` builds and publishes the docs on confluence (see `docs/source/conf.py` for details),
-## `make docs-clean` cleans the docs build directory
+## `make docs-clean` cleans the docs build directory)
 docs-%:
 	$(MAKE) $* -C docs
 

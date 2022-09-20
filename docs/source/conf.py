@@ -49,7 +49,7 @@ version = release = project_metadata["Version"]
 extensions = [
     "autoapi.extension",  # Include documentation from docstrings (https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html)
     "myst_parser",  # MyST .md parsing (https://myst-parser.readthedocs.io/en/latest/index.html)
-    "sphinx.ext.autodoc",  # Deferred to by `autoapi.extension` for type hints (via `autodoc_typehints` config) and sphinx_icontract for contract auto-documentation
+    "sphinx.ext.autodoc",  # Deferred to by `autoapi.extension` for type hints (via `autodoc_typehints` config)
     "sphinx.ext.intersphinx",  # Link to other projects’ documentation (https://www.sphinx-doc.org/en/master/usage/extensions/intersphinx.html)
     "sphinx.ext.viewcode",  # Add documentation links to/from source code (https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html)
     "sphinx.ext.autosectionlabel",  # Allow reference sections using its title (https://www.sphinx-doc.org/en/master/usage/extensions/autosectionlabel.html)
@@ -57,7 +57,7 @@ extensions = [
     "sphinxcontrib.confluencebuilder",  # Build Confluence supported format files (e.g. storage format) and optionally publish them to a Confluence instance (https://sphinxcontrib-confluencebuilder.readthedocs.io/en/stable/)
 ]
 
-rst_prolog = pathlib.Path("global.rst").read_text()
+rst_prolog = pathlib.Path("global.rst").read_text(encoding="utf-8")
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ["_templates"]
@@ -102,7 +102,7 @@ autoapi_options = [
 ]
 autoapi_python_class_content = "both"  # Concatenate __init__ and class docstrings
 autoapi_python_use_implicit_namespaces = True  # APIDOC config
-# autoapi_template_dir = "_templates"
+autoapi_template_dir = "_templates"
 autoapi_type = "python"
 autodoc_typehints = "description"  # Show typehints as content of function or method
 
@@ -121,7 +121,7 @@ def convert_emoji_shortcodes(app: Sphinx, exception: Exception) -> None:
 
     def emojize_match(match: Match) -> str:
         """Convert emoji shortcodes in match to corresponding emoji characters"""
-        return emoji.emojize(match.group(), use_aliases=True, variant="emoji_type")
+        return emoji.emojize(match.group(), variant="emoji_type")
 
     def emojize_all(text: str) -> str:
         """Convert all emoji shortcodes in text to corresponding emoji characters"""
