@@ -105,4 +105,4 @@ def _reverse_str_to_int(x: int) -> int:
     reversed_x = sign * int(str(abs(x))[::-1])
 
     ## Return reversed_x if it can be represented as a 32-bit signed integer
-    return reversed_x if -(2 ** 31) <= reversed_x <= (2 ** 31) - 1 else 0
+    return reversed_x if -(2**31) <= reversed_x <= (2**31) - 1 else 0

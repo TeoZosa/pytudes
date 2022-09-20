@@ -175,6 +175,21 @@ disable = [
   # Black & Flake8 purview
   "line-too-long",
   "c-extension-no-member",
+  # Break convention for coding problems
+  #   given that their purpose and characteristics
+  #   distinguish them from typical software engineering programs
+  #   (e.g., generally independent modules)
+  "duplicate-code",
+  "invalid-name",
+  "no-else-return",
+  "pointless-string-statement",
+  "too-few-public-methods",
+  "unnecessary-lambda-assignment",
+  "unnecessary-pass",
+  "unused-import", # some imports are used in doctests which pylint does not register as usages
+  "useless-else-on-loop",
+  "wrong-import-order",
+  "wrong-import-position",
 ]
 
 [tool.pylint.similarities]

@@ -139,7 +139,7 @@ def compute_median_merge(nums1: list[int], nums2: list[int]) -> float:
         return (combined[mid] + combined[mid + 1]) / 2
 
 
-def compute_median_binary_search(
+def compute_median_binary_search(  # pylint: disable=too-many-locals
     smaller_arr: list[int], larger_arr: list[int]
 ) -> float:
     """Perform binary search on two sorted arrays to find their alignment points from which a unified median can be computed

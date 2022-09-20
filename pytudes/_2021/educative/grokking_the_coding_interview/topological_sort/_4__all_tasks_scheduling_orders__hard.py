@@ -1,11 +1,13 @@
 """
-
+STALE TODO(teo): Add description
 """
 
 import collections
 
 
-def print_orders(prerequisites: list[list[int]], num_tasks: int):
+def print_orders(  # pylint: disable=inconsistent-return-statements
+    prerequisites: list[list[int]], num_tasks: int
+):
     """
 
     Args:
@@ -110,7 +112,7 @@ def compute_topological_orders(
         for child in graph[curr_source_vertex]:  # 3
             in_degree[child] += 1
         unpop = acc_topological_order.pop()  # 2
-        assert unpop == curr_source_vertex
+        assert unpop == curr_source_vertex  # nosec
         sources.append(curr_source_vertex)  # 1
 
     return topological_orders

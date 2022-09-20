@@ -85,7 +85,7 @@ def find_averages_of_subarrays(arr: list[int], target_window_size: int) -> list[
     averages = []
 
     ## SLIDING
-    for window_end in range(len(arr)):
+    for window_end in range(len(arr)):  # pylint: disable=consider-using-enumerate
         # EXPANSION
         window_sum += arr[window_end]
 

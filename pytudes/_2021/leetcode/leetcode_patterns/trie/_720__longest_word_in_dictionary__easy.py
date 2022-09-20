@@ -191,7 +191,7 @@ def get_longer_word(word1: str, word2: str) -> str:
     if len(word1) == len(word2):
         return min(word1, word2)
     else:  # Otherwise return the string with the larger length
-        return max(word1, word2, key=lambda item: len(item))  # O(1) since len is O(1)
+        return max(word1, word2, key=len)  # O(1) since len is O(1)
 
 
 class Trie:

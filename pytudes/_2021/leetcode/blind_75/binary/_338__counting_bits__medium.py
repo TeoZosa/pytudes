@@ -107,11 +107,11 @@ def count_bits_via_hamming_weight(num: int) -> list[int]:
     # DS's/res
     num_bits_in_nums_in_range_0_to_num = []
 
-    for num in range(num + 1):
+    for curr_num in range(num + 1):
         hamming_weight = 0
-        while num != 0:
-            hamming_weight += num & 1
-            num >>= 1
+        while curr_num != 0:
+            hamming_weight += curr_num & 1
+            curr_num >>= 1
         num_bits_in_nums_in_range_0_to_num.append(hamming_weight)
 
     return num_bits_in_nums_in_range_0_to_num

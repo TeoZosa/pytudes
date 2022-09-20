@@ -38,7 +38,7 @@ def smallest_subarray_with_given_sum(arr: list[int], target_sum: int) -> int:
     min_subarr_len = float("inf")
 
     ## SLIDING
-    for window_end in range(len(arr)):
+    for window_end in range(len(arr)):  # pylint: disable=consider-using-enumerate
         ## EXPANSION
         window_sum += arr[window_end]
 

@@ -52,7 +52,7 @@ def partition_3_ways_and_get_left_end_right_start_indexes(
         items[i], items[j] = items[j], items[i]
 
     ## INITIALIZE VARS ##
-    pivot_idx = random.randint(start, end)
+    pivot_idx = random.randint(start, end)  # nosec
     pivot = items[pivot_idx]
 
     ## 3-WAY PARTITION ##

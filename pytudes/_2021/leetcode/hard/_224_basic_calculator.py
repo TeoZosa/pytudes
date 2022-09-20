@@ -85,9 +85,9 @@ def calculate_via_rpn(expression: str) -> int:
 
         # Update operators in intermediate stack/Move to RPN stack
         if token in operator_precedence:
-            if token != "(":
+            if token != "(":  # nosec
                 move_greater_or_equal_precedence_operators_in_curr_scope_to_rpn_stack()
-            if token != ")":
+            if token != ")":  # nosec
                 intermediate_operator_tokens.append(token)
 
     rpn_tokens += reversed(intermediate_operator_tokens)

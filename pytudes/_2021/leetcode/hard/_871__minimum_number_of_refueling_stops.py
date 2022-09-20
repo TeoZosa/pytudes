@@ -73,7 +73,7 @@ def minRefuelStops_DP(
     DP_table = [start_fuel] + [0] * len(stations)  # |DP_table| == len(stations) + 1
 
     ## POPULATE the table
-    for station_i in range(len(stations)):
+    for station_i in range(len(stations)):  # pylint: disable=consider-using-enumerate
 
         # Check all stops ≤ current station_idx
         # Updates values from the worst case (all stations) to the best case (0 stations)

@@ -101,7 +101,7 @@ def merge_two_lists_heap(l1: ListNode, l2: ListNode) -> ListNode:
 
     head_handle = curr = ListNode(val=None)
     while heap:
-        val, _, next_node = heapq.heappop(heap)
+        _, _, next_node = heapq.heappop(heap)
         curr.next = curr = next_node
 
     return head_handle.next
