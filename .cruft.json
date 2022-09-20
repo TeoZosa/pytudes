@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/TeoZosa/cookiecutter-cruft-poetry-tox-pre-commit-ci-cd",
-  "commit": "ad4beb9d69bda80ece8aae9428e7d7142ae3a038",
+  "commit": "f0c86bb4c933b4a3268b29546263f0968fe507df",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -9,9 +9,11 @@
       "package_name": "pytudes",
       "friendly_name": "Pytudes",
       "author": "Teo Zosa",
-      "email": "teo@sonosim.com",
+      "email": "erinzosa@ucla.edu",
       "project_type": "project",
-      "jupyter_notebook_support": "no",
+      "project_boilerplate_type": "none",
+      "jupyter_notebook_project": "no",
+      "adr_documentation_support": "no",
       "remote_vcs_host": "github",
       "remote_vcs_url": "https://github.com",
       "remote_vcs_username": "TeoZosa",
