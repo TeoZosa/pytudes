@@ -63,7 +63,9 @@ def MathChallenge(rpn_expression: str) -> int:
             curr_num = curr_num * 10 + int(token)
 
         # Add number from fully-parsed multi-digit string to operand stack
-        elif token == " " and curr_num is not None:  # Operand/operator delimiter
+        elif (
+            token == " " and curr_num is not None  # Operand/operator delimiter # nosec
+        ):
             operand_stack.append(curr_num)
             curr_num = None
 

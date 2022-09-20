@@ -138,7 +138,7 @@ def _quickselect(
     get_distance = lambda i: sum(coord**2 for coord in points[i])
 
     ## INITIALIZE VARS ##
-    pivot_idx = random.randint(start, end)  # inclusive range
+    pivot_idx = random.randint(start, end)  # inclusive range  # nosec
     pivot_distance = get_distance(pivot_idx)
 
     ## 3-WAY PARTITION ##
@@ -209,7 +209,7 @@ def _quickselect_iterative(
     while start < end:  # pragma: no branch
 
         ## INITIALIZE VARS ##
-        pivot_idx = random.randint(start, end)  # inclusive range
+        pivot_idx = random.randint(start, end)  # inclusive range  # nosec
         pivot_distance = get_distance(pivot_idx)
 
         ## 3-WAY PARTITION ##

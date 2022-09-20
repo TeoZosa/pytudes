@@ -55,7 +55,7 @@ def _quicksort(items: list[int], start: int, end: int) -> None:
         return
 
     ## INITIALIZE VARS ##
-    pivot_idx = random.randint(start, end)
+    pivot_idx = random.randint(start, end)  # nosec
     pivot = items[pivot_idx]
 
     ## 3-WAY PARTITION ##

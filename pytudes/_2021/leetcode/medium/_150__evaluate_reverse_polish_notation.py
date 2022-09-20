@@ -232,11 +232,11 @@ def eval_RPN_classic(tokens: list[str]) -> int:
     for token in tokens:
         if token in arithmetic_operators:
             right_operand, left_operand = operand_stack.pop(), operand_stack.pop()
-            if token == "+":
+            if token == "+":  # nosec
                 new_operand = left_operand + right_operand
-            elif token == "-":
+            elif token == "-":  # nosec
                 new_operand = left_operand - right_operand
-            elif token == "*":
+            elif token == "*":  # nosec
                 new_operand = left_operand * right_operand
             else:  # token == "/"
                 # Integer division is truncated toward zero.

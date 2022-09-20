@@ -208,7 +208,7 @@ def set_negation(A: int) -> int:
     """
     normal_neg = ~A
     XOR_neg = A ^ all_1_bits()  # ~0
-    assert normal_neg == XOR_neg == -A - 1
+    assert normal_neg == XOR_neg == -A - 1  # nosec
     return normal_neg
 
 
@@ -334,7 +334,7 @@ def extract_last_bit(A: int) -> int:
     mask_with_twos_complement_negation_of_A = A & -A
     mask_with_negation_of_A_minus_1 = A & ~(A - 1)
     XOR_with_A_last_on_bit_dropped = A ^ remove_last_on_bit(A)  # A ^ (A & (A - 1))
-    assert (
+    assert (  # nosec
         mask_with_twos_complement_negation_of_A
         == mask_with_negation_of_A_minus_1
         == XOR_with_A_last_on_bit_dropped
