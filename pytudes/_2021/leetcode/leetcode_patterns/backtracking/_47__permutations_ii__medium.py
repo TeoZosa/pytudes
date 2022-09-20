@@ -320,7 +320,8 @@ def permute_unique_backtrack(nums: list[int]) -> list[list[int]]:
         if len(sub_permutation) == len(nums):
             res.append(sub_permutation.copy())
         else:
-            for curr_num in nums_counts:  # iterate over *distinct* elements
+            # iterate over *distinct* elements
+            for curr_num in nums_counts:  # pylint: disable=consider-using-dict-items
 
                 # If there are remaining instances of `curr_num` left to choose
                 # => Select curr_num at this position
@@ -335,9 +336,8 @@ def permute_unique_backtrack(nums: list[int]) -> list[list[int]]:
                     compute_possible_permutations(sub_permutation)
 
                     sub_permutation.pop()
-                    nums_counts[
-                        curr_num
-                    ] += 1  # Deselect `curr_num` at current position
+                    # Deselect `curr_num` at current position
+                    nums_counts[curr_num] += 1
 
     compute_possible_permutations(sub_permutation=[])  # initialize with empty list
 
@@ -361,7 +361,7 @@ def permute_unique_backtrack_stack(nums: list[int]) -> list[list[int]]:
         [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
 
     """
-    # TODO stack-based backtracking
+    # (STALE) TODO(teo): stack-based backtracking
     #  2. Your implementation is allowed to use a Stack, a Queue
     #  Hint: Use the stack to store the elements
     #  yet to be used to generate the permutations,
@@ -388,15 +388,15 @@ def permute_unique_backtrack_stack(nums: list[int]) -> list[list[int]]:
             res.append(sub_permutation)
         else:
 
-            # TODO: find a way to avoid nums_count updates every time
+            # (STALE) TODO(teo): find a way to avoid nums_count updates every time
             # without passing in a a dict
             for used_num in sub_permutation:
                 nums_counts[used_num] -= 1  # Select `curr_num` at current position
 
             children = [
                 sub_permutation + [curr_num]
-                for curr_num in nums_counts
-                if nums_counts[curr_num] > 0
+                for curr_num, curr_num_count in nums_counts.items()
+                if curr_num_count > 0
             ]
 
             stack.extend(children)
@@ -482,7 +482,7 @@ def permute_unique_matt_teo(nums: list[int]) -> list[list[int]]:
     if len(nums) == 1:
         return [nums]
 
-    distinct_nums = {num for num in nums}
+    distinct_nums = set(nums)
 
     uniq_perms = []
     for curr_num in distinct_nums:

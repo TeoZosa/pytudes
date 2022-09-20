@@ -175,7 +175,6 @@ class NumberStreamTrackingMedian:
 
 
 def main():
-    pass
     medianOfAStream = NumberStreamTrackingMedian()
     medianOfAStream.insert_num(3)
     medianOfAStream.insert_num(1)

@@ -1,11 +1,13 @@
 """
-
+STALE TODO(teo): Add description
 """
 
 import collections
 
 
-def print_orders(prerequisites: list[list[int]], num_tasks: int):
+def print_orders(  # pylint: disable=inconsistent-return-statements
+    prerequisites: list[list[int]], num_tasks: int
+):
     """
 
     Args:

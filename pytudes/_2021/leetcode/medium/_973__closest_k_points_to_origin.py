@@ -179,7 +179,7 @@ def k_closest_kd_tree(points: list[list[int]], K: int) -> list[list[int]]:
     """
 
     tree = spatial.KDTree(points)
-    distance, idx = tree.query(
+    distance, idx = tree.query(  # pylint: disable=unused-variable
         # point for which to find nearest neighbors
         x=[0, 0],  # origin
         k=K,  # number of nearest neighbors,

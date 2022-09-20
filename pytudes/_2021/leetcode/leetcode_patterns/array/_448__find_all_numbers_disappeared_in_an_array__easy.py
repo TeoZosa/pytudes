@@ -60,7 +60,7 @@ def find_disappeared_numbers(nums: list[int]) -> list[int]:
         # already in the correct location:
         # 1. swaps with self (i.e., current element already in the correct location)
         # 2. swaps with duplicate elements (future element already in correct location)
-        if curr_idx != target_idx and target_idx != nums[target_idx] - 1:
+        if target_idx not in (curr_idx, nums[target_idx] - 1):
             swap_elements(curr_idx, target_idx)
         else:
             curr_idx += 1

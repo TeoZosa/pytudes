@@ -58,7 +58,7 @@ def find_string_anagrams(input_str: str, pattern: str) -> list[str]:
         pattern_char_count[c] = pattern_char_count.get(c, 0) + 1
 
     ## SLIDING ##
-    for window_end in range(len(input_str)):
+    for window_end in range(len(input_str)):  # pylint: disable=consider-using-enumerate
         left_char, right_char = input_str[window_start], input_str[window_end]
 
         ## EXPANSION ##

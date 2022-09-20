@@ -29,7 +29,7 @@ def max_sum_sub_array_of_size_k(arr: list[int], K: int) -> int:
     window_start = 0
 
     ## SLIDING
-    for window_end in range(len(arr)):
+    for window_end in range(len(arr)):  # pylint: disable=consider-using-enumerate
         ## EXPANSION
         window_sum += arr[window_end]  # add the next element
         ## WINDOW MATCH

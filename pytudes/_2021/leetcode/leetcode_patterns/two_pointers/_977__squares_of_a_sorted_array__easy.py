@@ -82,6 +82,6 @@ def sorted_squares_brute_force(nums: list[int]) -> list[int]:
         [4, 9, 9, 49, 121]
 
     """
-    for i in range(len(nums)):
-        nums[i] *= nums[i]
+    for i, num in enumerate(nums):
+        nums[i] = num**2
     return sorted(nums)

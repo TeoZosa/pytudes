@@ -15,9 +15,9 @@ class ListNode:
 
     """
 
-    def __init__(self, val: Any, next: "NodeType" = None):
+    def __init__(self, val: Any, next_node: "NodeType" = None):
         self.val = val
-        self.next = next
+        self.next = next_node
 
     def __iter__(self):
         curr = self
