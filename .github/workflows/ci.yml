@@ -26,7 +26,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4.2.0
         with:
-          python-version: "3.9"
+          python-version: "3.10"
 
       - name: Install Poetry
         run: |
@@ -39,9 +39,19 @@ jobs:
           poetry config virtualenvs.in-project true
           poetry config --list
 
-      - name: Install dependencies
+      - name: Install Tox
         run: |
-          make provision-environment
+          pip install --constraint=.github/workflows/constraints.txt tox
+          tox --version
+
+      - name: Load cached tox testenv(s) (if they exist)
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            .tox
+          key: tox-${{ github.workflow }}-${{ github.job }}-${{ runner.os }}-CPython${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
 
       - name: Install Go for pre-commit hook (shfmt)
         run: |
@@ -53,7 +63,7 @@ jobs:
           export CGO_ENABLED=0 && \
           export GOOS=linux && \
           export GOARCH=amd64 && \
-          export PATH="${PATH}:/usr/local/go/bin"
+          sudo ln -sf /usr/local/go/bin/go /usr/bin/go
 
       - name: Run static analysis
         run: |
@@ -71,7 +81,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4.2.0
         with:
-          python-version: "3.9"
+          python-version: "3.10"
 
       - name: Install Poetry
         run: |
@@ -84,9 +94,19 @@ jobs:
           poetry config virtualenvs.in-project true
           poetry config --list
 
-      - name: Install dependencies
+      - name: Install Tox
         run: |
-          make provision-environment
+          pip install --constraint=.github/workflows/constraints.txt tox
+          tox --version
+
+      - name: Load cached tox testenv(s) (if they exist)
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            .tox
+          key: tox-${{ github.workflow }}-${{ github.job }}-${{ runner.os }}-CPython${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
 
       - name: Run dependency security vulnerability analysis
         run: |
@@ -117,13 +137,13 @@ jobs:
     strategy:
       matrix:
         os: ["ubuntu-latest", "macos-latest"]
-        python-version: ["3.9"]
+        python-version: ["3.10"]
 
     name: Python ${{ matrix.python-version }} (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     env:
       USING_COVERAGE_OS: "ubuntu"
-      USING_COVERAGE_PY_VER: "3.9"
+      USING_COVERAGE_PY_VER: "3.10"
 
     steps:
       - name: Check out the repository
@@ -145,9 +165,20 @@ jobs:
           poetry config virtualenvs.in-project true
           poetry config --list
 
-      - name: Install dependencies
+      - name: Install Tox & Tox GH Actions Plugin
         run: |
-          make provision-environment
+          pip install --constraint=.github/workflows/constraints.txt tox tox-gh-actions
+          tox --version
+
+
+      - name: Load cached tox testenv(s) (if they exist)
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3.0.1
+        with:
+          path: |
+            .tox
+          key: tox-${{ github.workflow }}-${{ github.job }}-${{ runner.os }}-CPython${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
 
       - name: Run tox targets for ${{ matrix.python-version }}
         run: |
@@ -161,3 +192,52 @@ jobs:
         with:
           file: ./.tox/coverage.xml
           fail_ci_if_error: true
+
+  # Documentation build testing jobs ------------------------
+  test-documentation-building:
+    strategy:
+      matrix:
+        python-version: ["3.10"]
+
+    name: Documentation build testing
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3.0.2
+
+      - name: Set up Python
+        uses: actions/setup-python@v4.2.0
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install Poetry
+        run: |
+          pip install --constraint=.github/workflows/constraints.txt poetry
+          poetry --version
+
+      - name: Configure Poetry
+        run: |
+          poetry config cache-dir "${GITHUB_WORKSPACE}/.cache/pypoetry"
+          poetry config virtualenvs.in-project true
+          poetry config --list
+
+      - name: Load cached venv(s) (if they exist)
+        id: cached-poetry-dependencies
+        uses: actions/cache@v3.0.1
+        with:
+          path: |
+            .venv
+          key: venv-${{ runner.os }}-CPython${{ matrix.python-version }}-${{ hashFiles('**/poetry.lock') }}
+
+      - name: Install dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: |
+          make install-dependencies
+
+      - name: Install project
+        run: |
+          make install-project
+
+      - name: Build Documentation
+        run: |
+          make docs-html
