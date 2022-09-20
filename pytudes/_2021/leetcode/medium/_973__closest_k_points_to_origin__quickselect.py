@@ -135,7 +135,7 @@ def _quickselect(
     def swap_elements(i, j) -> None:
         points[i], points[j] = points[j], points[i]
 
-    get_distance = lambda i: sum(coord ** 2 for coord in points[i])
+    get_distance = lambda i: sum(coord**2 for coord in points[i])
 
     ## INITIALIZE VARS ##
     pivot_idx = random.randint(start, end)  # inclusive range
@@ -203,7 +203,7 @@ def _quickselect_iterative(
     def swap_elements(i, j) -> None:
         points[i], points[j] = points[j], points[i]
 
-    get_distance = lambda i: sum(coord ** 2 for coord in points[i])
+    get_distance = lambda i: sum(coord**2 for coord in points[i])
 
     ## BASE CASE ##
     while start < end:  # pragma: no branch

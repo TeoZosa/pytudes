@@ -60,14 +60,14 @@ def count_primes(n: int) -> int:
     # [num^2, n), we only need to check numbers in the range [2, √n]
     # (since (√n)^2 = n ≤ n), so we terminate the outer loop when num > √n
 
-    for num in range(2, int(n ** 0.5) + 1):
+    for num in range(2, int(n**0.5) + 1):
         if is_prime[num]:  # pragma: no branch
             # Mark all multiples of `num` as non-prime,
             # starting from num^2 (since the other multiples of `num`
             # will have already been marked as non-prime in previous iterations)
 
             step_size = 2 * num if num > 2 else num  # minor optimization
-            for multiple_of_num in range(num ** 2, n, step_size):
+            for multiple_of_num in range(num**2, n, step_size):
                 is_prime[multiple_of_num] = False
 
     primes = [i for i in range(len(is_prime)) if is_prime[i]]
@@ -124,13 +124,13 @@ def count_primes_separate_loop_for_2(n: int) -> int:
     #   sieve for num==2 has step size == num
     #   sieve for num>2 has step size == 2 * num
 
-    for multiple_of_num in range(2 ** 2, n, 2):
+    for multiple_of_num in range(2**2, n, 2):
         is_prime[multiple_of_num] = False
 
-    for num in range(3, int(n ** 0.5) + 1):
+    for num in range(3, int(n**0.5) + 1):
         if is_prime[num]:  # pragma: no branch
 
-            for multiple_of_num in range(num ** 2, len(is_prime), 2 * num):
+            for multiple_of_num in range(num**2, len(is_prime), 2 * num):
                 is_prime[multiple_of_num] = False
 
     return sum(is_prime)

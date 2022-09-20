@@ -47,7 +47,7 @@ def k_closest_heapq_nsmallest(points: list[list[int]], K: int) -> list[list[int]
         [[3, 3], [-2, 4]]
 
     """
-    compute_distance = lambda point: sum(coord ** 2 for coord in point)
+    compute_distance = lambda point: sum(coord**2 for coord in point)
     return heapq.nsmallest(K, points, key=compute_distance)
 
 
@@ -85,7 +85,7 @@ def k_closest_elaborated(points: list[list[int]], K: int) -> list[list[int]]:
 
     for point in points:
         # negate to use minheap as a maxheap
-        dist = -sum(coord ** 2 for coord in point)
+        dist = -sum(coord**2 for coord in point)
         dist_and_point = (dist, point)
 
         # maintain a max_heap of size ≤ K
@@ -210,6 +210,6 @@ def k_closest_sorting(points: list[list[int]], K: int) -> list[list[int]]:
         [[3, 3], [-2, 4]]
 
     """
-    compute_distance = lambda point: sum(coord ** 2 for coord in point)
+    compute_distance = lambda point: sum(coord**2 for coord in point)
     points.sort(key=compute_distance)
     return points[:K]

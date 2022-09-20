@@ -11,7 +11,7 @@ Examples:
 """
 import re
 
-INT_MIN_VAL, INT_MAX_VAL = -(2 ** 31), (2 ** 31) - 1
+INT_MIN_VAL, INT_MAX_VAL = -(2**31), (2**31) - 1
 
 
 class Solution:
