@@ -66,7 +66,6 @@ python-versions = ">=3.7.2"
 
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0"
-typing-extensions = {version = ">=3.10", markers = "python_version < \"3.10\""}
 wrapt = {version = ">=1.11,<2", markers = "python_version < \"3.11\""}
 
 [[package]]
@@ -156,7 +155,6 @@ mypy-extensions = ">=0.4.3"
 pathspec = ">=0.9.0"
 platformdirs = ">=2"
 tomli = {version = ">=1.1.0", markers = "python_full_version < \"3.11.0a7\""}
-typing-extensions = {version = ">=3.10.0.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 colorama = ["colorama (>=0.4.3)"]
@@ -511,9 +509,6 @@ description = "Read resources from Python packages"
 category = "dev"
 optional = false
 python-versions = ">=3.6"
-
-[package.dependencies]
-zipp = {version = ">=3.1.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 docs = ["jaraco.packaging (>=8.2)", "rst.linker (>=1.9)", "sphinx"]
@@ -1083,12 +1078,7 @@ optional = false
 python-versions = ">=3.8"
 
 [package.dependencies]
-numpy = [
-    {version = ">=1.18.5", markers = "platform_machine != \"aarch64\" and platform_machine != \"arm64\" and python_version < \"3.10\""},
-    {version = ">=1.19.2", markers = "platform_machine == \"aarch64\" and python_version < \"3.10\""},
-    {version = ">=1.20.0", markers = "platform_machine == \"arm64\" and python_version < \"3.10\""},
-    {version = ">=1.21.0", markers = "python_version >= \"3.10\""},
-]
+numpy = {version = ">=1.21.0", markers = "python_version >= \"3.10\""}
 python-dateutil = ">=2.8.1"
 pytz = ">=2020.1"
 
@@ -1293,7 +1283,6 @@ mccabe = ">=0.6,<0.8"
 platformdirs = ">=2.2.0"
 tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 tomlkit = ">=0.10.1"
-typing-extensions = {version = ">=3.10.0", markers = "python_version < \"3.10\""}
 
 [package.extras]
 spelling = ["pyenchant (>=3.2,<4.0)"]
@@ -1676,7 +1665,6 @@ babel = ">=1.3"
 colorama = {version = ">=0.3.5", markers = "sys_platform == \"win32\""}
 docutils = ">=0.14,<0.20"
 imagesize = "*"
-importlib-metadata = {version = ">=4.4", markers = "python_version < \"3.10\""}
 Jinja2 = ">=2.3"
 packaging = "*"
 Pygments = ">=2.0"
@@ -2106,7 +2094,7 @@ attrs = {version = "*", optional = true, markers = "python_version >= \"3.6\" an
 cmake = {version = "*", optional = true, markers = "extra == \"all\""}
 codecov = {version = "*", optional = true, markers = "extra == \"all\""}
 colorama = {version = "*", optional = true, markers = "platform_system == \"Windows\" and extra == \"all\""}
-debugpy = {version = "*", optional = true, markers = "python_version >= \"3.9\""}
+debugpy = {version = "*", optional = true, markers = "python_version >= \"3.10\" and extra == \"all\""}
 ipykernel = {version = "*", optional = true, markers = "python_version >= \"3.7\" and extra == \"all\""}
 IPython = {version = "*", optional = true, markers = "python_version >= \"3.7\" and extra == \"all\""}
 ipython-genutils = {version = "*", optional = true, markers = "python_version >= \"3.10\" and extra == \"all\""}
@@ -2118,7 +2106,7 @@ nbconvert = {version = "*", optional = true, markers = "python_version >= \"3.6.
 ninja = {version = "*", optional = true, markers = "extra == \"all\""}
 pybind11 = {version = "*", optional = true, markers = "extra == \"all\""}
 Pygments = {version = "*", optional = true, markers = "python_version >= \"3.5.0\" and extra == \"all\""}
-pytest = {version = "*", optional = true, markers = "python_version >= \"3.7.0\""}
+pytest = {version = "*", optional = true, markers = "python_version >= \"3.10.0\" and extra == \"all\""}
 pytest-cov = {version = "*", optional = true, markers = "python_version >= \"3.6.0\" and extra == \"all\""}
 scikit-build = {version = "*", optional = true, markers = "extra == \"all\""}
 six = "*"
@@ -2139,7 +2127,7 @@ name = "zipp"
 version = "3.7.0"
 description = "Backport of pathlib-compatible object wrapper for zip files"
 category = "main"
-optional = false
+optional = true
 python-versions = ">=3.7"
 
 [package.extras]
@@ -2151,8 +2139,8 @@ docs = ["emoji", "importlib-metadata", "myst-parser", "pygments", "python-dotenv
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.9,<3.11"
-content-hash = "7c421d3d739aa7c4d1f21f83179b9cf014cfcc9d0a249393e02611206210c9be"
+python-versions = "^3.10,<3.11"
+content-hash = "3e369bc508f0f68b1d7b01ff291fcd21529670347fe5fa6fab3f770e4c2e9944"
 
 [metadata.files]
 alabaster = [

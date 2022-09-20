@@ -21,7 +21,7 @@ classifiers = [
 Changelog = "https://github.com/TeoZosa/pytudes/releases"
 
 [tool.poetry.dependencies]
-python = "^3.9,<3.11"
+python = "^3.10,<3.11"
 
 # Project-specific
 coolname = "^1.1.0"
