@@ -2000,7 +2000,7 @@ test = ["black (>=19.10b0,<20.0b0)", "coverage (>=5.2,<6.0)", "isort (>=5.0.6,<6
 
 [[package]]
 name = "types-emoji"
-version = "2.1.0"
+version = "2.1.0.1"
 description = "Typing stubs for emoji"
 category = "main"
 optional = false
@@ -3404,8 +3404,8 @@ typer = [
     {file = "typer-0.4.0.tar.gz", hash = "sha256:63c3aeab0549750ffe40da79a1b524f60e08a2cbc3126c520ebf2eeaf507f5dd"},
 ]
 types-emoji = [
-    {file = "types-emoji-2.1.0.tar.gz", hash = "sha256:816937ef2b7e4ab3b465d598704c7f35825e7a44997016199d6ae6641c0f270a"},
-    {file = "types_emoji-2.1.0-py3-none-any.whl", hash = "sha256:c4a72e7f4c92c78fd0fb538b941b9dd654126e133a7a8fe1c92ed86360c4e9ed"},
+    {file = "types-emoji-2.1.0.1.tar.gz", hash = "sha256:8abbd27b8ebd51ae0bafdf04ba07263b984bd300cf73eedceb1cfc156f589c8b"},
+    {file = "types_emoji-2.1.0.1-py3-none-any.whl", hash = "sha256:fbbc07b57d82cdb7be3e34f3aad3a4157063f929668016bd27e62e528f3e656d"},
 ]
 typing-extensions = [
     {file = "typing_extensions-4.1.1-py3-none-any.whl", hash = "sha256:21c85e0fe4b9a155d0799430b0ad741cdce7e359660ccbd8b530613e8df88ce2"},
