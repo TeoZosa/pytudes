@@ -1426,7 +1426,7 @@ name = "python-dotenv"
 version = "0.21.0"
 description = "Read key-value pairs from a .env file and set them as environment variables"
 category = "main"
-optional = false
+optional = true
 python-versions = ">=3.7"
 
 [package.extras]
@@ -1739,7 +1739,7 @@ name = "sphinxcontrib-confluencebuilder"
 version = "1.9.0"
 description = "Sphinx extension to build Atlassian Confluence Storage Markup"
 category = "main"
-optional = false
+optional = true
 python-versions = ">=2.7"
 
 [package.dependencies]
@@ -2139,7 +2139,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10,<3.11"
-content-hash = "0ad6be4db839c8d522a8dbe336e1cf54c6104afd9c5b8f097896d97cd37c0b7e"
+content-hash = "1046b96549737fe44199fecffc28aebb21c07b0bf70f655018ccf5e3ca3647ca"
 
 [metadata.files]
 alabaster = [

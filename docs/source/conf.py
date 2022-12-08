@@ -1,6 +1,5 @@
 """Sphinx configuration."""
 import datetime
-import os
 import pathlib
 import re
 import sys
@@ -8,12 +7,7 @@ from typing import List, Match
 
 import emoji
 import importlib_metadata
-from dotenv import find_dotenv, load_dotenv
 from sphinx.application import Sphinx
-
-# Load user-specific env vars (e.g. secrets) from a `.env` file
-load_dotenv(find_dotenv())
-
 
 # -- Path setup --------------------------------------------------------------
 
@@ -54,7 +48,6 @@ extensions = [
     "sphinx.ext.viewcode",  # Add documentation links to/from source code (https://www.sphinx-doc.org/en/master/usage/extensions/viewcode.html)
     "sphinx.ext.autosectionlabel",  # Allow reference sections using its title (https://www.sphinx-doc.org/en/master/usage/extensions/autosectionlabel.html)
     "sphinx_rtd_theme",  # Sphinx theme used on Read The Docs (https://github.com/readthedocs/sphinx_rtd_theme)
-    "sphinxcontrib.confluencebuilder",  # Build Confluence supported format files (e.g. storage format) and optionally publish them to a Confluence instance (https://sphinxcontrib-confluencebuilder.readthedocs.io/en/stable/)
 ]
 
 rst_prolog = pathlib.Path("global.rst").read_text(encoding="utf-8")
@@ -110,6 +103,7 @@ autodoc_typehints = "description"  # Show typehints as content of function or me
 # Prefix document path to section labels, to use:
 # `path/to/file:heading` instead of just `heading`
 autosectionlabel_prefix_document = True
+myst_heading_anchors = 3
 
 
 def convert_emoji_shortcodes(app: Sphinx, exception: Exception) -> None:
@@ -121,7 +115,7 @@ def convert_emoji_shortcodes(app: Sphinx, exception: Exception) -> None:
 
     def emojize_match(match: Match) -> str:
         """Convert emoji shortcodes in match to corresponding emoji characters"""
-        return emoji.emojize(match.group(), variant="emoji_type")
+        return emoji.emojize(match.group(), variant="emoji_type", language="alias")
 
     def emojize_all(text: str) -> str:
         """Convert all emoji shortcodes in text to corresponding emoji characters"""
@@ -135,18 +129,6 @@ def convert_emoji_shortcodes(app: Sphinx, exception: Exception) -> None:
 def setup(app: Sphinx) -> None:
     """Connects bespoke emoji shortcode conversion functions"""
     app.connect("build-finished", convert_emoji_shortcodes)
-
-
-# sphinxcontrib.confluencebuilder configs
-# user-specific values sourced from a `.env.` file in the root of this directory
-confluence_publish = True
-confluence_space_name = os.environ.get("confluence_space_name")
-confluence_parent_page = os.environ.get("confluence_parent_page")
-confluence_page_hierarchy = True
-confluence_server_url = os.environ.get("confluence_server_url")
-confluence_server_user = os.environ.get("confluence_server_user")
-confluence_server_pass = os.environ.get("confluence_server_pass")
-
 
 # -- External mapping --------------------------------------------------------
 python_version = ".".join(map(str, sys.version_info[0:2]))
