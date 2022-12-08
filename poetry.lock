@@ -282,7 +282,7 @@ requests = ">=2.23.0"
 
 [[package]]
 name = "coolname"
-version = "2.0.0"
+version = "2.1.0"
 description = "Random name and slug generator"
 category = "main"
 optional = false
@@ -2139,7 +2139,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10,<3.11"
-content-hash = "1046b96549737fe44199fecffc28aebb21c07b0bf70f655018ccf5e3ca3647ca"
+content-hash = "476db489233527de4bc71dbbd36e11194ba78cc149d21c15460824a7ee250154"
 
 [metadata.files]
 alabaster = [
@@ -2339,8 +2339,8 @@ cookiecutter = [
     {file = "cookiecutter-2.1.1.tar.gz", hash = "sha256:f3982be8d9c53dac1261864013fdec7f83afd2e42ede6f6dd069c5e149c540d5"},
 ]
 coolname = [
-    {file = "coolname-2.0.0-py2.py3-none-any.whl", hash = "sha256:8e367438facd5ff366530ae95a768cc0774b609da31cf8e112464e540dc1b8eb"},
-    {file = "coolname-2.0.0.tar.gz", hash = "sha256:7b4711c07016ab91feded8b87dc86ce376d1f972841f51dc85ec4f8c296f79ac"},
+    {file = "coolname-2.1.0-py2.py3-none-any.whl", hash = "sha256:e30a311aa8a1d3fe1a7da290ca65b4ac81927c3e91dcc18f179462e9204f01b0"},
+    {file = "coolname-2.1.0.tar.gz", hash = "sha256:8a605be9e48b261ac50e9f258c40adcd4081b9ca0e6f08d39511f77cb2ae55ba"},
 ]
 coverage = [
     {file = "coverage-6.4.4-cp310-cp310-macosx_10_9_x86_64.whl", hash = "sha256:e7b4da9bafad21ea45a714d3ea6f3e1679099e420c8741c74905b92ee9bfa7cc"},
