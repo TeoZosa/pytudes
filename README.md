@@ -2,6 +2,7 @@ Pytudes
 ==============================
 ![CI](https://github.com/TeoZosa/pytudes/workflows/CI/badge.svg)
 ![codecov](https://codecov.io/gh/TeoZosa/pytudes/branch/master/graph/badge.svg?token=3HF21UWY82)
+[![Documentation Status](https://readthedocs.org/projects/pytudes/badge/?version=latest)](https://pytudes.readthedocs.io/en/latest/?badge=latest)
 ![License](https://img.shields.io/github/license/TeoZosa/pytudes?style=plastic)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
