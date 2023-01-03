@@ -1736,15 +1736,15 @@ test = ["pytest"]
 
 [[package]]
 name = "sphinxcontrib-confluencebuilder"
-version = "1.9.0"
+version = "2.0.0"
 description = "Sphinx extension to build Atlassian Confluence Storage Markup"
 category = "main"
 optional = true
-python-versions = ">=2.7"
+python-versions = ">=3.7"
 
 [package.dependencies]
 requests = ">=2.14.0"
-sphinx = ">=1.8"
+sphinx = ">=4.3"
 
 [[package]]
 name = "sphinxcontrib-devhelp"
@@ -2139,7 +2139,7 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10,<3.11"
-content-hash = "77e91d58893a642278aefba9093963e670b1b9dd042a3ecd41d012c8dc70508f"
+content-hash = "ee7f142c6254ac94d4c212221b20581883127bd3b37289b538e8a6cb3ecfc4c2"
 
 [metadata.files]
 alabaster = [
@@ -3259,8 +3259,8 @@ sphinxcontrib-applehelp = [
     {file = "sphinxcontrib_applehelp-1.0.2-py2.py3-none-any.whl", hash = "sha256:806111e5e962be97c29ec4c1e7fe277bfd19e9652fb1a4392105b43e01af885a"},
 ]
 sphinxcontrib-confluencebuilder = [
-    {file = "sphinxcontrib-confluencebuilder-1.9.0.tar.gz", hash = "sha256:6a3fbcfd9396a53d7305d0938ade99a3f5e19f3162b0b93faeb83997ab0f9a4c"},
-    {file = "sphinxcontrib_confluencebuilder-1.9.0-py2.py3-none-any.whl", hash = "sha256:6921602f9f39629d277f59f18a1ab7033b78d474eed5a02d54ae69e1e3629e07"},
+    {file = "sphinxcontrib-confluencebuilder-2.0.0.tar.gz", hash = "sha256:4724a142dfedf2d9c4e591ccd160d0fa3aef5de9b7cb6e2d0a98f7b3a4e1abe8"},
+    {file = "sphinxcontrib_confluencebuilder-2.0.0-py3-none-any.whl", hash = "sha256:a8ff24b380c6ee4b3c736382b9b7da81bc345cd66a0ef0d56891bef79eff8d49"},
 ]
 sphinxcontrib-devhelp = [
     {file = "sphinxcontrib-devhelp-1.0.2.tar.gz", hash = "sha256:ff7f1afa7b9642e7060379360a67e9c41e8f3121f2ce9164266f61b9f4b338e4"},
