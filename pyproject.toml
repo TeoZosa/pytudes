@@ -29,7 +29,7 @@ jupyter = "^1.0.0"
 pandas = "^1.5.2"
 pydantic = "^1.10"
 scikit-learn = "^1.2.0"
-scipy = "^1.9.3"
+scipy = "^1.10.0"
 
 # Documentation
 emoji = { version = "^1.7.0", optional = true}
