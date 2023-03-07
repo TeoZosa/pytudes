@@ -65,7 +65,7 @@ tox-wheel = "^1.0.0"
 ## Code formatting
 black = "^22.12" # see: https://black.readthedocs.io/en/stable/editor_integration.html
 ## Code quality
-pylint = "^2.15.9"
+pylint = "^2.16.4"
 ## Automation and management
 pre-commit = "^2.20.0"
 
