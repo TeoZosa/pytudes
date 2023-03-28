@@ -67,7 +67,7 @@ black = "^22.12" # see: https://black.readthedocs.io/en/stable/editor_integratio
 ## Code quality
 pylint = "^2.15.9"
 ## Automation and management
-pre-commit = "^2.20.0"
+pre-commit = "^3.2.1"
 
 # CI/CD
 tox-gh-actions = "^2.12.0"
