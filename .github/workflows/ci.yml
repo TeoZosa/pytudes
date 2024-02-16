@@ -192,7 +192,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          file: ./.tox/coverage.xml
+          file: ${{ github.workspace }}/.tox/coverage.xml
           fail_ci_if_error: true
 
   # Documentation build testing jobs ------------------------
