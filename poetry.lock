@@ -2843,18 +2843,18 @@ test = ["pytest"]
 
 [[package]]
 name = "sphinxcontrib-confluencebuilder"
-version = "1.9.0"
+version = "2.4.0"
 description = "Sphinx extension to build Atlassian Confluence Storage Markup"
 optional = true
-python-versions = ">=2.7"
+python-versions = ">=3.8"
 files = [
-    {file = "sphinxcontrib-confluencebuilder-1.9.0.tar.gz", hash = "sha256:6a3fbcfd9396a53d7305d0938ade99a3f5e19f3162b0b93faeb83997ab0f9a4c"},
-    {file = "sphinxcontrib_confluencebuilder-1.9.0-py2.py3-none-any.whl", hash = "sha256:6921602f9f39629d277f59f18a1ab7033b78d474eed5a02d54ae69e1e3629e07"},
+    {file = "sphinxcontrib_confluencebuilder-2.4.0-py3-none-any.whl", hash = "sha256:e3e375c97f3fede1784cf7989ba9055edede2264e401559a9e7c3510425aed48"},
+    {file = "sphinxcontrib_confluencebuilder-2.4.0.tar.gz", hash = "sha256:ab7f86c0c556311bb8796c1b75771b3d0ce906105771910c153a5b10efad78b9"},
 ]
 
 [package.dependencies]
 requests = ">=2.14.0"
-sphinx = ">=1.8"
+sphinx = ">=5.0"
 
 [[package]]
 name = "sphinxcontrib-devhelp"
@@ -3428,4 +3428,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10,<3.11"
-content-hash = "de417c7785897d1ec6398834f842967dffc14e75644e9cded5b540705d5e37c2"
+content-hash = "14c20e4d2b583e9659d8931a7ed82603a77b3f210c8899b8f8180a99bd7d337f"
