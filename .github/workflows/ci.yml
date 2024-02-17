@@ -185,6 +185,12 @@ jobs:
           git fetch origin master:refs/remotes/origin/master
           make test
 
+      - name: debug coverage files
+        run: |
+          ls -lah .tox
+          ls -lah ${{ github.workspace }}/.tox
+          cat ${{ github.workspace }}/.tox/coverage.xml
+
       - name: Upload coverage to Codecov
         if: "contains(matrix.os, env.USING_COVERAGE_OS) &&
              contains(matrix.python-version, env.USING_COVERAGE_PY_VER)"
@@ -192,7 +198,7 @@ jobs:
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
-          file: ./.tox/coverage.xml
+          file: ${{ github.workspace }}/.tox/coverage.xml
           fail_ci_if_error: true
 
   # Documentation build testing jobs ------------------------
