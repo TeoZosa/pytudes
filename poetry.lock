@@ -2165,19 +2165,22 @@ dev = ["pre-commit", "pytest-asyncio", "tox"]
 
 [[package]]
 name = "pytest-sugar"
-version = "0.9.6"
+version = "1.0.0"
 description = "pytest-sugar is a plugin for pytest that changes the default look and feel of pytest (e.g. progressbar, show tests that fail instantly)."
 optional = false
 python-versions = "*"
 files = [
-    {file = "pytest-sugar-0.9.6.tar.gz", hash = "sha256:c4793495f3c32e114f0f5416290946c316eb96ad5a3684dcdadda9267e59b2b8"},
-    {file = "pytest_sugar-0.9.6-py2.py3-none-any.whl", hash = "sha256:30e5225ed2b3cc988a8a672f8bda0fc37bcd92d62e9273937f061112b3f2186d"},
+    {file = "pytest-sugar-1.0.0.tar.gz", hash = "sha256:6422e83258f5b0c04ce7c632176c7732cab5fdb909cb39cca5c9139f81276c0a"},
+    {file = "pytest_sugar-1.0.0-py3-none-any.whl", hash = "sha256:70ebcd8fc5795dc457ff8b69d266a4e2e8a74ae0c3edc749381c64b5246c8dfd"},
 ]
 
 [package.dependencies]
-packaging = ">=14.1"
-pytest = ">=2.9"
-termcolor = ">=1.1.0"
+packaging = ">=21.3"
+pytest = ">=6.2.0"
+termcolor = ">=2.1.0"
+
+[package.extras]
+dev = ["black", "flake8", "pre-commit"]
 
 [[package]]
 name = "pytest-xdist"
@@ -2792,13 +2795,17 @@ tests = ["cython", "littleutils", "pygments", "pytest", "typeguard"]
 
 [[package]]
 name = "termcolor"
-version = "1.1.0"
-description = "ANSII Color formatting for output in terminal."
+version = "2.4.0"
+description = "ANSI color formatting for output in terminal"
 optional = false
-python-versions = "*"
+python-versions = ">=3.8"
 files = [
-    {file = "termcolor-1.1.0.tar.gz", hash = "sha256:1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"},
+    {file = "termcolor-2.4.0-py3-none-any.whl", hash = "sha256:9297c0df9c99445c2412e832e882a7884038a25617c60cea2ad69488d4040d63"},
+    {file = "termcolor-2.4.0.tar.gz", hash = "sha256:aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"},
 ]
+
+[package.extras]
+tests = ["pytest", "pytest-cov"]
 
 [[package]]
 name = "terminado"
@@ -3241,4 +3248,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10,<3.11"
-content-hash = "89778f6f20683ff7d5dee7317975f3a8576c312b18e7041a5035d57709bf0666"
+content-hash = "bfeb8c0a9b0b46b8e1f0051cfdf28b779b85464e77fdbc836b7d5124fa988488"
