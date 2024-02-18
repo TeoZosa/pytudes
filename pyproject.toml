@@ -26,7 +26,7 @@ python = "^3.10,<3.11"
 # Project-specific
 coolname = "^2.2.0"
 jupyter = "^1.0.0"
-pandas = "^1.5.2"
+pandas = "^2.2.0"
 pydantic = "^2.6"
 scikit-learn = "^1.4.1"
 scipy = "^1.12.0"
