@@ -33,7 +33,7 @@ scipy = "^1.12.0"
 
 [tool.poetry.dev-dependencies]
 # Standardized Developer Workflow Orchestration
-cruft = "^2.11.1" # Automated Cookiecutter template synchronization
+cruft = "^2.15.0" # Automated Cookiecutter template synchronization
 
 # Type Checking and Data Validation
 mypy = "^0.991" # Static type checker
