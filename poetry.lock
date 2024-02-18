@@ -469,13 +469,13 @@ requests = ">=2.23.0"
 
 [[package]]
 name = "coolname"
-version = "2.1.0"
+version = "2.2.0"
 description = "Random name and slug generator"
 optional = false
 python-versions = "*"
 files = [
-    {file = "coolname-2.1.0-py2.py3-none-any.whl", hash = "sha256:e30a311aa8a1d3fe1a7da290ca65b4ac81927c3e91dcc18f179462e9204f01b0"},
-    {file = "coolname-2.1.0.tar.gz", hash = "sha256:8a605be9e48b261ac50e9f258c40adcd4081b9ca0e6f08d39511f77cb2ae55ba"},
+    {file = "coolname-2.2.0-py2.py3-none-any.whl", hash = "sha256:4d1563186cfaf71b394d5df4c744f8c41303b6846413645e31d31915cdeb13e8"},
+    {file = "coolname-2.2.0.tar.gz", hash = "sha256:6c5d5731759104479e7ca195a9b64f7900ac5bead40183c09323c7d0be9e75c7"},
 ]
 
 [[package]]
@@ -3428,4 +3428,4 @@ testing = ["func-timeout", "jaraco.itertools", "pytest (>=6)", "pytest-black (>=
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10,<3.11"
-content-hash = "486bb4755641308cc7152b261567e80b5b64f27fe45fdf8349bf05c08d7e0a6b"
+content-hash = "04d7b644e0cc1c2d64a3cfa646ed092991ab8e84c87b64e532f23b3eb61d9e2e"
