@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pytudes"
-version = "0.1.0"
+version = "0.1.1"
 description = "Pytudes"
 authors = ["Teo Zosa <erinzosa@ucla.edu>"]
 license = "Apache-2.0"
