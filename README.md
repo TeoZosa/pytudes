@@ -1,6 +1,6 @@
 Pytudes
 ==============================
-![CI](https://github.com/TeoZosa/pytudes/workflows/CI/badge.svg)
+[![CI](https://github.com/TeoZosa/pytudes/actions/workflows/ci.yml/badge.svg)](https://github.com/TeoZosa/pytudes/actions/workflows/ci.yml)
 ![codecov](https://codecov.io/gh/TeoZosa/pytudes/branch/master/graph/badge.svg?token=3HF21UWY82)
 [![Documentation Status](https://readthedocs.org/projects/pytudes/badge/?version=latest)](https://pytudes.readthedocs.io/en/latest/?badge=latest)
 ![License](https://img.shields.io/github/license/TeoZosa/pytudes?style=plastic)
