@@ -39,7 +39,7 @@ cruft = "^2.15.0" # Automated Cookiecutter template synchronization
 mypy = "^1.8" # Static type checker
 
 # Testing
-pytest = "^7.2.0"
+pytest = "^8.0.1"
 pytest-cov = "^4.1.0"
 pytest-emoji = "^0.2.0"
 pytest-mock = "^3.12.0"
