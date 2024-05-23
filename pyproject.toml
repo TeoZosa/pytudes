@@ -29,7 +29,7 @@ jupyter = "^1.0.0"
 pandas = "^2.2.1"
 pydantic = "^2.6"
 scikit-learn = "^1.4.1"
-scipy = "^1.13.0"
+scipy = "^1.13.1"
 
 [tool.poetry.dev-dependencies]
 # Standardized Developer Workflow Orchestration
